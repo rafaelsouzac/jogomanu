@@ -1,0 +1,3 @@
+O site deve contar com uma barra de evolução demonstrando
+em qual questão o aluno está. e quantas falta para concluir o 
+questionario.
