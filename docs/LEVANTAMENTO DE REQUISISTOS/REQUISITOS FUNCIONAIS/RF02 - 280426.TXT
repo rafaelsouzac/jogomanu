@@ -1,0 +1,5 @@
+RASTREABILIDADE DO usuário
+
+O sistema deve rastrear as atividades do usuário para gerar um
+relatório de desemplenho. Tanto para o aluno quanto para os
+administradores do site.
