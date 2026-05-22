@@ -32,4 +32,8 @@ class conexaodb{
         $this->dns->set_charset("utf8mb4");
         return $this->dns;
     }
+
+    public function desconecta(?mysql $conexao){
+        //desconectar o banco;
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-require_once(BASE_PATH."model/conexaodb.php");
+require_once(BASE_PATH."model/gerencia_conexaodb.php");
 
 class valida_usuario{
 

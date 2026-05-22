@@ -1,5 +1,5 @@
 <?php
-require_once(BASE_PATH."model/conexaodb.php");
+require_once(BASE_PATH."model/gerencia_conexaodb.php");
 
 function seleciona_disciplinas($disciplina_selecionada = ''){
     if($disciplina_selecionada === ''){
