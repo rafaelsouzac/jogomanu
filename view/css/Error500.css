@@ -1,0 +1,36 @@
+/* ============================================================
+   ESTILOS ADICIONAIS PARA PÁGINAS DE ERRO
+============================================================ */
+
+/* Garante a altura total do viewport e centralização perfeita */
+main#conteudo-principal {
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Customização do título H3 de erro solicitado */
+.titulo-erro {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Ajuste de espaçamento para manter a harmonia do layout antigo */
+.subtitulo-erro {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.links-erro {
+  margin-top: 1.5rem;
+  border-top: 1px solid #efebe9;
+  padding-top: 1.25rem;
+}

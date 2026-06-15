@@ -1,0 +1,434 @@
+IA: gemini
+
+Sistema Operacional: Windows 10
+
+Servidor de banco de dados: Mariadb
+
+Servidor web: Apache
+
+Linguagem de programação back-end: PHP 8.2
+
+Guia de estilo para escrita de scripts PHP:
+    PSR1 e PSR12.
+
+Linguagem de programação front-end: HTML5, CSS3, JS
+    CSS3 utilizando bootstrap
+
+Nome do banco de dados: jogomanu
+
+Forma de escrita para stores procedure:
+    * sempre em letra minuscula
+    * utilize usp_<nome>
+    * nome deve ser escrito utilizando notação snake_case
+
+Forma de escrita para tabelas:
+    * sempre em letra minuscula
+    * nomes no plural ou coletivo
+    * nome deve ser escrito utilizando notação snake_case
+
+Forma de escrita para campos:
+    * sempre em letra minuscula
+    * nomes no singular
+    * nome deve ser escrito utilizando notação snake_case
+    * chaves primarias utilizam a notação: pk_<nome>
+        exemplo: pk_cliente
+    * chaves extrangeiras utilizam a notação: fk_<nome da chave referencia sem o pk_>.
+        Exemplo: fk_cliente
+
+Base css: Todas as regras css comuns para todas as páginas do produto estão
+contidas em app.css , regras exclusivas de um determinado sistema e nomeado
+utilizando a mesma notação do PHP. Utiliza o framework bootstrap: 5.3.8
+
+Base JS: Todas as regras css comuns para todas as páginas do produto estão
+contidas em app.js , regras exclusivas de um determinado sistema e nomeado
+utilizando a mesma notação do PHP. Não utiliza framework.
+
+======================== DEFINIÇÕES DO PRODUTO ===========================
+
+Tabela de cores:
+Papel                     Hex
+Primária / foco        #1565C0
+Fundo principal        #F8F9FA
+Texto principal        #212121
+Acerto / progresso     #2E7D32
+Erro / alerta          #C62828
+Engajamento / ação     #6A1B9A
+Destaque / gamificação #F57F17
+
+Fontes utilizadas
+    Títulos e destaques: League Spartan
+    Corpo e leitura:     Poppins
+
+Escala Tipografica - base 18px:
+Elemento   rem      px
+H1         2.2rem  ~40px
+H2         1.7rem  ~31px
+H3         1.35rem ~24px
+Corpo      1rem    ~18px
+Label/meta 0.85rem ~15px
+
+Estrutura de diretórios - Não deve ser alterada.
+
+/jogomanu/index.php 
+/jogomanu/.htacess
+/jogomanu/view/home.php
+/jogomanu/view/multimidia/
+/jogomanu/view/css/app.css
+/jogomanu/view/js/app.js
+/jogomanu/view/js/mesmo_email.js
+/jogomanu/view/assets/CadastroView.php
+/jogomanu/view/assets/Error.php
+/jogomanu/view/assets/FormularioAcesso.php
+/jogomanu/view/assets/Quiz.php
+/jogomanu/model/
+/jogomanu/controller/
+
+======================= CÓDIGO BASE PARA PRODUTO =========================
+================================ HOME.PHP ================================
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description"  content="Acesse sua conta no Ensino Fundamental e Médio. Pratique exercicios, questoes e acompanhe seu desempenho escolar.">
+  <meta name="keywords"     content="login, entrar, acessar, ensino fundamental, ensino medio, exercicios, questoes, estudar, quiz escolar, matematica, portugues, ciencias, historia, geografia">
+  <meta name="robots"       content="noindex, nofollow">
+  <meta name="theme-color"  content="#1565C0">
+  <title>Login | Ensino Fundamental e Médio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Poppins:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="view/css/app.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
+    <?php require_once("assets/$parteCentro"); ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+======================= CSS BASE PARA PRODUTO =========================
+arquivo: app.css
+    /* ============================================================
+       VARIÁVEIS
+    ============================================================ */
+    :root {
+      --cor-primaria:  #1565C0;
+      --cor-fundo:     #F8F9FA;
+      --cor-texto:     #212121;
+      --cor-acerto:    #2E7D32;
+      --cor-erro:      #C62828;
+      --cor-acao:      #6A1B9A;
+      --cor-destaque:  #F57F17;
+      --fonte-titulo:  'League Spartan', sans-serif;
+      --fonte-corpo:   'Poppins', sans-serif;
+      font-size: 18px;
+    }
+
+    /* ============================================================
+       RESET E BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--fonte-corpo);
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.75;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       SKIP LINK — acessibilidade WCAG 2.2
+    ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--cor-primaria);
+      color: #fff;
+      padding: .5rem 1rem;
+      border-radius: 0 0 8px 8px;
+      font-size: .85rem;
+      font-weight: 600;
+      z-index: 9999;
+      text-decoration: none;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 0; color: #fff; }
+
+    /* ============================================================
+       CARD — Modelo 2
+    ============================================================ */
+    .card-login {
+      width: 100%;
+      max-width: 420px;
+      background: #fff;
+      border: 2px solid var(--cor-primaria);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 24px rgba(21, 101, 192, .10);
+    }
+
+    /* ============================================================
+       TIPOGRAFIA
+    ============================================================ */
+    .logo {
+      font-family: var(--fonte-titulo);
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -.5px;
+      color: var(--cor-primaria);
+      margin-bottom: .25rem;
+    }
+
+    .subtitulo {
+      font-size: .85rem;
+      color: #777;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ============================================================
+       FORMULÁRIO — Modelo 2
+       Campos com borda cinza, foco azul
+    ============================================================ */
+    label {
+      font-family: var(--fonte-corpo);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--cor-texto);
+      margin-bottom: .25rem;
+      display: block;
+    }
+
+    .form-control {
+      font-family: var(--fonte-corpo);
+      font-size: .9rem;
+      border-radius: 8px;
+      padding: .6rem .9rem;
+      border: 1.5px solid #cfd8dc;
+      background: #fafafa;
+      color: var(--cor-texto);
+      width: 100%;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 0 3px rgba(21, 101, 192, .12);
+      background: #fff;
+      outline: none;
+    }
+
+    .form-control::placeholder { color: #9e9e9e; }
+
+    /* Estado de erro no campo */
+    .form-control.campo-erro {
+      border-color: var(--cor-erro);
+      box-shadow: 0 0 0 3px rgba(200, 40, 40, .12);
+    }
+
+    /* Mensagem de erro abaixo do campo */
+    .campo-mensagem-erro {
+      font-size: .80rem;
+      color: var(--cor-erro);
+      margin-top: .25rem;
+      display: none;
+    }
+
+    .campo-mensagem-erro.visivel { display: block; }
+
+    /* ============================================================
+       BOTÃO — Modelo 2
+       Outline azul, fill azul no hover
+    ============================================================ */
+    .btn-entrar {
+      font-family: var(--fonte-titulo);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .5px;
+      border-radius: 8px;
+      padding: .65rem;
+      width: 100%;
+      margin-top: .5rem;
+      background: transparent;
+      color: var(--cor-primaria);
+      border: 2px solid var(--cor-primaria);
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .btn-entrar:hover {
+      background: var(--cor-primaria);
+      color: #fff;
+    }
+
+    /* ============================================================
+       ALERTAS
+    ============================================================ */
+    .alerta {
+      font-size: .85rem;
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      margin-bottom: 1.25rem;
+      border: 1.5px solid transparent;
+      display: none;
+    }
+
+    .alerta.visivel { display: block; }
+
+    .alerta-erro {
+      background: #ffebee;
+      border-color: var(--cor-erro);
+      color: var(--cor-erro);
+    }
+
+    .alerta-aviso {
+      background: #fff8e1;
+      border-color: var(--cor-destaque);
+      color: #e65100;
+    }
+
+    .alerta-sucesso {
+      background: #e8f5e9;
+      border-color: var(--cor-acerto);
+      color: var(--cor-acerto);
+    }
+
+    /* ============================================================
+       LINKS — Modelo 2
+       Cor azul, hover azul escuro
+    ============================================================ */
+    .links-rodape {
+      font-size: .80rem;
+      margin-top: 1.25rem;
+      text-align: center;
+      color: #666;
+    }
+
+    .links-rodape a {
+      color: var(--cor-primaria);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .links-rodape a:hover {
+      color: #0d47a1;
+      text-decoration: underline;
+    }
+
+    /* ============================================================
+       RESPONSIVO — mobile first
+    ============================================================ */
+    @media (max-width: 576px) {
+      :root { font-size: 16px; }
+      .card-login { padding: 1.75rem 1.25rem; }
+    }
+
+    @media (min-width: 577px) and (max-width: 992px) {
+      :root { font-size: 17px; }
+    }
+
+    @media (min-width: 993px) {
+      :root { font-size: 18px; }
+    }
+
+
+======================= CÓDIGO BASE PARA PRODUTO =========================
+================================ CadastroView.PHP ================================
+  <main id="conteudo-principal" role="main">
+    <div class="card-login">
+
+      <div class="logo" aria-label="Ensino Fundamental e Médio">
+        Ensino Fundamental e Médio
+      </div>
+      <p class="subtitulo">Cadastre sua conta para continuar estudando</p>
+                         
+      <!-- Alertas do sistema -->
+      <div id="alerta-sistema" class="alerta" role="alert" aria-live="assertive"></div>
+
+      <form action="/jogomanu/cadastro/usuario" method="POST" id="form-login" novalidate aria-label="Formulário de login">
+        <!-- E-mail -->
+        <div class="mb-3">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            autocomplete="email"
+            required
+            aria-required="true"
+            aria-describedby="email-erro"
+          >
+          <span id="email-erro" class="campo-mensagem-erro" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Senha -->
+        <div class="mb-3">
+          <label for="senha">Senha</label>
+          <div class="input-group">
+            <input
+              type="password"
+              class="form-control"
+              id="senha"
+              name="senha"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              maxlength="16"
+              required
+              aria-required="true"
+              aria-describedby="senha-erro"
+            >
+            <button class="btn btn-outline-secondary btn-alternar-senha" type="button" data-alvo="senha" aria-label="Mostrar senha">👁️</button>
+          </div>
+          <span id="senha-erro" class="campo-mensagem-erro" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- RedigitaSenha -->
+        <div class="mb-3">
+          <label for="redigitasenha">Digite Novamente a Senha</label>
+          <div class="input-group">
+            <input
+              type="password"
+              class="form-control"
+              id="redigitasenha"
+              name="redigitasenha"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              maxlength="16"
+              required
+              aria-required="true"
+              aria-describedby="redigitasenha-erro"
+            >
+            <button class="btn btn-outline-secondary btn-alternar-senha" type="button" data-alvo="redigitasenha" aria-label="Mostrar senha">👁️</button>
+          </div>
+          <span id="redigitasenha-erro" class="campo-mensagem-erro" role="alert" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="btn-entrar">Entrar</button>
+
+      </form>
+
+      <div class="links-rodape">
+        <a href="cadastro">Criar conta</a>
+        &nbsp;·&nbsp;
+        <a href="esqueci-senha">Esqueci minha senha</a>
+      </div>
+      <script src="view/js/mesmo_email.js"></script>
+    </div>
+  </main>

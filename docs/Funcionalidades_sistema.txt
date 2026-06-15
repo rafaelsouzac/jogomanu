@@ -1,0 +1,30 @@
+Regras gerais do funcionamento do site.
+
+1) Login de acesso do usuario
+    * Sessao para saber quem respondeu ao quiz (FEITO).
+
+2) Cadastro para usuarios
+    * faz cadastro de emailn e senha.
+
+3) Recuperação de senha:
+        # usuario informa email;
+        # sitema envia um email para usuario com link para cadastrar outra senha.
+
+
+3) quiz - perguntas e respostas
+    * Usuario seleciona série que esta
+    * Usuario seleciona disciplana que vai responder
+    * Usuario seleciona materia vinculada a disciplana
+    * Sistema apresenta as perguntas e respostas referente a seleção do usuario
+        * Usuário pode pular perguntas
+        * Após ultima pergunta Sistema apresenta perguntas não respondidas.
+        * Usuario pode finalizar quiz mesmo sem responder todas as perguntas.
+    * Sistema mostra ao final o desempenho do usuario por acertos e erros   
+    * Sistema mostra quais alternativas acertou e quais errou, quando errou qual alternativa certa.
+    * Sistema calcula tempo de quiz que usuario levou para responder todas as perguntas.
+
+4) Analise de desempenho
+    * usuario tem acesso a informações dos quiz que ja respondeu
+        # qual disciplana
+        # qual materia (ordenada da primeira para ultima vez que respondeu)
+        # quantidade de acertos e erros.
