@@ -1,0 +1,3 @@
+O site tem que contar com uma trilha informando sobre qual materia
+a pergunta se refere e qual parte da materia.
+Exe.: Geografia > Economia > Desemprego Estrutural

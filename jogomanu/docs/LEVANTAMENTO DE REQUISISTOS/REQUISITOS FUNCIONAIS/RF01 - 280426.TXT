@@ -1,0 +1,2 @@
+1) O site tem que contar um sistema que permita ao usuário fazer
+logging para acessar o quiz.
