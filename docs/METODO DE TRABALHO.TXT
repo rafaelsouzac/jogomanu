@@ -1,0 +1,67 @@
+1) VOU UTILIZAR AS IAS PARA CRIAR OS CÓDIGOS PARA MIM.
+
+    PARA ELAS TRABALHAREM PARA MIM, TENHO QUE SABER EXATAMENTE O QUE
+    EU QUERO E COMO EU QUERO.
+
+    Até o momento, gemini do google foi o mais acertivo na codificação.
+
+2) Nomenclaturas:
+    - PHP utilizar PSR4
+    - SQL style guide Simom Holywell (e temos nossas próprias convenções)
+        - Chaves primarias são identificadas com pk_<nome>
+        - Chaves extrangeiras são identificadas com fk_<nome>
+        - Stored procedure desenvolvida por programadores inciam com usp_<nome>
+
+    - Html foco em SEO e Acessibilidade
+
+3) Todo projeto é feito com base em sistemas:
+    Login é um sisma então:
+        controller/LogingController.php --> contém todos os dados necessários para
+                                                  gerar a página home.php conforme deve aparecer o sistema login.
+
+        model/LoginModel.php        --> faz acesso ao banco de dados e envia os dados
+                                                  ao script de controller.
+
+        view/assets/partes/login_base.php 
+            --> Mantem todos os dados necessários para formar a parte da base da pagina do sistema login
+        
+        view/assets/partes/login_centro.php
+            --> Mantem todos os dados necessários para formar a parte da base da pagina do sistema login
+
+        view/assets/partes/login_topo.php
+            --> Mantem todos os dados necessários para formar a parte da base da pagina do sistema login
+
+        css/ --> mantem os seguintes arquivos:
+            app.css --> contem todas regras utilizadas em todas as páginas da aplicação
+            <nome_pagina>.css --> contem todas regras utilizadas somente na página
+
+        js/ --> mantem os seguintes arquivos:
+            app.js --> contem todos os scripts utilizados em todas as páginas da aplicação
+            <nome_pagina>.js --> contem todas regras utilizadas somente na página
+        
+        home.php --> E a página apresentada ao usuário. Contém todo html utilizado em todas as página da aplicação e monta a parte dinâmica com require_once() aplicado de /view --> base.php,  centro.php, topo.php
+
+        /docs  --> cada sistema tem suas funcionalidades e a descrição do que faz e o que envolvem suas funcionalidades.
+            --> login.txt conterá o necessário para funcionalidades de loggin.
+
+4) Tenho que definir qual método vou definir para trabalhar SEO na página home.php para abundância de palavras chaves ---> essa definição tem que ser modelo
+para todos os projetos.
+
+5) Tenho que elaborar no protótipo as formas de nomenclaturas das classes que
+compõem o sistema. Tive problemas no sistema de cadastro de usuários:
+    Iniciei um classe chamada CadastroUsuario, porém tive problemas ao CRIAR
+objetos estanciando a mesma classe em diretórios diferentes.
+    Tenho que pesquisar se a parte do autoload resolve esse problema, por
+hora, quando criar classes vou demomina-las da seguinte forma:
+
+    - View       => CadastroUsuarioView.php
+    - Model      => CadastroUsuarioModel.php
+    - Controller => CadastroUsuarioController.php
+    
+    - Seguindo as normas do PSR1 e PS12, as classes tem onome identico a dos
+    arquivos em que estão contidas.
+     
+    Tenho que verificar se isso não quebra alguma regra de POO, Solid e outros
+    requisitos de codificação.
+
+6) 

@@ -1,0 +1,8 @@
+Utilizando PHP 8 substitua o anterior:
+1) escreva uma classe chamada vinculoBancoDeDados
+2) Essa classe tem dois métodos ligado e desligado.
+3) O metodo ligado faz a conexao em PDO com o SGDB Mariadb
+4) O metodo desligado encerra a conexao.
+5) Os dados da conexao: localhost, root, senha em branco, porta 3306.
+6) Utilize obrigatoriamente as PSR1 e PSR12 como guia de estilo de codificação
+

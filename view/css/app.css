@@ -1,0 +1,237 @@
+    /* ============================================================
+       VARIÁVEIS
+    ============================================================ */
+    :root {
+      --cor-primaria:  #1565C0;
+      --cor-fundo:     #F8F9FA;
+      --cor-texto:     #212121;
+      --cor-acerto:    #2E7D32;
+      --cor-erro:      #C62828;
+      --cor-acao:      #6A1B9A;
+      --cor-destaque:  #F57F17;
+      --fonte-titulo:  'League Spartan', sans-serif;
+      --fonte-corpo:   'Poppins', sans-serif;
+      font-size: 18px;
+    }
+
+    /* ============================================================
+       RESET E BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--fonte-corpo);
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.75;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       SKIP LINK — acessibilidade WCAG 2.2
+    ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--cor-primaria);
+      color: #fff;
+      padding: .5rem 1rem;
+      border-radius: 0 0 8px 8px;
+      font-size: .85rem;
+      font-weight: 600;
+      z-index: 9999;
+      text-decoration: none;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 0; color: #fff; }
+
+    /* ============================================================
+       CARD — Modelo 2
+    ============================================================ */
+    .card-login {
+      width: 100%;
+      max-width: 420px;
+      background: #fff;
+      border: 2px solid var(--cor-primaria);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 24px rgba(21, 101, 192, .10);
+    }
+
+    /* ============================================================
+       TIPOGRAFIA
+    ============================================================ */
+    .logo {
+      font-family: var(--fonte-titulo);
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -.5px;
+      color: var(--cor-primaria);
+      margin-bottom: .25rem;
+    }
+
+    .subtitulo {
+      font-size: .85rem;
+      color: #777;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ============================================================
+       FORMULÁRIO — Modelo 2
+       Campos com borda cinza, foco azul
+    ============================================================ */
+    label {
+      font-family: var(--fonte-corpo);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--cor-texto);
+      margin-bottom: .25rem;
+      display: block;
+    }
+
+    .form-control {
+      font-family: var(--fonte-corpo);
+      font-size: .9rem;
+      border-radius: 8px;
+      padding: .6rem .9rem;
+      border: 1.5px solid #cfd8dc;
+      background: #fafafa;
+      color: var(--cor-texto);
+      width: 100%;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--cor-primaria);
+      box-shadow: 0 0 0 3px rgba(21, 101, 192, .12);
+      background: #fff;
+      outline: none;
+    }
+
+    .form-control::placeholder { color: #9e9e9e; }
+
+    /* Estado de erro no campo */
+    .form-control.campo-erro {
+      border-color: var(--cor-erro);
+      box-shadow: 0 0 0 3px rgba(200, 40, 40, .12);
+    }
+
+    /* Mensagem de erro abaixo do campo */
+    .campo-mensagem-erro {
+      font-size: .80rem;
+      color: var(--cor-erro);
+      margin-top: .25rem;
+      display: none;
+    }
+
+    .campo-mensagem-erro.visivel { display: block; }
+
+    /* ============================================================
+       BOTÃO — Modelo 2
+       Outline azul, fill azul no hover
+    ============================================================ */
+    .btn-entrar {
+      font-family: var(--fonte-titulo);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .5px;
+      border-radius: 8px;
+      padding: .65rem;
+      width: 100%;
+      margin-top: .5rem;
+      background: transparent;
+      color: var(--cor-primaria);
+      border: 2px solid var(--cor-primaria);
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .btn-entrar:hover {
+      background: var(--cor-primaria);
+      color: #fff;
+    }
+
+    /* ============================================================
+       ALERTAS
+    ============================================================ */
+    .alerta {
+      font-size: .85rem;
+      border-radius: 8px;
+      padding: .75rem 1rem;
+      margin-bottom: 1.25rem;
+      border: 1.5px solid transparent;
+      display: none;
+    }
+
+    .alerta.visivel { display: block; }
+
+    .alerta-erro {
+      background: #ffebee;
+      border-color: var(--cor-erro);
+      color: var(--cor-erro);
+    }
+
+    .alerta-aviso {
+      background: #fff8e1;
+      border-color: var(--cor-destaque);
+      color: #e65100;
+    }
+
+    .alerta-sucesso {
+      background: #e8f5e9;
+      border-color: var(--cor-acerto);
+      color: var(--cor-acerto);
+    }
+
+    /* ============================================================
+       LINKS — Modelo 2
+       Cor azul, hover azul escuro
+    ============================================================ */
+    .links-rodape {
+      font-size: .80rem;
+      margin-top: 1.25rem;
+      text-align: center;
+      color: #666;
+    }
+
+    .links-rodape a {
+      color: var(--cor-primaria);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .links-rodape a:hover {
+      color: #0d47a1;
+      text-decoration: underline;
+    }
+
+    .invisivel{
+      visibility: hidden;
+    }
+    /* ============================================================
+       RESPONSIVO — mobile first
+    ============================================================ */
+    @media (max-width: 576px) {
+      :root { font-size: 16px; }
+      .card-login { padding: 1.75rem 1.25rem; }
+    }
+
+    @media (min-width: 577px) and (max-width: 992px) {
+      :root { font-size: 17px; }
+    }
+
+    @media (min-width: 993px) {
+      :root { font-size: 18px; }
+    }

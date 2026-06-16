@@ -1,0 +1,3 @@
+<?php
+
+$parteCentro = 'Cadastroview.php';
