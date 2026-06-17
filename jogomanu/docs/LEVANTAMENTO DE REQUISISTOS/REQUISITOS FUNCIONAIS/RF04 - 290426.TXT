@@ -1,2 +1,0 @@
-O site tem que ter um contador de acertos e erros em tempo real
-para que o aluno saiba como está sua evolução.
