@@ -62,6 +62,45 @@ Requisitos para a classe:
                 Sendo iguai: encaminha o usuario para pagina de redefinição de senhas.
                 Sendo diferentes: encaminha o usuario para pagina de erro.
 
+
+Codifique um script que vai receber o campo de email do formulário.
+
+O formulário é enviado 
+para: projeto/controller/EsqueciSenhaController.php via metodo POST.
+então esse script estará no arquivo EsqueciSenhaController.php
+
+O formulário envia somente o email mais nenhum parametro.
+
+Campo do formulario que deve ser recuperado tem name = email_esquecisenha.
+
+Esse script deve ser protegindo contra tentativas de acesso externo ao dominio do site.
+Dominio do site: https://www.fundamentalemedio.com.br 
+
+O script faz utilização da classe: ValidarEmail
+
+A classe comtem os seguintes metodos: emailValido(parametro) retorna 1 para verdadeiro
+e 0 para falso.
+
+Esse script é encaminhado para via Locatio()para /projetos/esqueci_senha/erro_0001
+em caso de qualquer erro ou excessão seja gerado. 
+
+O erro gerado deve ser gravado no arquivo de log e na primeira linha o 
+arquivo esta em: /projeto/model/erro/log_esquecisenha.txt 
+
+Esse script não é uma classe, mas, um bloco procedural que verifica 
+a segurança de acesso ao script.
+
+Caso NÃO OCORRA nunhum erro ou excessão, 
+o script faz utilização da classe EsqueciSenhaController
+e o metodo solicitarLink(email), recebe como retorno 1 para concluido ou
+0 para erro.
+
+Se o retorno for 1 encaminha o usuario via Location para:
+/projeto/esquecisenha/1
+
+Se o retorno for 0 encaminha o usuario via Location para:
+/projeto/esquecisenha/0
+
 ** Em caso de ambiguidades faça perguntas referente ao que deve ser e como deve ser codificado.
 
 Modelo de codificação da classe em model:

@@ -3,6 +3,7 @@
 declare(strict_types = 1);
 
 require_once(BASE_PATH . 'model/VinculoBancoDeDados.php');
+require_once(BASE_PATH . 'model/ValidaEmailModel.php');
 // Nota: O PHPMailer deve ser incluído manualmente conforme definido anteriormente
 require_once(BASE_PATH . 'model/PHPMailer/Exception.php');
 require_once(BASE_PATH . 'model/PHPMailer/PHPMailer.php');
@@ -28,35 +29,9 @@ class RecuperacaoSenhaModel {
      * Valida o formato do e-mail com as regras específicas solicitadas
      */
     private function validarFormatoEmail(string $email): bool {
-        if (!str_contains($email, '@')) {
-            return false;
-        }
-
-        $partesObjeto = explode('@', $email, 2);
-        $depoisDoArroba = $partesObjeto[1] ?? '';
-
-        if (!str_contains($depoisDoArroba, '.')) {
-            return false;
-        }
-
-        // Divide a partir do último ponto encontrado
-        $posicaoUltimoPonto = strrpos($depoisDoArroba, '.');
-        $stringAntesDoPonto = substr($depoisDoArroba, 0, $posicaoUltimoPonto);
-        $stringDepoisDoPonto = substr($depoisDoArroba, $posicaoUltimoPonto + 1);
-
-        // Regra: No mínimo 3 caracteres após o @ (antes do ponto conta na string total após o @)
-        if (strlen($stringAntesDoPonto) < 3 || strlen($depoisDoArroba) < 3) {
-            return false;
-        }
-
-        // Regra: No mínimo 3 caracteres após o ponto final
-        if (strlen($stringDepoisDoPonto) < 3) {
-            return false;
-        }
-
-        return true;
+        $objEmail = new ValidaEmailModel();
+        return $objEmail->emailValido($email);
     }
-
     /**
      * Verifica se o e-mail está persistido via usp_email_pesistido
      */
