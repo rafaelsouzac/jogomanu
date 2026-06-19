@@ -64,4 +64,62 @@ hora, quando criar classes vou demomina-las da seguinte forma:
     Tenho que verificar se isso não quebra alguma regra de POO, Solid e outros
     requisitos de codificação.
 
-6) 
+6) Vou a partir desse momento seguir minha definição de engenharia de sotfware
+e refina-la ao longo do tempo.
+    
+    * Backup e sincronização são elementos fundamentais no desenvolvimento.
+    Tenho que ter uma estrategia para esses dois pontos.
+
+7) Para a codificação rápida dos sistemas, vou passar um esqueleto de  classe
+para a IA e as diretrizes dacodificação que estou querendo. Fundamental nesse
+esqueleto:
+
+<?php
+
+    declare(stricty = 1);
+
+    require_once(BASE_PATH . 'model/VinculoBancoDeDados.php');
+
+    class NomeDaClasse{
+        private ?PDO $conexao;
+        private ?PDO $stmt;
+        private string $sql;
+
+        public function __construct(){
+            $this->conexao = new VinculoBancoDeDados();
+            $this->stmt = null;
+            $this->sql = '';
+        }
+
+        private function metodoModelo(){
+            //executa o algoritmo necessário
+            //para fazer o trabalho solicitado
+            //pode ser dividido em mais de um metodo
+            //privado.
+        }
+
+        public function usaMetodosMoodelos(parametro ou parametros){
+            //É o metodo de entrada para utilização
+            //dos metodos privados.
+        }
+    }
+
+A - É obrigatório os seguintes dados:
+    - Nome da Classe igual ao nome do arquivo.
+    - Nome dos metodos e o que eles devem realizar.
+    - Qual o resultado final esperado.
+
+B - Texto descritivo direto sobre qual a funcionalidade esperada da classe.
+Exemplo: "Codifique em <linguagem> utilizando o estilo de programação 
+<definir o estilo> e utilizando a estrutura da classe incial abaixo seguindo 
+o padrão de orientação a objetos que foi definido a classe só tem dois metodos
+publicos o construtor e o de entrada, todos os demais são privados, ocorrendo o
+mesmo com seus atributos. Segue a lista de requisitos:" 
+
+C - Antes de enviar a IA os requisitos solicitando a codificação, tem que haver os
+seguintes arquivos em:
+
+    /projetos/docs/NomeDoSistema.txt
+    /projetos/controller/NomeDoSistemaController.php
+    /projetos/model/NomeDoSistemaModel.php
+    /projetos/view/NomeDoSistemaView.php

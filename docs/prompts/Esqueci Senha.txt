@@ -1,0 +1,17 @@
+Tenho que desenvolver um sistema de reenvio de senhas para o usuário
+da aplicação, então defini que o sistema deve agir da seguinte forma:
+
+* Capturar o email de recuperação do usuário vindo do formulário da
+aplicação.
+
+* Verificar se esse email existe no banco de dados.
+
+* Se o email existe, envia um link para o usuário acessar um formulário
+para redigitar uma nova senha.
+
+* Se o email não existe envia para a página de erro informando que o email
+não é válido.
+
+* Para evitar tentativa de hackeamento por força bruta, o sistema impede o
+usuário de tentar solicitar nova senha após 5 tentativas seguidas. O usuário
+fica congelado por 10 minutos.

@@ -1,0 +1,115 @@
+Estrutura de diretórios:
+/projeto/
+/projeto/model/
+/projeto/controller/
+/projeto/view/
+/projeto/view/js/
+/projeto/view/css/
+/projeto/view/assets/
+/projeto/view/home.php --> base do viewer
+index.php --> router
+
+Definições:
+    - VinculoBancoDeDados que faz acesso ao SGDB.
+    - Existem dois metodos na classe VinculoBancoDeDados
+        - ligado() que retorna um PDO;
+        - desligado() que finaliza o acesso do SGDB.
+        Somente estes metoddos devem ser utilizados no acesso e finalização
+        de conexao com SGDB.
+    - Para manipulações com banco de dados é utilizado SOMENTE Stored procedure
+
+Requisitos para a classe:
+    
+    - Deve haver um metodo que verifica se o email esta persistido na base de
+    dados. Essa classe deve sanitizar o email recebido com as seguintes regras:
+        
+        * o email deve conter uma @ e uma string com no mínimo 3 caracteres após
+        o @, além de conter um ponto final e uma string com no mínimo 3 caracteres 
+        após o ponto final.
+
+        * deve ser sanitizado contra tentativas de ataques de sql injection.
+
+        * deve verificar se o email está persistido no banco de dados utilizando
+        a usp_email_pesistido(parametro) essa procedure retorna um  recordset com campo 
+        "persistido" e os valores 1 = sim ou 0 = não.
+
+        Caso o email não seja persistido, deve o usuario deve ser desviado para página
+        de erro. /projeto/error/reenvio_senha
+
+        Caso seja persistido, segue com o fluxo de recuperação de senha.
+
+    - A classe deve contar com um metodo que envia um email para o email informado pelo
+    usuario.
+
+        - Esse metodo utiliza PHPMailer para o envio do email.
+        - Um metodo que gera uma criptografia temporizada para segurança que deve estar no link
+        enviado com o email.
+        - O email contem o link criptografado que deve ser persistido no banco de dados antes de
+        enviar ao usuario. 
+        A persistencia ocorre via usp_link_esqueci_senha(parametro) que retorna um recordset
+        1 = sim e 0 = nao. 
+        Caso ocorra um erro na persistencia no banco de dados, essa deve ser feita 
+        atraves de um arquivo e garantido um metodo de verificação segura na recuperação da informação
+        quando o usuario clicar no link. Deve haver uma forma de indicar onde ocorreu a persistencia.
+
+        Um cenário para isso: 
+        O link é enviado por email para o usuario. 
+        O usuario clica no link para ser direcionado ao site. 
+        O router identifica o slug e esse é um hash de criptografia.  
+            Sendo o hash verificada se a criptografia contem um versão persistida no banco de dados ou 
+            um arquivo no servidor. 
+            Independente da forma como a persistencia foi efetuada, ambas as hash deve ser comparadas
+                Sendo iguai: encaminha o usuario para pagina de redefinição de senhas.
+                Sendo diferentes: encaminha o usuario para pagina de erro.
+
+** Em caso de ambiguidades faça perguntas referente ao que deve ser e como deve ser codificado.
+
+Modelo de codificação da classe em model:
+<?php
+
+    declare(stricty = 1);
+
+    require_once(BASE_PATH . 'model/VinculoBancoDeDados.php');
+
+    class NomeDaClasse{
+        private ?PDO $conexao;
+        private ?PDO $stmt;
+        private string $sql;
+
+        public function __construct(){
+            $this->conexao = new VinculoBancoDeDados();
+            $this->stmt = null;
+            $this->sql = '';
+        }
+
+        private function metodoModelo(){
+            //executa o algoritmo necessário
+            //para fazer o trabalho solicitado
+            //pode ser dividido em mais de um metodo
+            //privado.
+        }
+
+        public function usaMetodosMoodelos(parametro ou parametros){
+            //É o metodo de entrada para utilização
+            //dos metodos privados.
+        }
+    }
+
+Modelo de codificação da classe em controller:
+<?php
+
+    declare(stricty = 1);
+
+    require_once(BASE_PATH . 'model/NomeDaClasseModel.php');
+
+    class NomeDaClasse{
+        private ?NomeDaClasseModel $nomeObjeto;
+
+        public function __construct(){
+            $this->nomeObjeto = new NomeDaClasseModel();
+        }
+
+        public function metodoController(parametros){
+            return $this->nomeObjeto->metodoObjeto(parametros);
+        }
+    }
