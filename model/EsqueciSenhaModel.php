@@ -14,7 +14,7 @@ use PHPMailer\PHPMailer\Exception;
 
 class RecuperacaoSenhaModel {
     private ?PDO $conexao;
-    private ?PDOStatement $stmt; // Corrigido para o tipo correto do PDO para prepared statements
+    private ?PDOStatement $stmt;
     private string $sql;
     private string $logPath;
 

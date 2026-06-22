@@ -19,11 +19,13 @@ class RecuperacaoSenhaController {
     }
 }
 
-// 1. BLOCO PROCEDURAL DE SEGURANÇA E ACESSO
-$dominioPermitido = 'https://www.fundamentalemedio.com.br';
-$acessoAutorizado = false;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST'&& ($_SERVER['REMOTE_ADDR'] = '127.0.0.1' || $_SERVER['REMOTE_ADDR'] = 'http://localhost/jogomanu')) {
+
+    // 1. BLOCO PROCEDURAL DE SEGURANÇA E ACESSO
+    $dominioPermitido = 'https://www.fundamentalemedio.com.br';
+    $acessoAutorizado = false;
+    
     // Validação moderna Sec-Fetch-Site (Navegadores atuais)
     if (!isset($_SERVER['HTTP_SEC_FETCH_SITE']) || $_SERVER['HTTP_SEC_FETCH_SITE'] === 'same-origin') {
         
