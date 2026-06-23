@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-require_once(BASE_PATH . 'model/RecuperacaoSenhaModel.php');
+require_once(BASE_PATH . 'model/EsqueciSenhaModel.php');
 
 class RecuperacaoSenhaController {
     private ?RecuperacaoSenhaModel $recuperacaoModel;
@@ -108,7 +108,7 @@ try {
     } else {
         throw new Exception("Retorno inesperado do método solicitarLink: " . $resultadoLink);
     }
-
+    $parteCentro = 'EsqueciSenhaView.php';
 } catch (Throwable $e) {
     // Captura qualquer Exception ou Error (PHP 8) e manda para o log/redirecionamento de erro grave
     $mensagemParaLog = $e->getMessage() . " em " . $e->getFile() . " na linha " . $e->getLine();

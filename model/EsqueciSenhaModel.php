@@ -5,12 +5,12 @@ declare(strict_types = 1);
 require_once(BASE_PATH . 'model/VinculoBancoDeDados.php');
 require_once(BASE_PATH . 'model/ValidaEmailModel.php');
 // Nota: O PHPMailer deve ser incluído manualmente conforme definido anteriormente
-require_once(BASE_PATH . 'model/PHPMailer/Exception.php');
-require_once(BASE_PATH . 'model/PHPMailer/PHPMailer.php');
-require_once(BASE_PATH . 'model/PHPMailer/SMTP.php');
+require_once(BASE_PATH . 'model/PHPMailer/src/Exception.php');
+require_once(BASE_PATH . 'model/PHPMailer/src/PHPMailer.php');
+require_once(BASE_PATH . 'model/PHPMailer/src/SMTP.php');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\src\PHPMailer;
+use PHPMailer\PHPMailer\src\Exception;
 
 class RecuperacaoSenhaModel {
     private ?PDO $conexao;

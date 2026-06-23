@@ -23,7 +23,7 @@ class CadastroUsuarioModel
     {
         $emailLimpo = trim($email);
         $senhaLimpa = trim($senha);
-
+        
         if (empty($emailLimpo) || empty($senhaLimpa)) {
 
             return false;
@@ -48,6 +48,7 @@ class CadastroUsuarioModel
     {
         
         if (!$this->verificaEntradas($email, $senha)) {
+
             return false;
         }
 
