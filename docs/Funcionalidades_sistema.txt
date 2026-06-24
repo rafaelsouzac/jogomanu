@@ -6,11 +6,6 @@ Regras gerais do funcionamento do site.
 2) Cadastro para usuarios
     * faz cadastro de emailn e senha.
 
-3) Recuperação de senha:
-        # usuario informa email;
-        # sitema envia um email para usuario com link para cadastrar outra senha.
-
-
 3) quiz - perguntas e respostas
     * Usuario seleciona série que esta
     * Usuario seleciona disciplana que vai responder
@@ -28,3 +23,7 @@ Regras gerais do funcionamento do site.
         # qual disciplana
         # qual materia (ordenada da primeira para ultima vez que respondeu)
         # quantidade de acertos e erros.
+
+3) Recuperação de senha:
+        # usuario informa email;
+        # sitema envia um email para usuario com link para cadastrar outra senha.
