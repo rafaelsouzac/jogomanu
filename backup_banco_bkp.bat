@@ -20,8 +20,7 @@ if not exist "%BACKUP_DIR%" mkdir "%BACKUP_DIR%"
 :: 5. Executar o Backup incluindo a estrutura do Banco (--databases e --add-drop-database)
 echo Criando backup completo do banco de dados %DB_NAME%...
 if "%DB_PASS%"=="" (
-  "%MYSQL_DUMP%" -u%DB_USER% --databases %DB_NAME% --add-drop-database --single-transaction --quick --routines > "%ARQUIVO_FINAL%"
-
+    "%MYSQL_DUMP%" -u%DB_USER% --databases %DB_NAME% --add-drop-database --single-transaction --quick > "%ARQUIVO_FINAL%"
 ) else (
     "%MYSQL_DUMP%" -u%DB_USER% -p%DB_PASS% --databases %DB_NAME% --add-drop-database --single-transaction --quick > "%ARQUIVO_FINAL%"
 )
