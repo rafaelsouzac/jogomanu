@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: jogomanu
 -- ------------------------------------------------------
--- Server version	10.4.32-MariaDB
+-- Server version	10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -19,9 +19,9 @@
 -- Current Database: `jogomanu`
 --
 
-DROP DATABASE IF EXISTS `jogomanu`;
+/*!40000 DROP DATABASE IF EXISTS `jogomanu`*/;
 
-CREATE DATABASE IF NOT EXISTS `jogomanu` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `jogomanu` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `jogomanu`;
 
@@ -94,10 +94,11 @@ CREATE TABLE `conteudos` (
   `tituloconteudo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `textoconteudo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `fk_disciplina` int(11) NOT NULL,
+  `temimagem` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`pk_conteudo`),
   KEY `fk_conteudos_disciplinas_idx` (`fk_disciplina`),
   CONSTRAINT `fk_conteudos_disciplinas1` FOREIGN KEY (`fk_disciplina`) REFERENCES `disciplinas` (`pk_disciplina`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,6 +107,7 @@ CREATE TABLE `conteudos` (
 
 LOCK TABLES `conteudos` WRITE;
 /*!40000 ALTER TABLE `conteudos` DISABLE KEYS */;
+INSERT INTO `conteudos` VALUES (2,'Algebra - Multiplos','explicação multiplos',6,'');
 /*!40000 ALTER TABLE `conteudos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +124,7 @@ CREATE TABLE `disciplinas` (
   `serie` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `grau` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'F = Ensino Fundamental\\nM = Ensino Médio',
   PRIMARY KEY (`pk_disciplina`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,6 +133,7 @@ CREATE TABLE `disciplinas` (
 
 LOCK TABLES `disciplinas` WRITE;
 /*!40000 ALTER TABLE `disciplinas` DISABLE KEYS */;
+INSERT INTO `disciplinas` VALUES (6,'Matemática','05','F');
 /*!40000 ALTER TABLE `disciplinas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,13 +176,13 @@ DROP TABLE IF EXISTS `imagensconteudos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `imagensconteudos` (
-  `idimagenconteudo` int(11) NOT NULL AUTO_INCREMENT,
-  `nomeimagem` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pk_imagenconteudo` int(11) NOT NULL AUTO_INCREMENT,
+  `nomeimagem` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `fk_conteudo` int(11) NOT NULL,
-  PRIMARY KEY (`idimagenconteudo`),
+  PRIMARY KEY (`pk_imagenconteudo`),
   KEY `fk_imagensconteudos_conteudos_idx` (`fk_conteudo`),
   CONSTRAINT `fk_imagensconteudos_conteudos1` FOREIGN KEY (`fk_conteudo`) REFERENCES `conteudos` (`pk_conteudo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,7 +232,7 @@ CREATE TABLE `perguntas` (
   PRIMARY KEY (`pk_pergunta`),
   KEY `fk_perguntas_disciplinas1_idx` (`fk_disciplina`),
   CONSTRAINT `fk_perguntas_disciplinas1` FOREIGN KEY (`fk_disciplina`) REFERENCES `disciplinas` (`pk_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,6 +241,7 @@ CREATE TABLE `perguntas` (
 
 LOCK TABLES `perguntas` WRITE;
 /*!40000 ALTER TABLE `perguntas` DISABLE KEYS */;
+INSERT INTO `perguntas` VALUES (2,'Quais das alternativas tem somente multiplos de 5','0',6),(3,'Quais das alternativas tem somente multiplos de 9','0',6);
 /*!40000 ALTER TABLE `perguntas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,7 +288,7 @@ CREATE TABLE `respostas` (
   PRIMARY KEY (`pk_resposta`),
   KEY `fk_resp_perg_idx` (`fk_pergunta`),
   CONSTRAINT `fk_resp_perg` FOREIGN KEY (`fk_pergunta`) REFERENCES `perguntas` (`pk_pergunta`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -293,6 +297,7 @@ CREATE TABLE `respostas` (
 
 LOCK TABLES `respostas` WRITE;
 /*!40000 ALTER TABLE `respostas` DISABLE KEYS */;
+INSERT INTO `respostas` VALUES (1,2,'I','0','0, 5, 10, 12'),(2,2,'C','0','5, 25, 10, 150'),(3,2,'I','0','0, 9, 10, 15'),(4,2,'I','0','0, 5, 10, 21'),(5,2,'I','0','0, 22, 10, 15'),(6,3,'I','0','0, 9, 18, 82'),(7,3,'I','0','9, 18, 27, 91'),(8,3,'C','0','9, 36, 45, 81'),(9,3,'I','0','9, 33, 55, 99'),(10,3,'I','0','0, 99, 177, 273');
 /*!40000 ALTER TABLE `respostas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -489,7 +494,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `usp_cadasro_pergunta_respostas` */;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastar_imagem_conteudo` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -497,50 +502,32 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadasro_pergunta_respostas`(
-    IN p_json_pergunta TEXT
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastar_imagem_conteudo`(
+	IN p_nomeimagem varchar(255),
+    IN p_fk_conteudo INT
 )
 BEGIN
-    -- Variáveis para controle do laço de repetição
-    DECLARE v_total_respostas INT DEFAULT 0;
-    DECLARE v_contador INT DEFAULT 0;
+    DECLARE endereco_nome_imagem VARCHAR(255);
+	DECLARE endereco_imagem VARCHAR(255);
     
-    -- Variáveis temporárias para cada resposta
-    DECLARE v_status_resposta CHAR(1);
-    DECLARE v_temimagem_res CHAR(1);
-    DECLARE v_enunciado_res VARCHAR(255);
+    SET endereco_imagem = '/view/assets/imgs/'; -- varchar(255)
+    
+	IF p_nomeimagem IS NOT NULL AND LENGTH(p_nomeimagem) > 0 THEN
+		
+        -- complemento do campo endereco_nome_imagem
+		SET endereco_nome_imagem = CONCAT(endereco_imagem, p_nomeimagem);
+		
+        INSERT INTO `jogomanu`.`imagensconteudos`
+			(
+			`nomeimagem`,
+			`fk_conteudo`)
+		VALUES
+			(
+			endereco_nome_imagem,
+			p_fk_conteudo);
 
-    -- 1. CORREÇÃO: Ajustado de p_json_perguntas para p_json_pergunta (conforme o parâmetro)
-    SET @enunciado = JSON_VALUE(p_json_pergunta, '$.enunciado');
-    SET @temimagem = JSON_VALUE(p_json_pergunta, '$.temimagem');
-    SET @fk_disciplina = CAST(JSON_VALUE(p_json_pergunta, '$.fk_disciplina') AS UNSIGNED);    
-	
-    -- 2. Insere a pergunta principal
-    INSERT INTO perguntas (enunciado, temimagem, fk_disciplina)
-    VALUES (@enunciado, @temimagem, @fk_disciplina);
-	
-    -- 3. Guarda o ID gerado para a pergunta
-    SET @pk_pergunta = LAST_INSERT_ID();
-    
-    -- 4. Descobre quantas respostas existem no array JSON
-    SET v_total_respostas = JSON_LENGTH(p_json_pergunta, '$.resposta');
-    
-    -- 5. Percorre o array e faz os inserts um por um de forma segura
-    WHILE v_contador < v_total_respostas DO
-        
-        -- Extrai dinamicamente os valores baseados na posição atual (v_contador)
-        SET v_status_resposta = JSON_VALUE(p_json_pergunta, CONCAT('$.resposta[', v_contador, '].status_resposta'));
-        SET v_temimagem_res   = JSON_VALUE(p_json_pergunta, CONCAT('$.resposta[', v_contador, '].temimagem'));
-        SET v_enunciado_res   = JSON_VALUE(p_json_pergunta, CONCAT('$.resposta[', v_contador, '].enunciado_resposta'));
-        
-        -- Insere a alternativa correspondente ligada ao ID da pergunta
-        INSERT INTO respostas (fk_pergunta, status_resposta, temimagem, enunciado_resposta)
-        VALUES (@pk_pergunta, v_status_resposta, v_temimagem_res, v_enunciado_res);
-        
-        -- Avança para a próxima alternativa
-        SET v_contador = v_contador + 1;
-    END WHILE;
-    
+	END IF;
+	    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -598,21 +585,28 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastro_conteudos`(
     IN p_titulo_conteudo varchar(255),
     IN p_texto_conteudo text,
-    IN p_fk_serie INT
+    IN p_temimagem char(1),
+    IN p_fk_serie INT,
+   OUT pk_gerada INT
 )
 BEGIN
 	INSERT INTO `jogomanu`.`conteudos`
 	(
 		`tituloconteudo`,
 		`textoconteudo`,
+        `temimagem`,
 		`fk_disciplina`
 	)
 	VALUES
 	(
 		p_titulo_conteudo,
 		p_texto_conteudo,
+        p_temimagem,
 		p_fk_serie
     );
+    
+    SET @pk_gerada = last_insert_id();
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -621,7 +615,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `usp_insere_disciplina` */;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastro_disciplina` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -629,7 +623,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_insere_disciplina`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastro_disciplina`(
 	IN p_nome_disciplina varchar(100),
     IN p_serie char(2), -- 01...09 || 21..23
     IN p_grau char(1),  -- F || M
@@ -656,7 +650,7 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `usp_insere_disciplina1` */;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastro_pergunta_respostas` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -664,25 +658,50 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_insere_disciplina1`(
-	IN p_nome_disciplina varchar(100),
-    IN p_serie char(2), -- 01...09 || 21..23
-    IN p_grau char(1),  -- F || M
-   OUT p_idgerado int
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastro_pergunta_respostas`(
+    IN p_json_pergunta TEXT
 )
 BEGIN
-	INSERT INTO `jogomanu`.`disciplinas`
-	(
-	`nomedisciplina`,
-	`serie`,
-	`grau`)
-	VALUES
-	(
-	p_nome_disciplina,
-	p_serie,
-	p_grau);
+    -- Variáveis para controle do laço de repetição
+    DECLARE v_total_respostas INT DEFAULT 0;
+    DECLARE v_contador INT DEFAULT 0;
     
-    SELECT last_insert_id() INTO p_idgerado;
+    -- Variáveis temporárias para cada resposta
+    DECLARE v_status_resposta CHAR(1);
+    DECLARE v_temimagem_res CHAR(1);
+    DECLARE v_enunciado_res VARCHAR(255);
+
+    -- 1. CORREÇÃO: Ajustado de p_json_perguntas para p_json_pergunta (conforme o parâmetro)
+    SET @enunciado = JSON_VALUE(p_json_pergunta, '$.enunciado');
+    SET @temimagem = JSON_VALUE(p_json_pergunta, '$.temimagem');
+    SET @fk_disciplina = CAST(JSON_VALUE(p_json_pergunta, '$.fk_disciplina') AS UNSIGNED);    
+	
+    -- 2. Insere a pergunta principal
+    INSERT INTO perguntas (enunciado, temimagem, fk_disciplina)
+    VALUES (@enunciado, @temimagem, @fk_disciplina);
+	
+    -- 3. Guarda o ID gerado para a pergunta
+    SET @pk_pergunta = LAST_INSERT_ID();
+    
+    -- 4. Descobre quantas respostas existem no array JSON
+    SET v_total_respostas = JSON_LENGTH(p_json_pergunta, '$.respostas');
+    
+    -- 5. Percorre o array e faz os inserts um por um de forma segura
+    WHILE v_contador < v_total_respostas DO
+        
+        -- Extrai dinamicamente os valores baseados na posição atual (v_contador)
+        SET v_status_resposta = JSON_VALUE(p_json_pergunta, CONCAT('$.respostas[', v_contador, '].status_resposta'));
+        SET v_temimagem_res   = JSON_VALUE(p_json_pergunta, CONCAT('$.respostas[', v_contador, '].temimagem'));
+        SET v_enunciado_res   = JSON_VALUE(p_json_pergunta, CONCAT('$.respostas[', v_contador, '].enunciado_resposta'));
+        
+        -- Insere a alternativa correspondente ligada ao ID da pergunta
+        INSERT INTO respostas (fk_pergunta, status_resposta, temimagem, enunciado_resposta)
+        VALUES (@pk_pergunta, v_status_resposta, v_temimagem_res, v_enunciado_res);
+        
+        -- Avança para a próxima alternativa
+        SET v_contador = v_contador + 1;
+    END WHILE;
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -721,4 +740,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-25 23:17:22
+-- Dump completed on 2026-06-26 13:08:54
