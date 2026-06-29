@@ -9,7 +9,7 @@
     
     <!-- Pergunta estilizada como H2 com a fonte League Spartan via CSS do tema -->
     <h2 class="pergunta-quiz" style="font-family: var(--fonte-titulo); font-size: 1.20rem; font-weight: 500; color: var(--cor-texto); margin: 1.5rem 0 1rem 0; line-height: 1.4;">
-      Quem descobriu o Brasil em 1500?
+      <?php echo($pergunta); ?>
     </h2>
 
     <!-- Alertas do sistema (para feedback de acerto/erro/aviso se necessário) -->
@@ -20,36 +20,17 @@
       
       <div class="alternativas-container" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
         
-        <!-- Alternativa A -->
+        <!-- Alternativa -->
+      <?php
+        foreach($alternativas as $resposta){
+      ?>
         <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-a" name="escolha" value="a" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
-          <label for="alt-a" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;">Pedro Álvares Cabral</label>
+          <input type="radio" id="alt-a" name="escolha" value="<?php echo($pk_resposta); ?>" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
+          <label for="alt-a" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;"><?php echo($enunciado_resposta); ?></label>
         </div>
-
-        <!-- Alternativa B -->
-        <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-b" name="escolha" value="b" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
-          <label for="alt-b" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;">Pero Vaz de Caminha</label>
-        </div>
-
-        <!-- Alternativa C -->
-        <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-c" name="escolha" value="c" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
-          <label for="alt-c" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;">Pedro da Silva Sauro</label>
-        </div>
-
-        <!-- Alternativa D -->
-        <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-d" name="escolha" value="d" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
-          <label for="alt-d" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;">Pedro, o Apóstolo</label>
-        </div>
-
-        <!-- Alternativa E -->
-        <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-e" name="escolha" value="e" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
-          <label for="alt-e" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;">Pedro, meu sobrinho</label>
-        </div>
-
+      <?php 
+      }
+      ?>
       </div>
 
       <!-- Mensagem de erro caso o usuário tente enviar sem selecionar nada -->
@@ -62,7 +43,7 @@
 
     <!-- Rodapé de navegação do quiz -->
     <div class="links-rodape">
-      <a href="quiz-anterior">← Pergunta Anterior</a>
+      <a href="<?php echo($pergunta_anterior) ?>">← Pergunta Anterior</a>
       &nbsp;·&nbsp;
       <a href="pular-quiz">Pular Pergunta</a>
     </div>

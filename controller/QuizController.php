@@ -1,4 +1,21 @@
 <?php
+declare(strict_types=1);
+
+require_once(BASE_PATH . 'model/QuizModel.php');
+
+class QuizController{
+   
+    private ?QuizModel $objQuizModel;
+
+    public function __construct()
+    {
+        $this->objQuizModel = new QuizModel;
+    }
+
+    private function x(){
+
+    }
+}
 
 $parteCentro = 'Quiz.php';
 $css_sistema = '';
