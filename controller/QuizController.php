@@ -12,9 +12,6 @@ class QuizController{
         $this->objQuizModel = new QuizModel;
     }
 
-    private function x(){
-
-    }
 }
 
 $parteCentro = 'Quiz.php';

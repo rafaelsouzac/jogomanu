@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $retornoLogin = $obj_login->validaLogin($usuario, $senha);
     
     if($retornoLogin){       
-        $_SESSION['usuario'] = $usuario; 
+        $_SESSION['usuario'] = $usuario;
         header("Location:/jogomanu/quiz");
     }else{
         header("Location:/jogomanu/erro_login");

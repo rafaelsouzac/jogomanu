@@ -123,3 +123,12 @@ seguintes arquivos em:
     /projetos/controller/NomeDoSistemaController.php
     /projetos/model/NomeDoSistemaModel.php
     /projetos/view/NomeDoSistemaView.php
+
+
+*****) As regras para construção de código tem que ser feitas, partindo-se
+das regras impostas pela limitação da tecnologia mais abrangente.
+    Ex.: para campos calculados, a limitação para independência de SGDB
+    é a ultima versão da SQL, e não as facilidades que o SGDB traz.
+
+    Conceitos teóricos tem que ser levados em conta, mas, o maior peso
+    é utilizado no desempenho do software.
