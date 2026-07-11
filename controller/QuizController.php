@@ -44,9 +44,6 @@ class QuizController{
 
         $obj_quiz_model = null;
     }
-
-    public function selecionarRespostas(){
-    }
     
 }
 
@@ -54,13 +51,20 @@ class QuizController{
 
 
 if(isset($_SESSION['Perguntas'])){
+    $idpergunta_atual = $_POST['idpergunta'];
     //monto perguta + respostas.
+    $obj_respostas_pergunta = new PerguntasModel();
+    $respostas = $obj_respostas_pergunta->getRespostas($idpergunta_atual);
+
 }else{
     $_SESSION['conteudo_selecionado'] = $_POST['conteudo'];
     //inicio todo processo de geração do gabarito e primeira pergunta com resposta
+    $obj_quiz_controller = new QuizController($_SESSION['conteudo_selecionado']);
+    $obj_quiz_controller->IniciarQuiz();
+    $obj_quiz_controller->GerarGabarito();    
 }
 
-$obj_quiz_controller = new QuizController($_SESSION['conteudo_selecionado']);
+
 
 $serie = 1;
 
