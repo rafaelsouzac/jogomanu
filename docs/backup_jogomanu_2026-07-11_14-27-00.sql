@@ -176,13 +176,13 @@ DROP TABLE IF EXISTS `imagensconteudos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `imagensconteudos` (
-  `pk_imagenconteudo` int(11) NOT NULL AUTO_INCREMENT,
+  `pk_imagemconteudo` int(11) NOT NULL,
   `nomeimagem` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `fk_conteudo` int(11) NOT NULL,
-  PRIMARY KEY (`pk_imagenconteudo`),
+  PRIMARY KEY (`pk_imagemconteudo`),
   KEY `fk_imagensconteudos_conteudos_idx` (`fk_conteudo`),
   CONSTRAINT `fk_imagensconteudos_conteudos1` FOREIGN KEY (`fk_conteudo`) REFERENCES `conteudos` (`pk_conteudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,13 +226,13 @@ DROP TABLE IF EXISTS `perguntas`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `perguntas` (
   `pk_pergunta` int(11) NOT NULL AUTO_INCREMENT,
-  `enunciado` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `temimagem` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
-  `fk_disciplina` int(11) NOT NULL,
+  `enunciado` text NOT NULL,
+  `temimagem` char(1) NOT NULL DEFAULT '0',
+  `fk_conteudo` int(11) NOT NULL,
   PRIMARY KEY (`pk_pergunta`),
-  KEY `fk_perguntas_disciplinas1_idx` (`fk_disciplina`),
-  CONSTRAINT `fk_perguntas_disciplinas1` FOREIGN KEY (`fk_disciplina`) REFERENCES `disciplinas` (`pk_disciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  KEY `fk_conteudo_pergunta_idx` (`fk_conteudo`),
+  CONSTRAINT `fk_conteudo_pergunta` FOREIGN KEY (`fk_conteudo`) REFERENCES `conteudos` (`pk_conteudo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,7 +241,7 @@ CREATE TABLE `perguntas` (
 
 LOCK TABLES `perguntas` WRITE;
 /*!40000 ALTER TABLE `perguntas` DISABLE KEYS */;
-INSERT INTO `perguntas` VALUES (2,'Quais das alternativas tem somente multiplos de 5','0',6),(3,'Quais das alternativas tem somente multiplos de 9','0',6);
+INSERT INTO `perguntas` VALUES (4,'Qual das alternativas contém somente multiplos de 6','0',2),(5,'Qual das alternativas contém somente multiplos de 16','0',2);
 /*!40000 ALTER TABLE `perguntas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -255,7 +255,7 @@ DROP TABLE IF EXISTS `quizes`;
 CREATE TABLE `quizes` (
   `pk_quiz` int(11) NOT NULL AUTO_INCREMENT,
   `fk_acessousuario` int(11) NOT NULL,
-  `iniciado` datetime NOT NULL,
+  `iniciado` datetime NOT NULL DEFAULT current_timestamp(),
   `finalizado` datetime NOT NULL,
   PRIMARY KEY (`pk_quiz`),
   KEY `fk_quiz_acessousuario1_idx` (`fk_acessousuario`),
@@ -297,7 +297,6 @@ CREATE TABLE `respostas` (
 
 LOCK TABLES `respostas` WRITE;
 /*!40000 ALTER TABLE `respostas` DISABLE KEYS */;
-INSERT INTO `respostas` VALUES (1,2,'I','0','0, 5, 10, 12'),(2,2,'C','0','5, 25, 10, 150'),(3,2,'I','0','0, 9, 10, 15'),(4,2,'I','0','0, 5, 10, 21'),(5,2,'I','0','0, 22, 10, 15'),(6,3,'I','0','0, 9, 18, 82'),(7,3,'I','0','9, 18, 27, 91'),(8,3,'C','0','9, 36, 45, 81'),(9,3,'I','0','9, 33, 55, 99'),(10,3,'I','0','0, 99, 177, 273');
 /*!40000 ALTER TABLE `respostas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,9 +453,11 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
 /*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_autentica_usuario`(IN `p_usuario` VARCHAR(255), IN `p_senha` VARCHAR(255))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_autentica_usuario`(IN `p_usuario` VARCHAR(255), 
+IN `p_senha` VARCHAR(255))
 BEGIN
-SELECT EXISTS(SELECT 1 FROM 
+    
+SELECT pk_usuario FROM 
 	usuarios AS u
 	INNER JOIN 
 		senhasusuarios AS s
@@ -465,8 +466,8 @@ SELECT EXISTS(SELECT 1 FROM
     WHERE 
 		u.email = p_usuario
     AND 
-		s.senhacripto = sha2(p_senha, 256)
-    ) AS valido;
+		s.senhacripto = sha2(p_senha, 256);
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -486,6 +487,36 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_busca_slug`(`p_slug` VARCHAR(510))
 BEGIN
 	select controller from slugs where slug = p_slug;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastar_gabarito` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastar_gabarito`(
+	IN p_fkquiz INT,
+    IN p_fkpergunta INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`gabaritos`
+	(
+	`fk_quiz`,
+	`fk_pergunta`)
+	VALUES
+	(
+	p_fkquiz,
+	p_fkpergunta
+	);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -528,6 +559,38 @@ BEGIN
 
 	END IF;
 	    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastrar_acessousuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastrar_acessousuario`(
+	IN p_fk_usuario INT,
+    IN p_idsessao VARCHAR(510),
+   OUT p_last_id INT
+)
+BEGIN
+	
+    INSERT INTO `jogomanu`.`acessousuario`
+		( `fk_usuario`, `idsessao`)
+	VALUES
+		(p_fk_usuario, p_idsessao);
+	
+    SET p_last_id = last_insert_id();
+    
+    SELECT p_last_id;
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -730,6 +793,122 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_inserir_inicio_quiz` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_inserir_inicio_quiz`(
+	IN p_acesso_usuario INT,
+   OUT p_saida INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`quizes`
+	(
+		`fk_acessousuario`
+	)
+	VALUES
+	(
+		p_acesso_usuario
+	);
+    
+    SET p_saida = last_insert_id();
+    
+    Select p_saida as saida;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_inserir_pergunta` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_inserir_pergunta`(
+	IN p_enunciado varchar(510),
+    IN p_temimagem char(1),
+    IN p_fk_conteudo INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`perguntas`
+	(
+	`enunciado`,
+	`temimagem`,
+	`fk_conteudo`)
+	VALUES
+	(
+	p_enunciado,
+	p_temimagem,
+	p_fk_conteudo);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_selecionar_perguntas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_selecionar_perguntas`(IN p_pk_conteudo INT)
+BEGIN
+  select p.pk_pergunta from perguntas p 
+  inner join conteudos c on
+  p.fk_conteudo = p_pk_conteudo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_seleciona_disciplina_conteudo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_seleciona_disciplina_conteudo`()
+BEGIN
+	SELECT d.pk_disciplina, 
+	   d.nomedisciplina,
+	   c.tituloconteudo,
+	   d.grau, d.serie, 
+       c.pk_conteudo,
+       i.nomeimagem,
+       i.pk_imagemconteudo
+	FROM disciplinas d 
+    INNER JOIN conteudos c
+	ON d.pk_disciplina = c.fk_disciplina
+	left JOIN imagensconteudos i
+	ON c.pk_conteudo = i.fk_conteudo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -740,4 +919,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-26 13:08:54
+-- Dump completed on 2026-07-11 14:27:02

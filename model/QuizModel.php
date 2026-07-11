@@ -1,36 +1,34 @@
 <?php
 declare(strict_types=1);
 
+require_once(BASE_PATH . 'model/VinculoBancoDeDados.php');
+
 class QuizModel{
 
-    private $conexao;
+    private ?VinculoBancoDeDados $conexao;
 
     public function __construct()
     {
-        $obj_ligaBanco = new VinculoBancoDeDados();
-        $conexao = $obj_ligaBanco->ligado();
+        $this->conexao = new VinculoBancoDeDados();
     }
 
-    private function IniciaQuiz(int $fk_usuario): int{
-        
-        $id_sessao = session_id();
-                
-        $sql = 'CALL usp_inserir_inicio_quiz(:fk_acessousuario, @saida)';
-        
-        $stmt = $this->conexao->prepare($sql);
+    public function CadastrarQuiz(int $acesso_usuario){
+
+        $sql = "call cadastrar_quiz(:acesso_usuario)";
+
+        $banco = $this->conexao->ligado();
+
+        $stmt = $banco->prepare($sql);
 
         $stmt->bindValue(
-            ':fk_acessousuario',
-            $fk_acessoUsuario,
+            ':acesso_usuario',
+            $acesso_usuario,
             PDO::PARAM_INT
         );
 
         $stmt->execute();
 
-        $stmt->closeCursor();
+        return $stmt->query('Select @retorno as retorno')->fetch(PDO::FETCH_ASSOC);
 
-        $retorno = $this->conexao->query('SELECT @saida as saida')->fetch(PDO::FETCH_ASSOC);
-
-        return $retorno['saida'];
     }
 }

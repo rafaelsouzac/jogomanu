@@ -132,3 +132,11 @@ das regras impostas pela limitação da tecnologia mais abrangente.
 
     Conceitos teóricos tem que ser levados em conta, mas, o maior peso
     é utilizado no desempenho do software.
+
+***)No planejamento, devo encontrar um modelo que especifique o que deve ocorrer
+em sequencia quando o desenvolvimento for complexo.
+    Tenho que testar o modo como fiz a gerarção do quiz em
+
+    BPMN e UML para comparar qual o mais eficiente levando-se em conta
+    meu grau de conhecimento do assunto. É uma boa pratica para aplicar
+    a teoria.

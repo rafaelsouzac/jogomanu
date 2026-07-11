@@ -2,12 +2,17 @@
 declare(strict_types = 1);
 
 class AcessoUsuario{
+
+    private int $fk_usuario;
+    private string $pk_sessao;
+    private ?VinculoBancoDeDados $conexao;
+
     public function __construct()
     {
-        $fk_usuario = $_SESSION['usuario'];
-        $pk_sessao  = session_id();
-        $conexao = new VinculoBancoDeDados();
-        $conexao->ligado();
+        $this->fk_usuario = (int) $_SESSION['usuario'];
+        $this->pk_sessao  = session_id();
+        $this->conexao = new VinculoBancoDeDados();
+        $this->conexao->ligado();
     }
 
     private function acessoUsuario(int $fk_usuario, string $idsessao): int{
@@ -30,11 +35,11 @@ class AcessoUsuario{
 
         $stmt->execute();
 
+        $retorno = $this->conexao->query("Select @saida as Saida")->fetch(PDO::FETCH_ASSOC);
+
         $stmt->closeCursor();
 
         $this->conexao->desligado();
-
-        $retorno = $this->conexao->query("Select @saida as Saida")->fetch(PDO::FETCH_ASSOC);
 
         return (int) $retorno['Saida'];
     }

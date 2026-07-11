@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 
 class GabaritoModel{
+    
     private int $quiz;
     private array $perguntas;
 
@@ -11,13 +12,13 @@ class GabaritoModel{
         $this->perguntas = $fk_perguntas;
     }
 
-    private function GerarGabarito(){
+    public function CadastrarGabarito(){
         //fazer insert para gerar o gabarito no estado incial.
         $obj_banco = new VinculoBancoDeDados();
         
         $conexao = $obj_banco->ligado();
-
-        foreach($fk_pergunta as $this->fk_perguntas){
+        
+        foreach($this->perguntas as $fk_pergunta){
             $sql = 'Call usp_cadastar_gabarito(:fk_quiz, :fk_pergunta)';
             $stmt = $conexao->prepare($sql);
 
@@ -45,7 +46,5 @@ class GabaritoModel{
         $obj_banco->desligado();
 
         $obj_banco  = null;
-
-        return $retorno['gabarito_gerado'];
     }
 }
