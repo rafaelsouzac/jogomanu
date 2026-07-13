@@ -31,22 +31,4 @@ class PerguntasModel{
         return $this->selecionaPerguntas($pk_conteudo);
     }
 
-    public function getRespostas(int $pk_perguntas){
-        
-        $sql = 'call usp_seleciona_resposta(:fk_pergunta)';
-
-        $stmt = $this->conexao->prepare($sql);
-
-        $stmt->bindValue(
-            ':fk_pergunta',
-            $pk_perguntas,
-            PDO::PARAM_INT
-        );
-
-        $stmt->execute();
-
-        $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $retorno;
-    }
 }

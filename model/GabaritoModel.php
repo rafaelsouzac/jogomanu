@@ -1,50 +1,44 @@
 <?php
 declare(strict_types = 1);
 
-class GabaritoModel{
-    
-    private int $quiz;
-    private array $perguntas;
+class GabaritoModel { 
+    private int $quiz; 
+    private array $perguntas; 
 
-    public function __construct(int $fk_quiz, array $fk_perguntas)
-    {
-        $this->quiz = $fk_quiz;
-        $this->perguntas = $fk_perguntas;
-    }
+    public function __construct(int $fk_quiz, array $fk_perguntas) { 
+        $this->quiz = $fk_quiz; 
+        $this->perguntas = $fk_perguntas; 
+    } 
 
-    public function CadastrarGabarito(){
-        //fazer insert para gerar o gabarito no estado incial.
-        $obj_banco = new VinculoBancoDeDados();
+    public function CadastrarGabarito() { 
+        $obj_banco = new VinculoBancoDeDados(); 
+        $conexao = $obj_banco->ligado(); 
         
-        $conexao = $obj_banco->ligado();
-        
-        foreach($this->perguntas as $fk_pergunta){
-            $sql = 'Call usp_cadastar_gabarito(:fk_quiz, :fk_pergunta)';
-            $stmt = $conexao->prepare($sql);
+        $retorno = []; // Inicializa o array para evitar erros caso $perguntas esteja vazio
 
-            $stmt->bindValue(
-                ':fk_quiz',
-                $this->quiz,
-                PDO::PARAM_INT
-            );
+        $sql = 'Call usp_cadastar_gabarito(:fk_quiz, :fk_pergunta)'; 
+        $stmt = $conexao->prepare($sql); // Prepare fora do loop é mais rápido
 
-            $stmt->bindValue(
-                ':fk_pergunta',
-                $fk_pergunta,
-                PDO::PARAM_INT
-            );
+        foreach($this->perguntas as $fk_pergunta) { 
+            $stmt->bindValue(':fk_quiz', $this->quiz, PDO::PARAM_INT); 
+            $stmt->bindValue(':fk_pergunta', $fk_pergunta, PDO::PARAM_INT); 
+            $stmt->execute(); 
             
-            $stmt->execute();
-        }
-        
-        $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+            // Pega o ID retornado pela procedure
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($resultado) {
+                $retorno[] = $resultado['pk_gabarito']; // Guarda apenas o número do ID
+            }
+            
+            $stmt->closeCursor(); // Libera a conexão para a próxima execução da procedure
+        } 
 
-        $stmt = null;
+        $stmt = null; 
+        $conexao = null; 
+        $obj_banco->desligado(); 
+        $obj_banco = null; 
 
-        $conexao = null;
-
-        $obj_banco->desligado();
-
-        $obj_banco  = null;
-    }
+        // Salva o array de IDs diretamente na sessão
+        $_SESSION['pks_gabarito'] = $retorno;
+    } 
 }
