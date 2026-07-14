@@ -7,7 +7,7 @@ class LoginModel{
     
     private VinculoBancoDeDados $obj_Vinculo;
 
-    private function utilizaBanco(array $valor): array{
+    private function utilizaBanco(array $valor){
 
         $this->obj_Vinculo = new VinculoBancoDeDados();
         
@@ -40,12 +40,12 @@ class LoginModel{
         return $retorno['pk_usuario'];
     }
 
-    public function autenticaLogin(string $email, string $senha): array{
+    public function autenticaLogin(string $email, string $senha){
         
         $param = [$email, $senha];
 
         $retorno = $this->utilizaBanco($param);
 
-        return $retorno['valido'];
+        return $retorno;
     }
 }

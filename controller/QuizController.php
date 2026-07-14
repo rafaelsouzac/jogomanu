@@ -25,7 +25,8 @@ class QuizController{
 
         $obj_perguntas = new PerguntasModel();
         $this->pk_perguntas = $obj_perguntas->getPk_pergunta($this->pk_conteudo);
-        $_SESSION['perguntas'][] = $this->pk_perguntas;
+
+        $_SESSION['perguntas'] = $this->pk_perguntas;
 
         $this->GerarGabarito();
 
@@ -59,7 +60,8 @@ function BuscaResposta(int $pk_pergunta){
 //pega informações do formulario para ver quais perguntas selecionar
 // Trabalhar somente com $_Session();
 
-if(!isset($_SESSION['Perguntas'])){
+if(isset($_SESSION['Perguntas'])){
+
     //Após primeira pergunta;
     //recuperar indice da pergunta.
     // verificar se não é a ultima pergunta.
@@ -67,14 +69,13 @@ if(!isset($_SESSION['Perguntas'])){
     //liberar a proxima pergunta.
 
 }else{
-
-    $_SESSION['conteudo_selecionado'] = $_POST['conteudo'];
+    
 
     //inicio todo processo de geração do gabarito e primeira pergunta com resposta
-    $obj_quiz_controller = new QuizController($_SESSION['conteudo_selecionado']);
+    $obj_quiz_controller = new QuizController(2);
 
     //
-    $_SESSION['respostas'][] = BuscaResposta($_SESSION['perguntas']['pk_pergunta'][0]);
+    $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][0]['pk_pergunta']);
 
     $indice_pergunta = 0;
 }

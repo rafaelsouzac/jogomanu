@@ -7,7 +7,7 @@ class GabaritoModel {
 
     public function __construct(int $fk_quiz, array $fk_perguntas) { 
         $this->quiz = $fk_quiz; 
-        $this->perguntas = $fk_perguntas; 
+        $this->perguntas = $fk_perguntas;
     } 
 
     public function CadastrarGabarito() { 
@@ -21,7 +21,7 @@ class GabaritoModel {
 
         foreach($this->perguntas as $fk_pergunta) { 
             $stmt->bindValue(':fk_quiz', $this->quiz, PDO::PARAM_INT); 
-            $stmt->bindValue(':fk_pergunta', $fk_pergunta, PDO::PARAM_INT); 
+            $stmt->bindValue(':fk_pergunta', (int)$fk_pergunta['pk_pergunta'], PDO::PARAM_INT); 
             $stmt->execute(); 
             
             // Pega o ID retornado pela procedure

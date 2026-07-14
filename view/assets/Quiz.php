@@ -9,7 +9,8 @@
     
     <!-- Pergunta estilizada como H2 com a fonte League Spartan via CSS do tema -->
     <h2 class="pergunta-quiz" style="font-family: var(--fonte-titulo); font-size: 1.20rem; font-weight: 500; color: var(--cor-texto); margin: 1.5rem 0 1rem 0; line-height: 1.4;">
-      <?php echo($pergunta); ?>
+      <?php
+        echo($_SESSION['perguntas'][0]['enunciado']); ?>
     </h2>
 
     <!-- Alertas do sistema (para feedback de acerto/erro/aviso se necessário) -->
@@ -22,11 +23,11 @@
         
         <!-- Alternativa -->
       <?php
-        foreach($alternativas as $resposta){
+        foreach($_SESSION['respostas'] as $resposta){
       ?>
         <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-a" name="escolha" value="<?php echo($pk_resposta); ?>" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
-          <label for="alt-a" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;"><?php echo($enunciado_resposta); ?></label>
+          <input type="radio" id="alt-a" name="escolha" value="<?php echo($resposta['status_resposta']); ?>" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
+          <label for="alt-a" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;"><?php echo($resposta['enunciado_resposta']); ?></label>
         </div>
       <?php 
       }

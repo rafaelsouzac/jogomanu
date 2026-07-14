@@ -12,7 +12,7 @@ class LoginController
         $this->login = new LoginModel();
     }
 
-    public function validaLogin(string $usuario, string $senha): array {
+    public function validaLogin(string $usuario, string $senha): int{
 
         return $this->login->autenticaLogin($usuario, $senha);
     }
@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $retornoLogin = $obj_login->validaLogin($usuario, $senha);
     
-    if($retornoLogin['pk_usuario'] > 0){       
-        $_SESSION['usuario'] = $retornoLogin['pk_usuario'];
+    if($retornoLogin > 0){       
+        $_SESSION['usuario'] = $retornoLogin;
         header("Location:/jogomanu/quiz");
     }else{
         header("Location:/jogomanu/erro_login");

@@ -1,20 +1,22 @@
 <?php
 declare(strict_types=1);
 
+require_once(BASE_PATH . 'model/VinculoBancoDeDados.php');
+
 class RespostasModel{
 
     private ?VinculoBancoDeDados $conexao;
-
+    private $banco;
     public function __construct()
     {
         $obj_ligaBanco = new VinculoBancoDeDados();
         $conexao = $obj_ligaBanco->ligado();
-
+        $this->banco = $conexao;
     }
 
     private function selecionaRespostas(int $pk_pergunta){
         $sql = "call usp_selecionar_respostas(:pk_pergunta)";
-        $banco = $this->conexao->prepare($sql);
+        $banco = $this->banco->prepare($sql);
         $banco->bindValue(
             ':pk_pergunta',
             $pk_pergunta,
@@ -22,7 +24,7 @@ class RespostasModel{
         );
         $banco->execute();
 
-        $pk_respostas = $banco->fetch(PDO::FETCH_ASSOC);
+        $pk_respostas[] = $banco->fetch(PDO::FETCH_ASSOC);
 
         return $pk_respostas;
     }

@@ -14,7 +14,7 @@ class QuizModel{
 
     public function CadastrarQuiz(int $acesso_usuario){
 
-        $sql = "call cadastrar_quiz(:acesso_usuario)";
+        $sql = "call usp_cadastrar_quiz(:acesso_usuario)";
 
         $banco = $this->conexao->ligado();
 
@@ -27,8 +27,10 @@ class QuizModel{
         );
 
         $stmt->execute();
+        
+        $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $stmt->query('Select @retorno as retorno')->fetch(PDO::FETCH_ASSOC);
+        return $retorno['pk_quiz'];
 
     }
 }

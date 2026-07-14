@@ -1,25 +1,28 @@
 <?php
 declare(strict_types = 1);
 
+require_once(BASE_PATH . 'model/VinculoBancoDeDados.php');
+
 class AcessoUsuario{
 
     private int $fk_usuario;
     private string $pk_sessao;
     private ?VinculoBancoDeDados $conexao;
+    private $banco;
 
     public function __construct()
     {
         $this->fk_usuario = (int) $_SESSION['usuario'];
         $this->pk_sessao  = session_id();
         $this->conexao = new VinculoBancoDeDados();
-        $this->conexao->ligado();
+        $this->banco = $this->conexao->ligado();
     }
 
     private function acessoUsuario(int $fk_usuario, string $idsessao): int{
         
-        $sql = 'CALL usp_cadastrar_acessousuario(:fk_usuario, :idsessao, @saida)';
+        $sql = 'CALL usp_cadastrar_acessousuario(:fk_usuario, :idsessao)';
         
-        $stmt = $this->conexao->prepare($sql);
+        $stmt = $this->banco->prepare($sql);
 
         $stmt->bindValue(
             ':fk_usuario',
@@ -35,16 +38,17 @@ class AcessoUsuario{
 
         $stmt->execute();
 
-        $retorno = $this->conexao->query("Select @saida as Saida")->fetch(PDO::FETCH_ASSOC);
+        $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $stmt->closeCursor();
 
         $this->conexao->desligado();
 
-        return (int) $retorno['Saida'];
+        return (int) $retorno['id_acesso'];
     }
 
     public function getAcessoUsuario(){
+        
         return $this->acessoUsuario($this->fk_usuario, $this->pk_sessao);
     }
 }
