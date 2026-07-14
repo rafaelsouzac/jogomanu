@@ -44,7 +44,7 @@
 
     <!-- Rodapé de navegação do quiz -->
     <div class="links-rodape">
-      <a href="<?php echo($pergunta_anterior) ?>">← Pergunta Anterior</a>
+      <a href="#">← Pergunta Anterior</a>
       &nbsp;·&nbsp;
       <a href="pular-quiz">Pular Pergunta</a>
     </div>

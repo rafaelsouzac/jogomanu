@@ -24,7 +24,9 @@ class RespostasModel{
         );
         $banco->execute();
 
-        $pk_respostas[] = $banco->fetch(PDO::FETCH_ASSOC);
+        while($linha = $banco->fetch(PDO::FETCH_ASSOC)){
+            $pk_respostas[] = $linha;
+        }
 
         return $pk_respostas;
     }
