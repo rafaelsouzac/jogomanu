@@ -7,6 +7,7 @@ class RespostasModel{
 
     private ?VinculoBancoDeDados $conexao;
     private $banco;
+    
     public function __construct()
     {
         $obj_ligaBanco = new VinculoBancoDeDados();
@@ -15,8 +16,11 @@ class RespostasModel{
     }
 
     private function selecionaRespostas(int $pk_pergunta){
+
         $sql = "call usp_selecionar_respostas(:pk_pergunta)";
+        
         $banco = $this->banco->prepare($sql);
+        
         $banco->bindValue(
             ':pk_pergunta',
             $pk_pergunta,

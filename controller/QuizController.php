@@ -60,7 +60,7 @@ function BuscaResposta(int $pk_pergunta){
 // Trabalhar somente com $_Session();
 
 if($_SESSION['Pergunta_Atual'] !== 0){
-    echo("Segunda: {$_SESSION['Pergunta_Atual']}");
+    
     $_SESSION['respostas'] = BuscaResposta($_SESSION['Pergunta_Atual']);
 
 }else{
@@ -69,7 +69,6 @@ if($_SESSION['Pergunta_Atual'] !== 0){
     $obj_quiz_controller = new QuizController(2);
 
     $_SESSION['Pergunta_Atual'] = $_SESSION['perguntas'][0]['pk_pergunta'];
-    echo("Primeira: {$_SESSION['Pergunta_Atual']}");
     $_SESSION['respostas'] = BuscaResposta($_SESSION['Pergunta_Atual']);
 }
 

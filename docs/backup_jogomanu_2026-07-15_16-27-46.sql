@@ -1,0 +1,980 @@
+-- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
+--
+-- Host: localhost    Database: jogomanu
+-- ------------------------------------------------------
+-- Server version	10.4.28-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `jogomanu`
+--
+
+/*!40000 DROP DATABASE IF EXISTS `jogomanu`*/;
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `jogomanu` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+
+USE `jogomanu`;
+
+--
+-- Table structure for table `acessousuario`
+--
+
+DROP TABLE IF EXISTS `acessousuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `acessousuario` (
+  `idacessousuario` int(11) NOT NULL AUTO_INCREMENT,
+  `iniciodasessao` datetime DEFAULT current_timestamp(),
+  `fimdasesao` datetime DEFAULT NULL,
+  `fk_usuario` int(11) NOT NULL,
+  `idsessao` varchar(510) NOT NULL,
+  PRIMARY KEY (`idacessousuario`),
+  KEY `fk_sessao_user_idx` (`fk_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `acessousuario`
+--
+
+LOCK TABLES `acessousuario` WRITE;
+/*!40000 ALTER TABLE `acessousuario` DISABLE KEYS */;
+INSERT INTO `acessousuario` VALUES (1,'2026-07-14 08:51:29',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(2,'2026-07-14 08:51:56',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(3,'2026-07-14 08:51:58',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(4,'2026-07-14 08:56:09',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(5,'2026-07-14 09:10:20',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(6,'2026-07-14 09:12:20',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(7,'2026-07-14 09:12:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(8,'2026-07-14 09:18:54',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(9,'2026-07-14 09:29:17',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(10,'2026-07-14 09:32:16',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(11,'2026-07-14 09:35:33',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(12,'2026-07-14 09:36:31',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(13,'2026-07-14 09:38:31',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(14,'2026-07-14 09:39:21',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(15,'2026-07-14 09:39:23',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(16,'2026-07-14 09:42:18',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(17,'2026-07-14 09:42:34',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(18,'2026-07-14 09:42:45',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(19,'2026-07-14 09:43:02',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(20,'2026-07-14 09:46:01',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(21,'2026-07-14 09:46:49',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(22,'2026-07-14 09:50:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(23,'2026-07-14 09:51:39',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(24,'2026-07-14 09:52:33',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(25,'2026-07-14 09:53:03',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(26,'2026-07-14 09:53:54',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(27,'2026-07-14 09:54:46',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(28,'2026-07-14 09:55:02',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(29,'2026-07-14 09:55:57',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(30,'2026-07-14 09:56:12',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(31,'2026-07-14 09:58:38',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(32,'2026-07-14 09:59:07',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(33,'2026-07-14 09:59:28',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(34,'2026-07-14 10:04:21',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(35,'2026-07-14 10:05:42',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(36,'2026-07-14 10:06:23',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(37,'2026-07-14 10:06:26',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(38,'2026-07-14 10:06:52',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(39,'2026-07-14 10:07:25',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(40,'2026-07-14 10:08:12',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(41,'2026-07-14 10:08:29',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(42,'2026-07-14 10:08:32',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(43,'2026-07-14 10:09:54',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(44,'2026-07-14 10:12:08',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(45,'2026-07-14 10:13:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(46,'2026-07-14 10:14:11',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(47,'2026-07-14 10:14:31',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(48,'2026-07-14 10:14:33',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(49,'2026-07-14 10:14:41',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(50,'2026-07-14 10:14:48',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(51,'2026-07-14 10:17:32',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(52,'2026-07-14 10:18:40',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(53,'2026-07-14 10:19:39',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(54,'2026-07-14 10:19:52',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(55,'2026-07-14 10:20:14',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(56,'2026-07-14 10:20:16',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(57,'2026-07-14 10:21:12',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(58,'2026-07-14 10:25:10',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(59,'2026-07-14 10:25:30',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(60,'2026-07-14 10:26:05',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(61,'2026-07-14 10:26:42',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(62,'2026-07-14 10:27:19',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(63,'2026-07-14 10:27:46',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(64,'2026-07-14 10:28:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(65,'2026-07-14 10:29:02',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(66,'2026-07-14 10:29:38',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(67,'2026-07-14 10:33:29',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(68,'2026-07-14 10:34:35',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(69,'2026-07-14 10:34:49',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(70,'2026-07-14 10:35:11',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(71,'2026-07-14 10:35:43',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(72,'2026-07-14 10:40:46',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(73,'2026-07-14 10:41:15',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(74,'2026-07-14 10:41:18',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(75,'2026-07-14 10:41:30',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(76,'2026-07-14 10:42:38',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(77,'2026-07-14 10:44:17',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(78,'2026-07-14 10:45:15',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(79,'2026-07-14 10:45:56',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(80,'2026-07-14 10:47:15',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(81,'2026-07-14 10:48:27',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(82,'2026-07-14 10:49:48',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(83,'2026-07-14 10:53:53',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(84,'2026-07-14 10:54:30',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(85,'2026-07-14 10:54:59',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(86,'2026-07-14 10:56:32',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(87,'2026-07-14 16:40:24',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(88,'2026-07-14 16:42:44',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(89,'2026-07-14 16:42:47',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(90,'2026-07-14 16:43:00',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(91,'2026-07-14 16:48:40',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(92,'2026-07-14 16:49:11',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(93,'2026-07-14 16:50:01',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(94,'2026-07-14 16:51:11',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(95,'2026-07-14 16:52:53',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(96,'2026-07-14 16:55:18',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(97,'2026-07-14 16:55:49',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(98,'2026-07-14 17:03:48',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(99,'2026-07-15 15:05:55',NULL,9,'e0i7i77n5sov6rga2mcuol9abk');
+/*!40000 ALTER TABLE `acessousuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ativos`
+--
+
+DROP TABLE IF EXISTS `ativos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ativos` (
+  `idativo` int(11) NOT NULL,
+  `fk_pergunta` int(11) DEFAULT NULL,
+  `pergunta_resposta` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '0 = pergunta\n1 = resposta\n',
+  `fk_resposta` int(11) DEFAULT NULL,
+  `caminho_img` varchar(510) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idativo`),
+  KEY `fk_img_perg_idx` (`fk_pergunta`),
+  KEY `fk_ativos_respostas1_idx` (`fk_resposta`),
+  CONSTRAINT `fk_ativos_respostas1` FOREIGN KEY (`fk_resposta`) REFERENCES `respostas` (`pk_resposta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_img_perg` FOREIGN KEY (`fk_pergunta`) REFERENCES `perguntas` (`pk_pergunta`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ativos`
+--
+
+LOCK TABLES `ativos` WRITE;
+/*!40000 ALTER TABLE `ativos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ativos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `conteudos`
+--
+
+DROP TABLE IF EXISTS `conteudos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `conteudos` (
+  `pk_conteudo` int(11) NOT NULL AUTO_INCREMENT,
+  `tituloconteudo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `textoconteudo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fk_disciplina` int(11) NOT NULL,
+  `temimagem` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`pk_conteudo`),
+  KEY `fk_conteudos_disciplinas_idx` (`fk_disciplina`),
+  CONSTRAINT `fk_conteudos_disciplinas1` FOREIGN KEY (`fk_disciplina`) REFERENCES `disciplinas` (`pk_disciplina`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `conteudos`
+--
+
+LOCK TABLES `conteudos` WRITE;
+/*!40000 ALTER TABLE `conteudos` DISABLE KEYS */;
+INSERT INTO `conteudos` VALUES (2,'Algebra - Multiplos','explicação multiplos',6,'');
+/*!40000 ALTER TABLE `conteudos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `disciplinas`
+--
+
+DROP TABLE IF EXISTS `disciplinas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `disciplinas` (
+  `pk_disciplina` int(11) NOT NULL AUTO_INCREMENT,
+  `nomedisciplina` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `serie` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `grau` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'F = Ensino Fundamental\\nM = Ensino Médio',
+  PRIMARY KEY (`pk_disciplina`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `disciplinas`
+--
+
+LOCK TABLES `disciplinas` WRITE;
+/*!40000 ALTER TABLE `disciplinas` DISABLE KEYS */;
+INSERT INTO `disciplinas` VALUES (6,'Matemática','05','F');
+/*!40000 ALTER TABLE `disciplinas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gabaritos`
+--
+
+DROP TABLE IF EXISTS `gabaritos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gabaritos` (
+  `pk_gabarito` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_quiz` int(11) NOT NULL,
+  `fk_pergunta` int(11) NOT NULL,
+  `fk_respota` int(11) DEFAULT NULL,
+  PRIMARY KEY (`pk_gabarito`),
+  KEY `fk_gabaritos_quiz1_idx` (`fk_quiz`),
+  KEY `fk_gabaritos_perguntas1_idx` (`fk_pergunta`),
+  KEY `fk_gabarito_resposta_idx` (`fk_respota`),
+  CONSTRAINT `fk_gabarito_resposta` FOREIGN KEY (`fk_respota`) REFERENCES `respostas` (`pk_resposta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_gabaritos_perguntas1` FOREIGN KEY (`fk_pergunta`) REFERENCES `perguntas` (`pk_pergunta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_gabaritos_quiz1` FOREIGN KEY (`fk_quiz`) REFERENCES `quizes` (`pk_quiz`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gabaritos`
+--
+
+LOCK TABLES `gabaritos` WRITE;
+/*!40000 ALTER TABLE `gabaritos` DISABLE KEYS */;
+INSERT INTO `gabaritos` VALUES (25,37,4,NULL),(26,37,5,NULL),(27,38,4,NULL),(28,38,5,NULL),(29,39,4,NULL),(30,39,5,NULL),(31,40,4,NULL),(32,40,5,NULL),(33,41,4,NULL),(34,41,5,NULL),(35,42,4,NULL),(36,42,5,NULL),(37,43,4,NULL),(38,43,5,NULL),(39,44,4,NULL),(40,44,5,NULL),(41,45,4,NULL),(42,45,5,NULL),(43,46,4,NULL),(44,46,5,NULL),(45,47,4,NULL),(46,47,5,NULL),(47,48,4,NULL),(48,48,5,NULL),(49,49,4,NULL),(50,49,5,NULL),(51,50,4,NULL),(52,50,5,NULL),(53,51,4,NULL),(54,51,5,NULL),(55,52,4,NULL),(56,52,5,NULL),(57,53,4,NULL),(58,53,5,NULL),(59,54,4,NULL),(60,54,5,NULL),(61,55,4,NULL),(62,55,5,NULL),(63,56,4,NULL),(64,56,5,NULL),(65,57,4,NULL),(66,57,5,NULL),(67,58,4,NULL),(68,58,5,NULL),(69,59,4,NULL),(70,59,5,NULL),(71,60,4,NULL),(72,60,5,NULL),(73,61,4,NULL),(74,61,5,NULL),(75,62,4,NULL),(76,62,5,NULL),(77,63,4,NULL),(78,63,5,NULL),(79,64,4,NULL),(80,64,5,NULL),(81,65,4,NULL),(82,65,5,NULL),(83,66,4,NULL),(84,66,5,NULL),(85,67,4,NULL),(86,67,5,NULL),(87,68,4,NULL),(88,68,5,NULL),(89,69,4,NULL),(90,69,5,NULL),(91,70,4,NULL),(92,70,5,NULL),(93,71,4,NULL),(94,71,5,NULL),(95,72,4,NULL),(96,72,5,NULL),(97,73,4,NULL),(98,73,5,NULL),(99,74,4,NULL),(100,74,5,NULL),(101,75,4,NULL),(102,75,5,NULL),(103,76,4,NULL),(104,76,5,NULL),(105,77,4,NULL),(106,77,5,NULL),(107,78,4,NULL),(108,78,5,NULL),(109,79,4,NULL),(110,79,5,NULL),(111,80,4,NULL),(112,80,5,NULL),(113,81,4,NULL),(114,81,5,NULL),(115,82,4,NULL),(116,82,5,NULL),(117,83,4,NULL),(118,83,5,NULL),(119,84,4,NULL),(120,84,5,NULL),(121,85,4,NULL),(122,85,5,NULL),(123,86,4,NULL),(124,86,5,NULL),(125,87,4,NULL),(126,87,5,NULL),(127,88,4,NULL),(128,88,5,NULL),(129,89,4,NULL),(130,89,5,NULL),(131,90,4,NULL),(132,90,5,NULL),(133,91,4,NULL),(134,91,5,NULL),(135,92,4,NULL),(136,92,5,NULL),(137,93,4,NULL),(138,93,5,NULL);
+/*!40000 ALTER TABLE `gabaritos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `imagensconteudos`
+--
+
+DROP TABLE IF EXISTS `imagensconteudos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `imagensconteudos` (
+  `pk_imagemconteudo` int(11) NOT NULL,
+  `nomeimagem` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fk_conteudo` int(11) NOT NULL,
+  PRIMARY KEY (`pk_imagemconteudo`),
+  KEY `fk_imagensconteudos_conteudos_idx` (`fk_conteudo`),
+  CONSTRAINT `fk_imagensconteudos_conteudos1` FOREIGN KEY (`fk_conteudo`) REFERENCES `conteudos` (`pk_conteudo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `imagensconteudos`
+--
+
+LOCK TABLES `imagensconteudos` WRITE;
+/*!40000 ALTER TABLE `imagensconteudos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `imagensconteudos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `locaisdeorigem`
+--
+
+DROP TABLE IF EXISTS `locaisdeorigem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `locaisdeorigem` (
+  `idlocaldeorigem` int(11) NOT NULL AUTO_INCREMENT,
+  `nomelocal` varchar(100) NOT NULL,
+  PRIMARY KEY (`idlocaldeorigem`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `locaisdeorigem`
+--
+
+LOCK TABLES `locaisdeorigem` WRITE;
+/*!40000 ALTER TABLE `locaisdeorigem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `locaisdeorigem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `perguntas`
+--
+
+DROP TABLE IF EXISTS `perguntas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `perguntas` (
+  `pk_pergunta` int(11) NOT NULL AUTO_INCREMENT,
+  `enunciado` text NOT NULL,
+  `temimagem` char(1) NOT NULL DEFAULT '0',
+  `fk_conteudo` int(11) NOT NULL,
+  PRIMARY KEY (`pk_pergunta`),
+  KEY `fk_conteudo_pergunta_idx` (`fk_conteudo`),
+  CONSTRAINT `fk_conteudo_pergunta` FOREIGN KEY (`fk_conteudo`) REFERENCES `conteudos` (`pk_conteudo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `perguntas`
+--
+
+LOCK TABLES `perguntas` WRITE;
+/*!40000 ALTER TABLE `perguntas` DISABLE KEYS */;
+INSERT INTO `perguntas` VALUES (4,'Qual das alternativas contém somente multiplos de 6','0',2),(5,'Qual das alternativas contém somente multiplos de 16','0',2);
+/*!40000 ALTER TABLE `perguntas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `quizes`
+--
+
+DROP TABLE IF EXISTS `quizes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `quizes` (
+  `pk_quiz` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_acessousuario` int(11) NOT NULL,
+  `iniciado` datetime NOT NULL DEFAULT current_timestamp(),
+  `finalizado` datetime NOT NULL,
+  PRIMARY KEY (`pk_quiz`),
+  KEY `fk_quiz_acessousuario1_idx` (`fk_acessousuario`),
+  CONSTRAINT `fk_quiz_acessousuario1` FOREIGN KEY (`fk_acessousuario`) REFERENCES `acessousuario` (`idacessousuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `quizes`
+--
+
+LOCK TABLES `quizes` WRITE;
+/*!40000 ALTER TABLE `quizes` DISABLE KEYS */;
+INSERT INTO `quizes` VALUES (1,5,'2026-07-14 09:10:20','0000-00-00 00:00:00'),(2,6,'2026-07-14 09:12:20','0000-00-00 00:00:00'),(3,7,'2026-07-14 09:12:22','0000-00-00 00:00:00'),(4,8,'2026-07-14 09:18:54','0000-00-00 00:00:00'),(5,9,'2026-07-14 09:29:17','0000-00-00 00:00:00'),(6,10,'2026-07-14 09:32:16','0000-00-00 00:00:00'),(7,11,'2026-07-14 09:35:34','0000-00-00 00:00:00'),(8,12,'2026-07-14 09:36:31','0000-00-00 00:00:00'),(9,13,'2026-07-14 09:38:31','0000-00-00 00:00:00'),(10,14,'2026-07-14 09:39:21','0000-00-00 00:00:00'),(11,15,'2026-07-14 09:39:23','0000-00-00 00:00:00'),(12,18,'2026-07-14 09:42:45','0000-00-00 00:00:00'),(13,19,'2026-07-14 09:43:02','0000-00-00 00:00:00'),(14,20,'2026-07-14 09:46:01','0000-00-00 00:00:00'),(15,21,'2026-07-14 09:46:49','0000-00-00 00:00:00'),(16,22,'2026-07-14 09:50:22','0000-00-00 00:00:00'),(17,23,'2026-07-14 09:51:39','0000-00-00 00:00:00'),(18,24,'2026-07-14 09:52:33','0000-00-00 00:00:00'),(19,25,'2026-07-14 09:53:04','0000-00-00 00:00:00'),(20,26,'2026-07-14 09:53:54','0000-00-00 00:00:00'),(21,27,'2026-07-14 09:54:46','0000-00-00 00:00:00'),(22,28,'2026-07-14 09:55:02','0000-00-00 00:00:00'),(23,29,'2026-07-14 09:55:57','0000-00-00 00:00:00'),(24,30,'2026-07-14 09:56:12','0000-00-00 00:00:00'),(25,31,'2026-07-14 09:58:38','0000-00-00 00:00:00'),(26,32,'2026-07-14 09:59:07','0000-00-00 00:00:00'),(27,33,'2026-07-14 09:59:28','0000-00-00 00:00:00'),(28,34,'2026-07-14 10:04:21','0000-00-00 00:00:00'),(29,35,'2026-07-14 10:05:42','0000-00-00 00:00:00'),(30,36,'2026-07-14 10:06:23','0000-00-00 00:00:00'),(31,37,'2026-07-14 10:06:26','0000-00-00 00:00:00'),(32,38,'2026-07-14 10:06:52','0000-00-00 00:00:00'),(33,39,'2026-07-14 10:07:25','0000-00-00 00:00:00'),(34,40,'2026-07-14 10:08:12','0000-00-00 00:00:00'),(35,41,'2026-07-14 10:08:29','0000-00-00 00:00:00'),(36,42,'2026-07-14 10:08:32','0000-00-00 00:00:00'),(37,43,'2026-07-14 10:09:54','0000-00-00 00:00:00'),(38,44,'2026-07-14 10:12:08','0000-00-00 00:00:00'),(39,45,'2026-07-14 10:13:22','0000-00-00 00:00:00'),(40,46,'2026-07-14 10:14:11','0000-00-00 00:00:00'),(41,47,'2026-07-14 10:14:31','0000-00-00 00:00:00'),(42,48,'2026-07-14 10:14:33','0000-00-00 00:00:00'),(43,49,'2026-07-14 10:14:41','0000-00-00 00:00:00'),(44,50,'2026-07-14 10:14:48','0000-00-00 00:00:00'),(45,51,'2026-07-14 10:17:32','0000-00-00 00:00:00'),(46,52,'2026-07-14 10:18:40','0000-00-00 00:00:00'),(47,53,'2026-07-14 10:19:39','0000-00-00 00:00:00'),(48,54,'2026-07-14 10:19:52','0000-00-00 00:00:00'),(49,55,'2026-07-14 10:20:14','0000-00-00 00:00:00'),(50,56,'2026-07-14 10:20:16','0000-00-00 00:00:00'),(51,57,'2026-07-14 10:21:12','0000-00-00 00:00:00'),(52,58,'2026-07-14 10:25:10','0000-00-00 00:00:00'),(53,59,'2026-07-14 10:25:30','0000-00-00 00:00:00'),(54,60,'2026-07-14 10:26:05','0000-00-00 00:00:00'),(55,61,'2026-07-14 10:26:42','0000-00-00 00:00:00'),(56,62,'2026-07-14 10:27:20','0000-00-00 00:00:00'),(57,63,'2026-07-14 10:27:46','0000-00-00 00:00:00'),(58,64,'2026-07-14 10:28:22','0000-00-00 00:00:00'),(59,65,'2026-07-14 10:29:02','0000-00-00 00:00:00'),(60,66,'2026-07-14 10:29:38','0000-00-00 00:00:00'),(61,67,'2026-07-14 10:33:30','0000-00-00 00:00:00'),(62,68,'2026-07-14 10:34:35','0000-00-00 00:00:00'),(63,69,'2026-07-14 10:34:49','0000-00-00 00:00:00'),(64,70,'2026-07-14 10:35:11','0000-00-00 00:00:00'),(65,71,'2026-07-14 10:35:43','0000-00-00 00:00:00'),(66,72,'2026-07-14 10:40:46','0000-00-00 00:00:00'),(67,73,'2026-07-14 10:41:16','0000-00-00 00:00:00'),(68,74,'2026-07-14 10:41:18','0000-00-00 00:00:00'),(69,75,'2026-07-14 10:41:30','0000-00-00 00:00:00'),(70,76,'2026-07-14 10:42:39','0000-00-00 00:00:00'),(71,77,'2026-07-14 10:44:17','0000-00-00 00:00:00'),(72,78,'2026-07-14 10:45:15','0000-00-00 00:00:00'),(73,79,'2026-07-14 10:45:56','0000-00-00 00:00:00'),(74,80,'2026-07-14 10:47:15','0000-00-00 00:00:00'),(75,81,'2026-07-14 10:48:27','0000-00-00 00:00:00'),(76,82,'2026-07-14 10:49:48','0000-00-00 00:00:00'),(77,83,'2026-07-14 10:53:53','0000-00-00 00:00:00'),(78,84,'2026-07-14 10:54:30','0000-00-00 00:00:00'),(79,85,'2026-07-14 10:54:59','0000-00-00 00:00:00'),(80,86,'2026-07-14 10:56:32','0000-00-00 00:00:00'),(81,87,'2026-07-14 16:40:24','0000-00-00 00:00:00'),(82,88,'2026-07-14 16:42:44','0000-00-00 00:00:00'),(83,89,'2026-07-14 16:42:47','0000-00-00 00:00:00'),(84,90,'2026-07-14 16:43:00','0000-00-00 00:00:00'),(85,91,'2026-07-14 16:48:40','0000-00-00 00:00:00'),(86,92,'2026-07-14 16:49:11','0000-00-00 00:00:00'),(87,93,'2026-07-14 16:50:01','0000-00-00 00:00:00'),(88,94,'2026-07-14 16:51:11','0000-00-00 00:00:00'),(89,95,'2026-07-14 16:52:53','0000-00-00 00:00:00'),(90,96,'2026-07-14 16:55:18','0000-00-00 00:00:00'),(91,97,'2026-07-14 16:55:49','0000-00-00 00:00:00'),(92,98,'2026-07-14 17:03:48','0000-00-00 00:00:00'),(93,99,'2026-07-15 15:05:55','0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `quizes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `respostas`
+--
+
+DROP TABLE IF EXISTS `respostas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `respostas` (
+  `pk_resposta` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_pergunta` int(11) NOT NULL,
+  `status_resposta` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'I = incorreta, C = correta',
+  `temimagem` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
+  `enunciado_resposta` varchar(1020) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`pk_resposta`),
+  KEY `fk_resp_perg_idx` (`fk_pergunta`),
+  CONSTRAINT `fk_resp_perg` FOREIGN KEY (`fk_pergunta`) REFERENCES `perguntas` (`pk_pergunta`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `respostas`
+--
+
+LOCK TABLES `respostas` WRITE;
+/*!40000 ALTER TABLE `respostas` DISABLE KEYS */;
+INSERT INTO `respostas` VALUES (11,4,'I','0','12, 25, 36, 48'),(12,4,'I','0','12, 18, 43, 48'),(13,4,'C','0','36, 48, 96, 24'),(14,4,'I','0','13, 25, 36, 48'),(15,4,'I','0','31, 23, 52, 48'),(16,5,'I','0',' 32, 64, 128, 255'),(17,5,'I','0',' 32, 64, 128, 255'),(18,5,'I','0',' 32, 128, 256, 510'),(19,5,'c','0',' 32, 64, 128, 256'),(20,5,'I','0',' 32, 65, 130, 260');
+/*!40000 ALTER TABLE `respostas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `senhasusuarios`
+--
+
+DROP TABLE IF EXISTS `senhasusuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `senhasusuarios` (
+  `pk_senhausuario` int(11) NOT NULL AUTO_INCREMENT,
+  `senhacripto` varchar(255) NOT NULL,
+  `fk_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`pk_senhausuario`),
+  KEY `fk_senhasusuarios_usuarios1_idx` (`fk_usuario`),
+  CONSTRAINT `fk_senhasusuarios_usuarios` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`pk_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `senhasusuarios`
+--
+
+LOCK TABLES `senhasusuarios` WRITE;
+/*!40000 ALTER TABLE `senhasusuarios` DISABLE KEYS */;
+INSERT INTO `senhasusuarios` VALUES (1,'8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414',9),(2,'c5aa6ccced8500f4e6fd5656aef8b4b9163cdb53b892321128304ef886b0c8ac',8);
+/*!40000 ALTER TABLE `senhasusuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `slugs`
+--
+
+DROP TABLE IF EXISTS `slugs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `slugs` (
+  `pk_slug` int(11) NOT NULL AUTO_INCREMENT,
+  `slug` varchar(510) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `controller` varchar(510) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`pk_slug`),
+  UNIQUE KEY `slug_UNIQUE` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `slugs`
+--
+
+LOCK TABLES `slugs` WRITE;
+/*!40000 ALTER TABLE `slugs` DISABLE KEYS */;
+INSERT INTO `slugs` VALUES (1,'','primeiroAcesso.php'),(2,'quarta-serie/matematica/geometria/exercicios','controller_exercicios.php'),(3,'exercicios-corrige','controller_form_exercicios.php'),(4,'login','LoginController.php'),(5,'cadastro','CadastroController.php'),(6,'quiz','QuizController.php'),(7,'erro_login','Error500Controller.php'),(8,'esqueci-senha','EsqueciSenhaController.php'),(9,'cadastro/usuario','CadastroUsuarioController.php'),(12,'quiz/resposta','RespostasController.php');
+/*!40000 ALTER TABLE `slugs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tiposplanos`
+--
+
+DROP TABLE IF EXISTS `tiposplanos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tiposplanos` (
+  `pk_tipoplano` int(11) NOT NULL AUTO_INCREMENT,
+  `plano` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '0-isento, 1-pago',
+  `statusplano` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '1',
+  `fk_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`pk_tipoplano`),
+  KEY `fk_tiposplanos_usuarios1_idx` (`fk_usuario`),
+  CONSTRAINT `fk_tiposplanos_usuarios` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`pk_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tiposplanos`
+--
+
+LOCK TABLES `tiposplanos` WRITE;
+/*!40000 ALTER TABLE `tiposplanos` DISABLE KEYS */;
+INSERT INTO `tiposplanos` VALUES (2,'O','1',8);
+/*!40000 ALTER TABLE `tiposplanos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuarios` (
+  `pk_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `numerowhatsapp` varchar(15) DEFAULT NULL,
+  `identificacao` varchar(255) NOT NULL,
+  `emailverificado` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `datacadastro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`pk_usuario`),
+  UNIQUE KEY `unq_emailusuario` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (8,'rafaelsouzac@gmail.com',NULL,'','0','2026-06-08 11:15:01'),(9,'rafael@gmail.com',NULL,'','0','2026-06-13 20:43:04');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'jogomanu'
+--
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_parametros_procedure` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_parametros_procedure`(IN `p_nome_procedure` VARCHAR(255))
+BEGIN
+	SELECT 
+		ORDINAL_POSITION AS posicao,
+		PARAMETER_NAME AS parametro,
+		DATA_TYPE AS tipo_dado,
+		CHARACTER_MAXIMUM_LENGTH AS tamanho
+	FROM 
+		information_schema.parameters
+	WHERE 
+		SPECIFIC_NAME = p_nome_procedure
+		AND ROUTINE_TYPE = 'PROCEDURE'
+	ORDER BY 
+		ORDINAL_POSITION;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_autentica_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_autentica_usuario`(IN `p_usuario` VARCHAR(255), 
+IN `p_senha` VARCHAR(255))
+BEGIN
+    
+SELECT pk_usuario FROM 
+	usuarios AS u
+	INNER JOIN 
+		senhasusuarios AS s
+    ON 
+		u.pk_usuario = s.fk_usuario
+    WHERE 
+		u.email = p_usuario
+    AND 
+		s.senhacripto = sha2(p_senha, 256);
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_busca_slug` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_busca_slug`(`p_slug` VARCHAR(510))
+BEGIN
+	select controller from slugs where slug = p_slug;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastar_gabarito` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastar_gabarito`(
+	IN p_fkquiz INT,
+    IN p_fkpergunta INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`gabaritos`
+	(
+	`fk_quiz`,
+	`fk_pergunta`)
+	VALUES
+	(
+	p_fkquiz,
+	p_fkpergunta
+	);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastar_imagem_conteudo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastar_imagem_conteudo`(
+	IN p_nomeimagem varchar(255),
+    IN p_fk_conteudo INT
+)
+BEGIN
+    DECLARE endereco_nome_imagem VARCHAR(255);
+	DECLARE endereco_imagem VARCHAR(255);
+    
+    SET endereco_imagem = '/view/assets/imgs/'; -- varchar(255)
+    
+	IF p_nomeimagem IS NOT NULL AND LENGTH(p_nomeimagem) > 0 THEN
+		
+        -- complemento do campo endereco_nome_imagem
+		SET endereco_nome_imagem = CONCAT(endereco_imagem, p_nomeimagem);
+		
+        INSERT INTO `jogomanu`.`imagensconteudos`
+			(
+			`nomeimagem`,
+			`fk_conteudo`)
+		VALUES
+			(
+			endereco_nome_imagem,
+			p_fk_conteudo);
+
+	END IF;
+	    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastrar_acessousuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastrar_acessousuario`(
+	IN p_fk_usuario INT,
+    IN p_idsessao VARCHAR(510)
+)
+BEGIN
+	DECLARE p_last_id INT;
+    
+    INSERT INTO `jogomanu`.`acessousuario`
+		( `fk_usuario`, `idsessao`)
+	VALUES
+		(p_fk_usuario, p_idsessao);
+	
+    SET p_last_id = last_insert_id();
+    
+    SELECT p_last_id as 'id_acesso';
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastrar_quiz` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastrar_quiz`(
+	IN pk_acesso_usuario INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`quizes`
+	(
+		`fk_acessousuario`
+	)
+	VALUES
+	(
+		pk_acesso_usuario
+	);
+    
+    Select last_insert_id() as 'pk_quiz';
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastrar_usuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastrar_usuario`(IN `p_email` VARCHAR(255), IN `p_senha_hash` VARCHAR(255))
+BEGIN
+	DECLARE var_idusuario INT DEFAULT 0;
+    -- 1. Insere o usuário
+    INSERT INTO `jogomanu`.`usuarios` (
+        `email`,
+        `datacadastro`
+    ) VALUES (
+        p_email,
+        CURRENT_TIMESTAMP()
+    );
+
+    SET var_idusuario = LAST_INSERT_ID();
+
+    -- 3. Insere senha (hash gerado pelo PHP com Argon2ID)
+    INSERT INTO `jogomanu`.`senhasusuarios` (
+        `senhacripto`,
+        `fk_idusuario`
+    ) VALUES (
+        sha2(p_senha_hash, 256),
+        var_idusuario
+    );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastro_conteudos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastro_conteudos`(
+    IN p_titulo_conteudo varchar(255),
+    IN p_texto_conteudo text,
+    IN p_temimagem char(1),
+    IN p_fk_serie INT,
+   OUT pk_gerada INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`conteudos`
+	(
+		`tituloconteudo`,
+		`textoconteudo`,
+        `temimagem`,
+		`fk_disciplina`
+	)
+	VALUES
+	(
+		p_titulo_conteudo,
+		p_texto_conteudo,
+        p_temimagem,
+		p_fk_serie
+    );
+    
+    SET @pk_gerada = last_insert_id();
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastro_disciplina` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastro_disciplina`(
+	IN p_nome_disciplina varchar(100),
+    IN p_serie char(2), -- 01...09 || 21..23
+    IN p_grau char(1),  -- F || M
+   OUT p_idgerado int
+)
+BEGIN
+	INSERT INTO `jogomanu`.`disciplinas`
+	(
+	`nomedisciplina`,
+	`serie`,
+	`grau`)
+	VALUES
+	(
+	p_nome_disciplina,
+	p_serie,
+	p_grau);
+    
+    SELECT last_insert_id() INTO p_idgerado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastro_pergunta_respostas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastro_pergunta_respostas`(
+    IN p_json_pergunta TEXT
+)
+BEGIN
+    -- Variáveis para controle do laço de repetição
+    DECLARE v_total_respostas INT DEFAULT 0;
+    DECLARE v_contador INT DEFAULT 0;
+    
+    -- Variáveis temporárias para cada resposta
+    DECLARE v_status_resposta CHAR(1);
+    DECLARE v_temimagem_res CHAR(1);
+    DECLARE v_enunciado_res VARCHAR(255);
+
+    -- 1. CORREÇÃO: Ajustado de p_json_perguntas para p_json_pergunta (conforme o parâmetro)
+    SET @enunciado = JSON_VALUE(p_json_pergunta, '$.enunciado');
+    SET @temimagem = JSON_VALUE(p_json_pergunta, '$.temimagem');
+    SET @fk_disciplina = CAST(JSON_VALUE(p_json_pergunta, '$.fk_disciplina') AS UNSIGNED);    
+	
+    -- 2. Insere a pergunta principal
+    INSERT INTO perguntas (enunciado, temimagem, fk_disciplina)
+    VALUES (@enunciado, @temimagem, @fk_disciplina);
+	
+    -- 3. Guarda o ID gerado para a pergunta
+    SET @pk_pergunta = LAST_INSERT_ID();
+    
+    -- 4. Descobre quantas respostas existem no array JSON
+    SET v_total_respostas = JSON_LENGTH(p_json_pergunta, '$.respostas');
+    
+    -- 5. Percorre o array e faz os inserts um por um de forma segura
+    WHILE v_contador < v_total_respostas DO
+        
+        -- Extrai dinamicamente os valores baseados na posição atual (v_contador)
+        SET v_status_resposta = JSON_VALUE(p_json_pergunta, CONCAT('$.respostas[', v_contador, '].status_resposta'));
+        SET v_temimagem_res   = JSON_VALUE(p_json_pergunta, CONCAT('$.respostas[', v_contador, '].temimagem'));
+        SET v_enunciado_res   = JSON_VALUE(p_json_pergunta, CONCAT('$.respostas[', v_contador, '].enunciado_resposta'));
+        
+        -- Insere a alternativa correspondente ligada ao ID da pergunta
+        INSERT INTO respostas (fk_pergunta, status_resposta, temimagem, enunciado_resposta)
+        VALUES (@pk_pergunta, v_status_resposta, v_temimagem_res, v_enunciado_res);
+        
+        -- Avança para a próxima alternativa
+        SET v_contador = v_contador + 1;
+    END WHILE;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_insere_slug_controller` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_insere_slug_controller`(`p_slug` VARCHAR(255), `p_controller` VARCHAR(255))
+BEGIN
+	INSERT INTO 
+		slugs(slug, controller) 
+	VALUES
+		(p_slug, p_controller);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_inserir_inicio_quiz` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_inserir_inicio_quiz`(
+	IN p_acesso_usuario INT,
+   OUT p_saida INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`quizes`
+	(
+		`fk_acessousuario`
+	)
+	VALUES
+	(
+		p_acesso_usuario
+	);
+    
+    SET p_saida = last_insert_id();
+    
+    Select p_saida as saida;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_inserir_pergunta` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_inserir_pergunta`(
+	IN p_enunciado varchar(510),
+    IN p_temimagem char(1),
+    IN p_fk_conteudo INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`perguntas`
+	(
+	`enunciado`,
+	`temimagem`,
+	`fk_conteudo`)
+	VALUES
+	(
+	p_enunciado,
+	p_temimagem,
+	p_fk_conteudo);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_selecionar_perguntas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_selecionar_perguntas`(IN p_pk_conteudo INT)
+BEGIN
+  select p.pk_pergunta as 'pk_pergunta', p.enunciado as 'enunciado' 
+  from perguntas p 
+  inner join conteudos c on
+  p.fk_conteudo = p_pk_conteudo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_selecionar_respostas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_selecionar_respostas`(
+	IN p_pk_pergunta INT
+)
+BEGIN
+	select pk_resposta, status_resposta, enunciado_resposta
+    from respostas where fk_pergunta = p_pk_pergunta;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_seleciona_disciplina_conteudo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_seleciona_disciplina_conteudo`()
+BEGIN
+	SELECT d.pk_disciplina, 
+	   d.nomedisciplina,
+	   c.tituloconteudo,
+	   d.grau, d.serie, 
+       c.pk_conteudo,
+       i.nomeimagem,
+       i.pk_imagemconteudo
+	FROM disciplinas d 
+    INNER JOIN conteudos c
+	ON d.pk_disciplina = c.fk_disciplina
+	left JOIN imagensconteudos i
+	ON c.pk_conteudo = i.fk_conteudo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-07-15 16:27:48
