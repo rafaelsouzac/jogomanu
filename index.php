@@ -1,4 +1,5 @@
 <?php
+
 // 1. O session_start DEVE vir antes de qualquer leitura ou escrita de $_SESSION
 if (session_status() === PHP_SESSION_NONE) {
     session_start([
@@ -27,7 +28,7 @@ if (!isset($_SESSION['inicio_sessao'])) {
     $_SESSION['inicio_sessao'] = date('Y-m-d H:i:s');
     $_SESSION['fim_sessao'] = null;
     $_SESSION['conteudo_selecionado'] = 2;  
-    $_SESSION['Pergunta_Atual'] = 0; // temporario mudar após página de seleção de conteudo estiver pronta  
+
 }
 
 define('BASE_PATH', __DIR__ . '/');

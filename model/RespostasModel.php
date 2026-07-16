@@ -14,23 +14,26 @@ class RespostasModel{
         $conexao = $obj_ligaBanco->ligado();
         $this->banco = $conexao;
     }
-    private function inserirResposta(int $pk_resposta, string $alternativa){
-        $sql = 'call usp_atualizar_gabarito(:pk_quiz, :pk_pergnta, :pk_resposta)';
+    private function inserirResposta(int $pk_quiz, int $pk_pergunta, int $pk_resposta){
+
+        $sql = 'call usp_atualizar_gabarito(:pk_quiz, :pk_pergunta, :pk_resposta)';
         $banco = $this->banco->prepare($sql);
 
         $banco->bindValue(
             'pk_quiz',
-            $_SESSION['x'],
+            $pk_quiz,
             PDO::PARAM_INT
         );
+        
         $banco->bindValue(
             ':pk_pergunta',
-            $_SESSION['x'],
+            $pk_pergunta,
             PDO::PARAM_INT
         );
+
         $banco->bindValue(
             ':pk_resposta',
-            $_SESSION['x'],
+            $pk_resposta,
             PDO::PARAM_INT
         );
 
@@ -61,6 +64,7 @@ class RespostasModel{
         $banco->closeCursor();
 
         $banco = null;
+        
         return $pk_respostas;
     }
 
@@ -69,6 +73,6 @@ class RespostasModel{
     }
 
     public function setResposta(int $pk_quiz, int $pk_pergunta, int $pk_resposta){
-        $this->inserirResposta($pk_quiz, $pk_pergunta, $pk_reposta);
+        $this->inserirResposta($pk_quiz, $pk_pergunta, $pk_resposta);
     }
 }

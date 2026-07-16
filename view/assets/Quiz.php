@@ -10,7 +10,7 @@
     <!-- Pergunta estilizada como H2 com a fonte League Spartan via CSS do tema -->
     <h2 class="pergunta-quiz" style="font-family: var(--fonte-titulo); font-size: 1.20rem; font-weight: 500; color: var(--cor-texto); margin: 1.5rem 0 1rem 0; line-height: 1.4;">
       <?php
-        echo($_SESSION['perguntas'][0]['enunciado']); ?>
+        echo($_SESSION['perguntas'][ $_SESSION['indice_pergunta']]['enunciado']); ?>
     </h2>
 
     <!-- Alertas do sistema (para feedback de acerto/erro/aviso se necessário) -->

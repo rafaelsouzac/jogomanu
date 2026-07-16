@@ -61,21 +61,18 @@ function BuscaResposta(int $pk_pergunta){
 //pega informações do formulario para ver quais perguntas selecionar
 // Trabalhar somente com $_Session();
 
-if($_SESSION['indice_pergunta'] !== 0){
-    
-    $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
+if(array_key_exists('indice_pergunta',$_SESSION)){
+    echo("Segunda pergunta");
     $_SESSION['indice_pergunta'] += 1;
+    $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
 
 }else{
-    
-    //inicio todo processo de geração do gabarito e primeira pergunta com resposta
+    echo("Primeira pergunta");
     $obj_quiz_controller = new QuizController(2);
     $_SESSION['indice_pergunta'] = 0;
     $_SESSION['numero_perguntas'] = count($_SESSION['perguntas']);
+    $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
 
-    $_SESSION['pk_Pergunta_Atual'] = $_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta'];
-    $_SESSION['respostas'] = BuscaResposta($_SESSION['pk_Pergunta_Atual']);
-    $_SESSION['indice_pergunta'] += 1;
 }
 
 $parteCentro = 'Quiz.php';
