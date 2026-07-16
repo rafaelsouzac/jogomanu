@@ -26,7 +26,7 @@
         foreach($_SESSION['respostas'] as $resposta){
       ?>
         <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-a" name="alternativa" value="<?php echo($resposta['status_resposta']); ?>" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
+          <input type="radio" id="alt-a" name="alternativa" value="<?php echo($resposta['pk_resposta']); ?>" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
           <label for="alt-a" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;"><?php echo($resposta['enunciado_resposta']); ?></label>
         </div>
       <?php 

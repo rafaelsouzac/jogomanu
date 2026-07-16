@@ -41,7 +41,9 @@ class QuizController{
     public function GerarGabarito(){
         
         $pk_quiz = $this->IniciarQuiz();
-
+        
+        $_SESSION['pk_quiz'] = $pk_quiz;
+        
         $obj_quiz_model = new GabaritoModel($pk_quiz, $this->pk_perguntas);
         
         $obj_quiz_model->CadastrarGabarito();
@@ -59,17 +61,21 @@ function BuscaResposta(int $pk_pergunta){
 //pega informações do formulario para ver quais perguntas selecionar
 // Trabalhar somente com $_Session();
 
-if($_SESSION['Pergunta_Atual'] !== 0){
+if($_SESSION['indice_pergunta'] !== 0){
     
-    $_SESSION['respostas'] = BuscaResposta($_SESSION['Pergunta_Atual']);
+    $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
+    $_SESSION['indice_pergunta'] += 1;
 
 }else{
     
     //inicio todo processo de geração do gabarito e primeira pergunta com resposta
     $obj_quiz_controller = new QuizController(2);
+    $_SESSION['indice_pergunta'] = 0;
+    $_SESSION['numero_perguntas'] = count($_SESSION['perguntas']);
 
-    $_SESSION['Pergunta_Atual'] = $_SESSION['perguntas'][0]['pk_pergunta'];
-    $_SESSION['respostas'] = BuscaResposta($_SESSION['Pergunta_Atual']);
+    $_SESSION['pk_Pergunta_Atual'] = $_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta'];
+    $_SESSION['respostas'] = BuscaResposta($_SESSION['pk_Pergunta_Atual']);
+    $_SESSION['indice_pergunta'] += 1;
 }
 
 $parteCentro = 'Quiz.php';
