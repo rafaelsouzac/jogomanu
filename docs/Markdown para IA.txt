@@ -1,0 +1,44 @@
+# Contexto
+Você atuará como Engenheiro de Software Sênior. Escreva a especificação técnica para o módulo de login do aplicativo bancário.
+
+# Regras de Negócio (`Business Rules`)
+- **Autenticação**: Entrada via CPF (11 dígitos) e senha numérica (6 dígitos).
+- **Segurança**: 
+  - Bloquear conta por `15 minutos` após `3 tentativas inválidas`.
+  - Token de recuperação via SMS para "Esqueci a Senha".
+
+# Entregáveis Solicitados
+1. **Histórias de Usuário** (Padrão: *Como um... Eu quero... Para...*)
+2. **Critérios de Aceitação** (Padrão Gherkin: *Dado que... Quando... Então...*)
+3. **Fluxo de Exceção** (Cenário de bloqueio por tentativas)
+
+Por que funciona melhor:
+# Títulos: Criam gavetas mentais na IA. Ela sabe exatamente o que é contexto, o que é regra e o que deve entregar.
+
+**Negritos**: Destacam os limites numéricos (15 minutos, 3 tentativas). A IA fixa esses parâmetros com prioridade alta.`
+
+Crase`: Isola termos técnicos ou variáveis do sistema (Business Rules), evitando que a IA os confunda com texto comum.
+
+1. Listas: Forçam a IA a responder na ordem exata solicitada, sem esquecer nenhum item.
+
+# Contexto
+Gere o script SQL (PostgreSQL) para o modelo de banco de dados e-commerce descrito abaixo.
+
+# Dicionário de Dados
+
+## Tabela: `usuarios`
+
+| Campo | Tipo | Restrição | Descrição |
+| :--- | :--- | :--- | :--- |
+| `id` | INT | **PK**, AUTO_INCREMENT | Identificador único do usuário |
+| `nome` | VARCHAR(100) | NOT NULL | Nome completo |
+| `email` | VARCHAR(100) | NOT NULL, UNIQUE | E-mail de login |
+
+## Tabela: `pedidos`
+
+| Campo | Tipo | Restrição | Descrição / Relacionamento |
+| :--- | :--- | :--- | :--- |
+| `id` | INT | **PK**, AUTO_INCREMENT | Identificador único do pedido |
+| `usuario_id` | INT | **FK** (referencia `usuarios.id`) | Cliente que realizou o pedido |
+| `data_pedido` | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP | Data e hora da compra |
+| `total` | DECIMAL(10,2) | NOT NULL | Valor total do pedido |

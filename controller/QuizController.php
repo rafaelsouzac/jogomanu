@@ -62,12 +62,10 @@ function BuscaResposta(int $pk_pergunta){
 // Trabalhar somente com $_Session();
 
 if(array_key_exists('indice_pergunta',$_SESSION)){
-    echo("Segunda pergunta");
     $_SESSION['indice_pergunta'] += 1;
     $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
 
 }else{
-    echo("Primeira pergunta");
     $obj_quiz_controller = new QuizController(2);
     $_SESSION['indice_pergunta'] = 0;
     $_SESSION['numero_perguntas'] = count($_SESSION['perguntas']);

@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Poppins:ital,wght@0,400;0,600;1,400&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="view/css/app.css">
-  <?php echo($css_sistema); ?>
+  <link rel="stylesheet" href="view/css/<?php echo($css_sistema);  ?>">
+
 </head>
 <body>
   <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>

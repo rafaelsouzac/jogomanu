@@ -1,0 +1,45 @@
+.tabela_resultado{
+    width:100%;
+}
+
+.tabela_resultado table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+    font-size:0.95rem;
+}
+
+/* Todas as células */
+.tabela_resultado th,
+.tabela_resultado td{
+    width:33.333%;
+    padding:6px 5px;
+    text-align:center;
+    vertical-align:middle;
+    border:1px solid #dcdcdc;
+    word-wrap:break-word;
+}
+
+/* Linha das estatísticas */
+.tabela_resultado .estatisticas th{
+    background:#f5f5f5;
+    font-size:1rem;
+    font-weight:600;
+    height:60px;
+}
+
+/* Linha do cabeçalho */
+.tabela_resultado .cabecalho th{
+    background:#1565C0;
+    color:#fff;
+    font-weight:600;
+}
+
+/* Linhas do corpo */
+.tabela_resultado tbody tr:nth-child(even){
+    background:#fafafa;
+}
+
+.tabela_resultado tbody tr:hover{
+    background:#f0f6ff;
+}
