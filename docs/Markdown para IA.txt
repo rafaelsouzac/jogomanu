@@ -36,9 +36,35 @@ Gere o script SQL (PostgreSQL) para o modelo de banco de dados e-commerce descri
 
 ## Tabela: `pedidos`
 
-| Campo | Tipo | Restrição | Descrição / Relacionamento |
-| :--- | :--- | :--- | :--- |
-| `id` | INT | **PK**, AUTO_INCREMENT | Identificador único do pedido |
+| Campo | Tipo | Restrição                            |    Descrição / Relacionamento |
+| :------- | :---- | :----------------------------- | :-------------------------------- |
+| `id`         | INT  | **PK**, AUTO_INCREMENT | Identificador único do pedido |
 | `usuario_id` | INT | **FK** (referencia `usuarios.id`) | Cliente que realizou o pedido |
 | `data_pedido` | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP | Data e hora da compra |
 | `total` | DECIMAL(10,2) | NOT NULL | Valor total do pedido |
+
+
+💻 Guia Prático: Engenharia de Contexto em Markdown para Desenvolvimento com IA
+1. Estruturação do Contexto e Uso do Markdown
+
+    Arquivo Único vs. Múltiplos Arquivos: Para uma tarefa específica, concentrar as instruções e dados em um único bloco/arquivo Markdown é a melhor opção. Isso evita a perda de hierarquia, reduz o risco da IA ignorar anexos e otimiza a leitura contínua.
+
+    Markdown como Padrão de Comunicação: É a melhor linguagem de formatação para interagir com a IA. Usar cabeçalhos (#, ##), listas (*, -) e blocos de código (```) cria uma separação visual clara entre instruções, regras de negócio e dados de teste (JSON, scripts, etc.).
+
+    Modularidade dos Arquivos .md: Mantenha em arquivos separados apenas as definições globais e estáticas do projeto — como o Design System (cores, tipografia, espaçamentos) ou Regras de Arquitetura. Esse tipo de arquivo é reutilizável e não muda a cada funcionalidade. Já os dados pontuais da tarefa devem ir direto no prompt.
+
+2. Gestão de Chats e Extrapolação de Memória
+
+    Um Chat por Módulo: Mantenha todas as etapas e regras de um mesmo módulo no mesmo chat (ex: no módulo de Login, as validações de senha correta, senha incorreta e recuperação de conta ficam na mesma conversa). A IA vai se lembrar de tudo o que gerou nos passos anteriores.
+
+    Transição entre Módulos: Ao concluir um módulo e iniciar outro completamente diferente (ex: passar de Login para Dashboard), abra um novo chat.
+
+    Técnica do Extrato de Contexto: Para dar continuidade ao projeto em um novo chat, passe apenas um resumo enxuto de 2 a 3 linhas do que o módulo anterior entrega (ex: "A sessão $_SESSION['user_id'] já é criada pelo módulo de login"), em vez de colar o código inteiro antigo. Isso economiza cota e evita que a IA fique confusa.
+
+3. Capacidade de Contexto e Limites do Gemini
+
+    Janela de Contexto: O plano gratuito web retém o contexto de conversas de médio porte (cerca de 1.500 a 2.000 linhas de código acumuladas). O Google AI Studio / API oferece uma janela gratuita ainda maior (até 1 milhão de tokens).
+
+    Consumo de Cota (Compute-based Limit): A cota do chat web renova em janelas rolantes a cada 5 horas. Mensagens longas e históricas pesados consomem a cota muito mais rápido.
+
+    Interpretação de Sintaxes Especiais: Tags como <FollowUp .../> não são linguagens como Java ou HTML tradicional, mas sim LMDX / JSX (extensões de sintaxe em XML/JS) utilizadas pelo sistema e front-end das plataformas para renderizar componentes interativos no chat.

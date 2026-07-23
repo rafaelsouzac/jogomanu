@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: jogomanu
 -- ------------------------------------------------------
--- Server version	10.4.28-MariaDB
+-- Server version	10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -40,7 +40,7 @@ CREATE TABLE `acessousuario` (
   `idsessao` varchar(510) NOT NULL,
   PRIMARY KEY (`idacessousuario`),
   KEY `fk_sessao_user_idx` (`fk_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +49,7 @@ CREATE TABLE `acessousuario` (
 
 LOCK TABLES `acessousuario` WRITE;
 /*!40000 ALTER TABLE `acessousuario` DISABLE KEYS */;
+INSERT INTO `acessousuario` VALUES (1,'2026-07-14 08:51:29',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(2,'2026-07-14 08:51:56',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(3,'2026-07-14 08:51:58',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(4,'2026-07-14 08:56:09',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(5,'2026-07-14 09:10:20',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(6,'2026-07-14 09:12:20',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(7,'2026-07-14 09:12:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(8,'2026-07-14 09:18:54',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(9,'2026-07-14 09:29:17',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(10,'2026-07-14 09:32:16',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(11,'2026-07-14 09:35:33',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(12,'2026-07-14 09:36:31',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(13,'2026-07-14 09:38:31',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(14,'2026-07-14 09:39:21',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(15,'2026-07-14 09:39:23',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(16,'2026-07-14 09:42:18',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(17,'2026-07-14 09:42:34',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(18,'2026-07-14 09:42:45',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(19,'2026-07-14 09:43:02',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(20,'2026-07-14 09:46:01',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(21,'2026-07-14 09:46:49',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(22,'2026-07-14 09:50:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(23,'2026-07-14 09:51:39',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(24,'2026-07-14 09:52:33',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(25,'2026-07-14 09:53:03',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(26,'2026-07-14 09:53:54',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(27,'2026-07-14 09:54:46',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(28,'2026-07-14 09:55:02',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(29,'2026-07-14 09:55:57',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(30,'2026-07-14 09:56:12',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(31,'2026-07-14 09:58:38',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(32,'2026-07-14 09:59:07',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(33,'2026-07-14 09:59:28',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(34,'2026-07-14 10:04:21',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(35,'2026-07-14 10:05:42',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(36,'2026-07-14 10:06:23',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(37,'2026-07-14 10:06:26',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(38,'2026-07-14 10:06:52',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(39,'2026-07-14 10:07:25',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(40,'2026-07-14 10:08:12',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(41,'2026-07-14 10:08:29',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(42,'2026-07-14 10:08:32',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(43,'2026-07-14 10:09:54',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(44,'2026-07-14 10:12:08',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(45,'2026-07-14 10:13:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(46,'2026-07-14 10:14:11',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(47,'2026-07-14 10:14:31',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(48,'2026-07-14 10:14:33',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(49,'2026-07-14 10:14:41',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(50,'2026-07-14 10:14:48',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(51,'2026-07-14 10:17:32',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(52,'2026-07-14 10:18:40',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(53,'2026-07-14 10:19:39',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(54,'2026-07-14 10:19:52',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(55,'2026-07-14 10:20:14',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(56,'2026-07-14 10:20:16',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(57,'2026-07-14 10:21:12',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(58,'2026-07-14 10:25:10',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(59,'2026-07-14 10:25:30',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(60,'2026-07-14 10:26:05',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(61,'2026-07-14 10:26:42',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(62,'2026-07-14 10:27:19',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(63,'2026-07-14 10:27:46',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(64,'2026-07-14 10:28:22',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(65,'2026-07-14 10:29:02',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(66,'2026-07-14 10:29:38',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(67,'2026-07-14 10:33:29',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(68,'2026-07-14 10:34:35',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(69,'2026-07-14 10:34:49',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(70,'2026-07-14 10:35:11',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(71,'2026-07-14 10:35:43',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(72,'2026-07-14 10:40:46',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(73,'2026-07-14 10:41:15',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(74,'2026-07-14 10:41:18',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(75,'2026-07-14 10:41:30',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(76,'2026-07-14 10:42:38',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(77,'2026-07-14 10:44:17',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(78,'2026-07-14 10:45:15',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(79,'2026-07-14 10:45:56',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(80,'2026-07-14 10:47:15',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(81,'2026-07-14 10:48:27',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(82,'2026-07-14 10:49:48',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(83,'2026-07-14 10:53:53',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(84,'2026-07-14 10:54:30',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(85,'2026-07-14 10:54:59',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(86,'2026-07-14 10:56:32',NULL,9,'tc8usk3j324aie3agccbn5h1eg'),(87,'2026-07-14 16:40:24',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(88,'2026-07-14 16:42:44',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(89,'2026-07-14 16:42:47',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(90,'2026-07-14 16:43:00',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(91,'2026-07-14 16:48:40',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(92,'2026-07-14 16:49:11',NULL,9,'i58rfkvcv8uu443khbn4cok7oh'),(93,'2026-07-14 16:50:01',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(94,'2026-07-14 16:51:11',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(95,'2026-07-14 16:52:53',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(96,'2026-07-14 16:55:18',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(97,'2026-07-14 16:55:49',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(98,'2026-07-14 17:03:48',NULL,9,'fferm6dt4lasserhhdp5sm35gq'),(99,'2026-07-15 15:05:55',NULL,9,'e0i7i77n5sov6rga2mcuol9abk'),(100,'2026-07-15 22:57:05',NULL,9,'vucpdd6s3nu1ggpgo921fk22or'),(101,'2026-07-16 09:13:46',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(102,'2026-07-16 09:29:55',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(103,'2026-07-16 09:38:33',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(104,'2026-07-16 09:45:07',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(105,'2026-07-16 09:45:17',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(106,'2026-07-16 09:45:53',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(107,'2026-07-16 09:46:10',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(108,'2026-07-16 09:46:17',NULL,9,'jodge356mrdnj5i0apn3a2op1s'),(109,'2026-07-16 10:20:44',NULL,9,'r8goaht3qe1tnr7g1me6fgn1iu'),(110,'2026-07-16 10:23:25',NULL,9,'bnt3ate77hou9uqr5qtkmai2q2'),(111,'2026-07-16 10:39:59',NULL,9,'rsq6o6kfqjru6hbkcpqda0mbtp'),(112,'2026-07-16 10:47:09',NULL,9,'o93oaddm7bonf8esf78re8hhg8'),(113,'2026-07-19 12:14:36',NULL,9,'6b98e4thg937l58c7hcr5a42lm'),(114,'2026-07-19 13:54:07',NULL,9,'eqanlkl9kkl9r7ecn01gfsotnr');
 /*!40000 ALTER TABLE `acessousuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,15 +149,15 @@ CREATE TABLE `gabaritos` (
   `pk_gabarito` int(11) NOT NULL AUTO_INCREMENT,
   `fk_quiz` int(11) NOT NULL,
   `fk_pergunta` int(11) NOT NULL,
-  `fk_respota` int(11) NOT NULL,
+  `fk_resposta` int(11) DEFAULT NULL,
   PRIMARY KEY (`pk_gabarito`),
   KEY `fk_gabaritos_quiz1_idx` (`fk_quiz`),
   KEY `fk_gabaritos_perguntas1_idx` (`fk_pergunta`),
-  KEY `fk_gabarito_resposta_idx` (`fk_respota`),
-  CONSTRAINT `fk_gabarito_resposta` FOREIGN KEY (`fk_respota`) REFERENCES `respostas` (`pk_resposta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  KEY `fk_gabarito_resposta_idx` (`fk_resposta`),
+  CONSTRAINT `fk_gabarito_resposta` FOREIGN KEY (`fk_resposta`) REFERENCES `respostas` (`pk_resposta`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_gabaritos_perguntas1` FOREIGN KEY (`fk_pergunta`) REFERENCES `perguntas` (`pk_pergunta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_gabaritos_quiz1` FOREIGN KEY (`fk_quiz`) REFERENCES `quizes` (`pk_quiz`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,6 +166,7 @@ CREATE TABLE `gabaritos` (
 
 LOCK TABLES `gabaritos` WRITE;
 /*!40000 ALTER TABLE `gabaritos` DISABLE KEYS */;
+INSERT INTO `gabaritos` VALUES (157,103,4,13),(158,103,5,13),(159,104,4,NULL),(160,104,5,NULL),(161,105,4,NULL),(162,105,5,19),(163,106,4,13),(164,106,5,19),(165,107,4,13),(166,107,5,19),(167,108,4,NULL),(168,108,5,19);
 /*!40000 ALTER TABLE `gabaritos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,7 +262,7 @@ CREATE TABLE `quizes` (
   PRIMARY KEY (`pk_quiz`),
   KEY `fk_quiz_acessousuario1_idx` (`fk_acessousuario`),
   CONSTRAINT `fk_quiz_acessousuario1` FOREIGN KEY (`fk_acessousuario`) REFERENCES `acessousuario` (`idacessousuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -269,6 +271,7 @@ CREATE TABLE `quizes` (
 
 LOCK TABLES `quizes` WRITE;
 /*!40000 ALTER TABLE `quizes` DISABLE KEYS */;
+INSERT INTO `quizes` VALUES (1,5,'2026-07-14 09:10:20','0000-00-00 00:00:00'),(2,6,'2026-07-14 09:12:20','0000-00-00 00:00:00'),(3,7,'2026-07-14 09:12:22','0000-00-00 00:00:00'),(4,8,'2026-07-14 09:18:54','0000-00-00 00:00:00'),(5,9,'2026-07-14 09:29:17','0000-00-00 00:00:00'),(6,10,'2026-07-14 09:32:16','0000-00-00 00:00:00'),(7,11,'2026-07-14 09:35:34','0000-00-00 00:00:00'),(8,12,'2026-07-14 09:36:31','0000-00-00 00:00:00'),(9,13,'2026-07-14 09:38:31','0000-00-00 00:00:00'),(10,14,'2026-07-14 09:39:21','0000-00-00 00:00:00'),(11,15,'2026-07-14 09:39:23','0000-00-00 00:00:00'),(12,18,'2026-07-14 09:42:45','0000-00-00 00:00:00'),(13,19,'2026-07-14 09:43:02','0000-00-00 00:00:00'),(14,20,'2026-07-14 09:46:01','0000-00-00 00:00:00'),(15,21,'2026-07-14 09:46:49','0000-00-00 00:00:00'),(16,22,'2026-07-14 09:50:22','0000-00-00 00:00:00'),(17,23,'2026-07-14 09:51:39','0000-00-00 00:00:00'),(18,24,'2026-07-14 09:52:33','0000-00-00 00:00:00'),(19,25,'2026-07-14 09:53:04','0000-00-00 00:00:00'),(20,26,'2026-07-14 09:53:54','0000-00-00 00:00:00'),(21,27,'2026-07-14 09:54:46','0000-00-00 00:00:00'),(22,28,'2026-07-14 09:55:02','0000-00-00 00:00:00'),(23,29,'2026-07-14 09:55:57','0000-00-00 00:00:00'),(24,30,'2026-07-14 09:56:12','0000-00-00 00:00:00'),(25,31,'2026-07-14 09:58:38','0000-00-00 00:00:00'),(26,32,'2026-07-14 09:59:07','0000-00-00 00:00:00'),(27,33,'2026-07-14 09:59:28','0000-00-00 00:00:00'),(28,34,'2026-07-14 10:04:21','0000-00-00 00:00:00'),(29,35,'2026-07-14 10:05:42','0000-00-00 00:00:00'),(30,36,'2026-07-14 10:06:23','0000-00-00 00:00:00'),(31,37,'2026-07-14 10:06:26','0000-00-00 00:00:00'),(32,38,'2026-07-14 10:06:52','0000-00-00 00:00:00'),(33,39,'2026-07-14 10:07:25','0000-00-00 00:00:00'),(34,40,'2026-07-14 10:08:12','0000-00-00 00:00:00'),(35,41,'2026-07-14 10:08:29','0000-00-00 00:00:00'),(36,42,'2026-07-14 10:08:32','0000-00-00 00:00:00'),(37,43,'2026-07-14 10:09:54','0000-00-00 00:00:00'),(38,44,'2026-07-14 10:12:08','0000-00-00 00:00:00'),(39,45,'2026-07-14 10:13:22','0000-00-00 00:00:00'),(40,46,'2026-07-14 10:14:11','0000-00-00 00:00:00'),(41,47,'2026-07-14 10:14:31','0000-00-00 00:00:00'),(42,48,'2026-07-14 10:14:33','0000-00-00 00:00:00'),(43,49,'2026-07-14 10:14:41','0000-00-00 00:00:00'),(44,50,'2026-07-14 10:14:48','0000-00-00 00:00:00'),(45,51,'2026-07-14 10:17:32','0000-00-00 00:00:00'),(46,52,'2026-07-14 10:18:40','0000-00-00 00:00:00'),(47,53,'2026-07-14 10:19:39','0000-00-00 00:00:00'),(48,54,'2026-07-14 10:19:52','0000-00-00 00:00:00'),(49,55,'2026-07-14 10:20:14','0000-00-00 00:00:00'),(50,56,'2026-07-14 10:20:16','0000-00-00 00:00:00'),(51,57,'2026-07-14 10:21:12','0000-00-00 00:00:00'),(52,58,'2026-07-14 10:25:10','0000-00-00 00:00:00'),(53,59,'2026-07-14 10:25:30','0000-00-00 00:00:00'),(54,60,'2026-07-14 10:26:05','0000-00-00 00:00:00'),(55,61,'2026-07-14 10:26:42','0000-00-00 00:00:00'),(56,62,'2026-07-14 10:27:20','0000-00-00 00:00:00'),(57,63,'2026-07-14 10:27:46','0000-00-00 00:00:00'),(58,64,'2026-07-14 10:28:22','0000-00-00 00:00:00'),(59,65,'2026-07-14 10:29:02','0000-00-00 00:00:00'),(60,66,'2026-07-14 10:29:38','0000-00-00 00:00:00'),(61,67,'2026-07-14 10:33:30','0000-00-00 00:00:00'),(62,68,'2026-07-14 10:34:35','0000-00-00 00:00:00'),(63,69,'2026-07-14 10:34:49','0000-00-00 00:00:00'),(64,70,'2026-07-14 10:35:11','0000-00-00 00:00:00'),(65,71,'2026-07-14 10:35:43','0000-00-00 00:00:00'),(66,72,'2026-07-14 10:40:46','0000-00-00 00:00:00'),(67,73,'2026-07-14 10:41:16','0000-00-00 00:00:00'),(68,74,'2026-07-14 10:41:18','0000-00-00 00:00:00'),(69,75,'2026-07-14 10:41:30','0000-00-00 00:00:00'),(70,76,'2026-07-14 10:42:39','0000-00-00 00:00:00'),(71,77,'2026-07-14 10:44:17','0000-00-00 00:00:00'),(72,78,'2026-07-14 10:45:15','0000-00-00 00:00:00'),(73,79,'2026-07-14 10:45:56','0000-00-00 00:00:00'),(74,80,'2026-07-14 10:47:15','0000-00-00 00:00:00'),(75,81,'2026-07-14 10:48:27','0000-00-00 00:00:00'),(76,82,'2026-07-14 10:49:48','0000-00-00 00:00:00'),(77,83,'2026-07-14 10:53:53','0000-00-00 00:00:00'),(78,84,'2026-07-14 10:54:30','0000-00-00 00:00:00'),(79,85,'2026-07-14 10:54:59','0000-00-00 00:00:00'),(80,86,'2026-07-14 10:56:32','0000-00-00 00:00:00'),(81,87,'2026-07-14 16:40:24','0000-00-00 00:00:00'),(82,88,'2026-07-14 16:42:44','0000-00-00 00:00:00'),(83,89,'2026-07-14 16:42:47','0000-00-00 00:00:00'),(84,90,'2026-07-14 16:43:00','0000-00-00 00:00:00'),(85,91,'2026-07-14 16:48:40','0000-00-00 00:00:00'),(86,92,'2026-07-14 16:49:11','0000-00-00 00:00:00'),(87,93,'2026-07-14 16:50:01','0000-00-00 00:00:00'),(88,94,'2026-07-14 16:51:11','0000-00-00 00:00:00'),(89,95,'2026-07-14 16:52:53','0000-00-00 00:00:00'),(90,96,'2026-07-14 16:55:18','0000-00-00 00:00:00'),(91,97,'2026-07-14 16:55:49','0000-00-00 00:00:00'),(92,98,'2026-07-14 17:03:48','0000-00-00 00:00:00'),(93,99,'2026-07-15 15:05:55','0000-00-00 00:00:00'),(94,100,'2026-07-15 22:57:05','0000-00-00 00:00:00'),(95,101,'2026-07-16 09:13:46','0000-00-00 00:00:00'),(96,102,'2026-07-16 09:29:55','0000-00-00 00:00:00'),(97,103,'2026-07-16 09:38:34','0000-00-00 00:00:00'),(98,104,'2026-07-16 09:45:07','0000-00-00 00:00:00'),(99,105,'2026-07-16 09:45:17','0000-00-00 00:00:00'),(100,106,'2026-07-16 09:45:53','0000-00-00 00:00:00'),(101,107,'2026-07-16 09:46:11','0000-00-00 00:00:00'),(102,108,'2026-07-16 09:46:17','0000-00-00 00:00:00'),(103,109,'2026-07-16 10:20:44','0000-00-00 00:00:00'),(104,110,'2026-07-16 10:23:25','0000-00-00 00:00:00'),(105,111,'2026-07-16 10:40:00','0000-00-00 00:00:00'),(106,112,'2026-07-16 10:47:09','0000-00-00 00:00:00'),(107,113,'2026-07-19 12:14:36','0000-00-00 00:00:00'),(108,114,'2026-07-19 13:54:07','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `quizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +291,7 @@ CREATE TABLE `respostas` (
   PRIMARY KEY (`pk_resposta`),
   KEY `fk_resp_perg_idx` (`fk_pergunta`),
   CONSTRAINT `fk_resp_perg` FOREIGN KEY (`fk_pergunta`) REFERENCES `perguntas` (`pk_pergunta`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -297,7 +300,7 @@ CREATE TABLE `respostas` (
 
 LOCK TABLES `respostas` WRITE;
 /*!40000 ALTER TABLE `respostas` DISABLE KEYS */;
-INSERT INTO `respostas` VALUES (11,4,'I','0','12, 25, 36, 48'),(12,4,'I','0','12, 18, 43, 48'),(13,4,'C','0','36, 48, 96, 24'),(14,4,'I','0','13, 25, 36, 48'),(15,4,'I','0','31, 23, 52, 48');
+INSERT INTO `respostas` VALUES (11,4,'I','0','12, 25, 36, 48'),(12,4,'I','0','12, 18, 43, 48'),(13,4,'C','0','36, 48, 96, 24'),(14,4,'I','0','13, 25, 36, 48'),(15,4,'I','0','31, 23, 52, 48'),(16,5,'I','0',' 32, 64, 128, 255'),(17,5,'I','0',' 32, 64, 128, 255'),(18,5,'I','0',' 32, 128, 256, 510'),(19,5,'c','0',' 32, 64, 128, 256'),(20,5,'I','0',' 32, 65, 130, 260');
 /*!40000 ALTER TABLE `respostas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -341,7 +344,7 @@ CREATE TABLE `slugs` (
   `controller` varchar(510) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`pk_slug`),
   UNIQUE KEY `slug_UNIQUE` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -350,7 +353,7 @@ CREATE TABLE `slugs` (
 
 LOCK TABLES `slugs` WRITE;
 /*!40000 ALTER TABLE `slugs` DISABLE KEYS */;
-INSERT INTO `slugs` VALUES (1,'','primeiroAcesso.php'),(2,'quarta-serie/matematica/geometria/exercicios','controller_exercicios.php'),(3,'exercicios-corrige','controller_form_exercicios.php'),(4,'login','LoginController.php'),(5,'cadastro','CadastroController.php'),(6,'quiz','QuizController.php'),(7,'erro_login','Error500Controller.php'),(8,'esqueci-senha','EsqueciSenhaController.php'),(9,'cadastro/usuario','CadastroUsuarioController.php');
+INSERT INTO `slugs` VALUES (1,'','primeiroAcesso.php'),(2,'quarta-serie/matematica/geometria/exercicios','controller_exercicios.php'),(3,'exercicios-corrige','controller_form_exercicios.php'),(4,'login','LoginController.php'),(5,'cadastro','CadastroController.php'),(6,'quiz','QuizController.php'),(7,'erro_login','Error500Controller.php'),(8,'esqueci-senha','EsqueciSenhaController.php'),(9,'cadastro/usuario','CadastroUsuarioController.php'),(12,'quiz/resposta','RespostasController.php'),(13,'statistica','EstatisticaController.php');
 /*!40000 ALTER TABLE `slugs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -438,6 +441,32 @@ BEGIN
 		AND ROUTINE_TYPE = 'PROCEDURE'
 	ORDER BY 
 		ORDINAL_POSITION;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_atualizar_gabarito` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_atualizar_gabarito`(
+	IN p_fk_quiz INT,
+    IN p_fk_pergunta INT,
+    IN p_fk_resposta INT
+)
+BEGIN
+	UPDATE `jogomanu`.`gabaritos`
+	SET
+	`fk_resposta` = p_fk_resposta
+	WHERE `fk_quiz` = p_fk_quiz AND `fk_pergunta` = p_fk_pergunta;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -578,11 +607,11 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastrar_acessousuario`(
 	IN p_fk_usuario INT,
-    IN p_idsessao VARCHAR(510),
-   OUT p_last_id INT
+    IN p_idsessao VARCHAR(510)
 )
 BEGIN
-	
+	DECLARE p_last_id INT;
+    
     INSERT INTO `jogomanu`.`acessousuario`
 		( `fk_usuario`, `idsessao`)
 	VALUES
@@ -590,8 +619,39 @@ BEGIN
 	
     SET p_last_id = last_insert_id();
     
-    SELECT p_last_id;
+    SELECT p_last_id as 'id_acesso';
     
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usp_cadastrar_quiz` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_cadastrar_quiz`(
+	IN pk_acesso_usuario INT
+)
+BEGIN
+	INSERT INTO `jogomanu`.`quizes`
+	(
+		`fk_acessousuario`
+	)
+	VALUES
+	(
+		pk_acesso_usuario
+	);
+    
+    Select last_insert_id() as 'pk_quiz';
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -871,7 +931,8 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_selecionar_perguntas`(IN p_pk_conteudo INT)
 BEGIN
-  select p.pk_pergunta from perguntas p 
+  select p.pk_pergunta as 'pk_pergunta', p.enunciado as 'enunciado' 
+  from perguntas p 
   inner join conteudos c on
   p.fk_conteudo = p_pk_conteudo;
 END ;;
@@ -942,4 +1003,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-11 16:50:27
+-- Dump completed on 2026-07-22 23:26:26
