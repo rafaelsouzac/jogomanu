@@ -12,9 +12,9 @@
       <table>
         <thead>
           <tr class="estatisticas">
-            <th>Acertos: <strong>10</strong></th>
-            <th>Erros: <strong>0</strong></th>
-            <th>Score: <strong>100%</strong></th>
+            <th>Acertos: <strong><?php echo($info_cabecalho['total_de_acertos']);?></strong></th>
+            <th>Erros: <strong><?php echo($info_cabecalho['total_de_erros']);?></strong></th>
+            <th>Score: <strong><?php echo(number_format($info_cabecalho['porcentagem_de_acertos'], 0,',', '.')."%");?></strong></th>
           </tr>
           <tr class="cabecalho">
             <th>Questão</th>

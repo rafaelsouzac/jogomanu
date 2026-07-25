@@ -14,10 +14,15 @@ class EstatisticaModel{
         $this->banco = $this->conexao->ligado();
     }
 
-    private function estatisticaCabecalho(int $quiz){
+    private function estatisticasQuiz(int $quiz, bool $query = true){
         
-        $sql = "call usp_selecionar_cabecalho_estatistica(:quiz)";
-
+        if($query){
+            $sql = "call usp_selecionar_cabecalho_estatistica(:quiz)";    
+        }
+        else{
+            $sql = "call usp_selecionar_correcao_quiz(:quiz)";
+        }
+        
         $stmt = $this->banco->prepare($sql);
 
         $stmt->bindValue(
@@ -33,9 +38,9 @@ class EstatisticaModel{
         return $retorno;
     }
 
-    public function get_estatistica_cabecalho(int $quiz){
+    public function get_estatistica_cabecalho(int $quiz, bool $query = true){
         
-        return $this->estatisticaCabecalho($quiz);
+        return $this->estatisticasQuiz($quiz, $query);
     
     }
 }
