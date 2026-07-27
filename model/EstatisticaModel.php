@@ -14,10 +14,10 @@ class EstatisticaModel{
         $this->banco = $this->conexao->ligado();
     }
 
-    private function estatisticasQuiz(int $quiz, bool $query = true){
+    private function estatisticasQuiz(int $quiz, bool $query = false){
         
         if($query){
-            $sql = "call usp_selecionar_cabecalho_estatistica(:quiz)";    
+            $sql = "call usp_selecionar_cabecalho_estatistica(:quiz)";   
         }
         else{
             $sql = "call usp_selecionar_correcao_quiz(:quiz)";
@@ -33,7 +33,7 @@ class EstatisticaModel{
 
         $stmt->execute();
 
-        $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+        $retorno = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $retorno;
     }

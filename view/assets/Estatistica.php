@@ -12,9 +12,9 @@
       <table>
         <thead>
           <tr class="estatisticas">
-            <th>Acertos: <strong><?php echo($info_cabecalho['total_de_acertos']);?></strong></th>
-            <th>Erros: <strong><?php echo($info_cabecalho['total_de_erros']);?></strong></th>
-            <th>Score: <strong><?php echo(number_format($info_cabecalho['porcentagem_de_acertos'], 0,',', '.')."%");?></strong></th>
+            <th>Acertos: <strong><?php echo($info_cabecalho[0]['total_de_acertos']);?></strong></th>
+            <th>Erros: <strong><?php echo($info_cabecalho[0]['total_de_erros']);?></strong></th>
+            <th>Score: <strong><?php echo(number_format($info_cabecalho[0]['porcentagem_de_acertos'], 0,',', '.')."%");?></strong></th>
           </tr>
           <tr class="cabecalho">
             <th>Questão</th>
@@ -23,21 +23,15 @@
           </tr>
         </thead>
         <tbody>
+          <?php foreach( $info_respostas as $linha ) { 
+          ?>
           <tr>
-            <td>Exemplo de Questão #1</td>
-            <td>Alternativa A</td>
-            <td>Alternativa B</td>
+            <td><?php echo("".$linha['enunciado'].""); ?></td>
+            <td><?php echo("".$linha['sua_resposta'].""); ?></td>
+            <td><?php echo("".$linha['CORRECAO'].""); ?></td>
           </tr>
-          <tr>
-            <td>Exemplo de Questão #2</td>
-            <td>Alternativa C</td>
-            <td>Alternativa C</td>
-          </tr>
-          <tr>
-            <td>Exemplo de Questão #3</td>
-            <td>Alternativa D</td>
-            <td>Alternativa D</td>
-          </tr>
+          <?php 
+          } ?>
         </tbody>
       </table>
     </div>
