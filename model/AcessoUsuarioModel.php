@@ -51,4 +51,22 @@ class AcessoUsuario{
         
         return $this->acessoUsuario($this->fk_usuario, $this->pk_sessao);
     }
+
+    public function FinalizarAcessoUsuario(){
+        $sql = 'call usp_finalizar_acesso_usuario(:fk_usuario)';
+
+        $stmt = $this->banco->prepare($sql);
+
+        $stmt->bindValue(
+            ':fk_usuario',
+            $_SESSION['usuario'],
+            PDO::PARAM_INT
+        );
+
+        $stmt->execute();
+
+        $stmt->closeCursor();
+
+        $this->conexao->desligado();
+    }
 }

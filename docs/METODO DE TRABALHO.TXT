@@ -140,3 +140,6 @@ em sequencia quando o desenvolvimento for complexo.
     BPMN e UML para comparar qual o mais eficiente levando-se em conta
     meu grau de conhecimento do assunto. É uma boa pratica para aplicar
     a teoria.
+
+***) Utilizar markdown para contexto de solicitação com IA.
+
