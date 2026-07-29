@@ -14,7 +14,7 @@ class FinalizarQuizModel{
         $this->conexao = $obj_banco->ligado();
     }
 
-    private function AtualizarQuizes(){
+    public function FinalizarQuiz(){
 
         $this->sql = 'call usp_atualizar_quizes(:acesso_usuario)';
 

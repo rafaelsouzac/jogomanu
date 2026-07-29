@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if($retornoLogin > 0){       
         $_SESSION['usuario'] = $retornoLogin;
-        header("Location:/jogomanu/quiz");
+        header("Location:/jogomanu/selecionamateria");
     }else{
         header("Location:/jogomanu/erro_login");
     }

@@ -67,9 +67,10 @@ function BuscaResposta(int $pk_pergunta){
 // Trabalhar somente com $_Session();
 
 if(array_key_exists('indice_pergunta',$_SESSION)){
-    $_SESSION['indice_pergunta'] += 1;
-    $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
-
+    if($_SESSION['indice_pergunta'] < array_key_last($_SESSION['perguntas'])){
+        $_SESSION['indice_pergunta'] += 1;
+        $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
+    }
 }else{
     $obj_quiz_controller = new QuizController(2);
     $_SESSION['indice_pergunta'] = 0;
