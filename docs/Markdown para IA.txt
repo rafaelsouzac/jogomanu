@@ -68,3 +68,38 @@ Gere o script SQL (PostgreSQL) para o modelo de banco de dados e-commerce descri
     Consumo de Cota (Compute-based Limit): A cota do chat web renova em janelas rolantes a cada 5 horas. Mensagens longas e históricas pesados consomem a cota muito mais rápido.
 
     Interpretação de Sintaxes Especiais: Tags como <FollowUp .../> não são linguagens como Java ou HTML tradicional, mas sim LMDX / JSX (extensões de sintaxe em XML/JS) utilizadas pelo sistema e front-end das plataformas para renderizar componentes interativos no chat.
+=================================================================================================================================================================================================================================================================================================
+
+Lovable
+
+## Objetivo
+Crie uma classe em **Python** chamada `OrderReportRepository` que gere um relatório de pedidos com dados do cliente usando um **JOIN SQL**.
+
+## Contexto
+- Tabela `orders`: `id`, `customer_id`, `total`, `created_at`
+- Tabela `customers`: `id`, `name`, `email`
+- A classe deve ser usada em um sistema de relatórios e retornar dados já serializados.
+
+## Requisitos
+1. Use `LEFT JOIN` entre `orders` e `customers` para preservar pedidos sem cliente.
+2. Filtre pedidos com `created_at >= :start_date`.
+3. Ordene por `created_at DESC`.
+4. A classe deve aceitar uma conexão com o banco via construtor.
+5. Método principal: `get_orders(start_date: str) -> list[dict]`.
+6. Retorne cada registro como dicionário com as chaves:
+   - `order_id`
+   - `customer_name`
+   - `customer_email`
+   - `total`
+   - `created_at`
+
+## Restrições
+- Use SQL puro (sem ORM).
+- Não use f-strings na query; use parâmetros nomeados.
+- Trate exceções de banco de dados levantando `OrderReportError`.
+
+## Exemplo esperado
+Entrada:
+```python
+repo = OrderReportRepository(connection=db_conn)
+result = repo.get_orders(start_date="2024-01-01")

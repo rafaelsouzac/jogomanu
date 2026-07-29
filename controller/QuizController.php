@@ -33,9 +33,13 @@ class QuizController{
     }
 
     public function IniciarQuiz(){
+        
         $obj_quiz = new QuizModel();
+        
         $this->pk_quiz = $obj_quiz->CadastrarQuiz($this->fk_acesso_usuario);
+        
         return $this->pk_quiz;
+    
     }
 
     public function GerarGabarito(){
@@ -50,6 +54,7 @@ class QuizController{
 
         $obj_quiz_model = null;
     }
+
 
 }
 
