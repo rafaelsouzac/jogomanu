@@ -1,4 +1,5 @@
 @echo off
+
 :: 1. Configurações do Banco de Dados
 set DB_USER=root
 set DB_PASS=
