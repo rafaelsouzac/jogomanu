@@ -27,7 +27,7 @@ if (!isset($_SESSION['inicio_sessao'])) {
     $_SESSION['usuario'] = '';
     $_SESSION['inicio_sessao'] = date('Y-m-d H:i:s');
     $_SESSION['fim_sessao'] = null;
-    $_SESSION['conteudo_selecionado'] = 2;  
+    $_SESSION['conteudo_selecionado'] = null;  
 
 }
 

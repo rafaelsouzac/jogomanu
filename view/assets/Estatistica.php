@@ -36,7 +36,7 @@
       </table>
     </div>
     <div class="links-rodape">
-            <a href="selecionarconteudo">Novo Quiz</a>
+            <a href="selecionarmateria">Novo Quiz</a>
             &nbsp;·&nbsp;
             <a href="finalizaquiz">Finalizar</a>
      </div>

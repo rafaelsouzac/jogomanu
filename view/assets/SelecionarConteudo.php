@@ -9,9 +9,10 @@
     <!-- Alertas do sistema -->
     <div id="alerta-sistema" class="alerta" role="alert" aria-live="assertive"></div>
 
-    <form action="SelecionarConteudoController.php" method="POST" id="form-conteudo" novalidate aria-label="Formulário de seleção de conteúdo">
+    <form action="selecionarmateria" method="POST" id="form-conteudo" novalidate aria-label="Formulário de seleção de conteúdo">
       
       <!-- Disciplina -->
+       <?php if($view_disciplina){ ?>
       <div class="mb-3">
         <label for="disciplina">Disciplina</label>
         <select 
@@ -23,7 +24,7 @@
           aria-describedby="disciplina-erro"
         >
           <option value="">
-            Selecione a Matéria
+            Selecione a Primeiro a Disciplina
           </option>
 
         <?php foreach($disciplina as $linha) { ?>
@@ -34,7 +35,8 @@
         </select>
         <span id="disciplina-erro" class="campo-mensagem-erro" role="alert" aria-live="polite"></span>
       </div>
-      
+      <?php }?>
+      <?php if($conteudo){?>
       <!-- Matéria / Conteúdo -->
       <div class="mb-3">
         <label for="conteudo">Conteúdo (Matéria)</label>
@@ -44,20 +46,28 @@
           name="pk_conteudo" 
           required 
           aria-required="true"
-          disabled
           aria-describedby="conteudo-erro"
         >
-          <option value="">Selecione primeiro uma disciplina...</option>
+          <option value="">
+            Selecione o conteúdo.
+          </option>
+        <?php 
+          foreach($conteudo as $linha) 
+          { ?>
+          <option value="<?php echo($linha['pk_conteudo']); ?>">
+            <?php echo($linha['tituloconteudo']); ?>
+          </option>
+        <?php } ?>
         </select>
         <span id="conteudo-erro" class="campo-mensagem-erro" role="alert" aria-live="polite"></span>
       </div>
-
-      <button type="submit" class="btn-entrar" id="btn-submeter" disabled>Acessar Conteúdo</button>
+      <?php } ?>
+      <button type="submit" class="btn-entrar" id="btn-submeter"><?php echo($texto_botao); ?></button>
 
     </form>
 
     <div class="links-rodape">
-      <a href="/jogomanu/dashboard">Voltar ao início</a>
+      <a href="/jogomanu/selecionarmateria">Voltar ao início</a>
     </div>
 
   </div>
