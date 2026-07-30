@@ -11,11 +11,30 @@ class SelecionarMateriaModel{
     public function __construct()
     {
         $this->acesso = new VinculoBancoDeDados();
+    }
+
+    public function SelecionarDisciplina(){
         $stmt = $this->acesso->ligado();
-        $sql = "";
+        $sql = "call usp_seleionar_disciplina()";
         $stmt = $stmt->prepare($sql);
-        $stmt->bindValue();
         $stmt->execute();
+        $retorno = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->acesso->desligado();
+        $stmt->closeCursor();
+
+        return $retorno;
+    }
+
+    public function SelecionarConteudo(int $disciplina){
+        $stmt = $this->acesso->ligado();
+        $sql = "call usp_seleionar_conteudo(:disciplina)";
+        $stmt = $stmt->prepare($sql);
+        $stmt->bindValue(':disciplina', $disciplina, PDO::PARAM_INT);
+        $stmt->execute();
+        $retorno = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->acesso->desligado();
+        $stmt->closeCursor();
+
+        return $retorno;
     }
 }

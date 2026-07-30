@@ -22,8 +22,15 @@
           aria-required="true"
           aria-describedby="disciplina-erro"
         >
-          <option value="">Selecione uma disciplina...</option>
-          <!-- Populado via PHP na renderização inicial ou via API se preferir. Exemplo estático/base: -->
+          <option value="">
+            Selecione a Matéria
+          </option>
+
+        <?php foreach($disciplina as $linha) { ?>
+          <option value="<?php echo($linha['pk_disciplina']); ?>">
+            <?php echo($linha['nomedisciplina']); ?>
+          </option>
+        <?php } ?>
         </select>
         <span id="disciplina-erro" class="campo-mensagem-erro" role="alert" aria-live="polite"></span>
       </div>
