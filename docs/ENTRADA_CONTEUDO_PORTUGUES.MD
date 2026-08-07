@@ -19,52 +19,32 @@ Você atuará como um professor para gerar perguntas e respostas com base na ima
 
 # Exemplo para entrega
 ```
--- fk_conteudo = 2
+SET @enuciado = '';        -- Enunciado da pergunda
+SET @temimagem = '0';  -- Sempre é char(1) igual a zero
+SET @fk_conteudo = 2;   -- Já será informado
+SET @fk_gerado = 0;       -- parâmetro de retorno da sp
 
-SET @cad_pergunta_respostas = json_object(
-    'enunciado', 'Quais das alternativas tem somente multiplos de 9',
-    'temimagem', 0,
-	'fk_conteudo', 6,
-    'respostas', json_array(
-		-- Cadas Objeto representa uma alternativa de resposta.
-        -- A
-		json_object(
-			'fk_pergunta', @id_pergunta,
-			'status_resposta', 'I', -- I para incorreta e C para correta.
-			'temimagem', '0', -- 0 Não contem imagem 1 contem.
-			'enunciado_resposta', '0, 9, 18, 82' -- Limitado a 1020 caracteres se tem imagem o endereçoda imagem substitui o enunciado
-		),
-        -- B
-		json_object(
-			'fk_pergunta', @id_pergunta,
-			'status_resposta', 'I', -- I para incorreta e C para correta.
-			'temimagem', '0', -- 0 Não contem imagem 1 contem.
-			'enunciado_resposta', '9, 18, 27, 91' -- Limitado a 1020 caracteres se tem imagem o endereçoda imagem substitui o enunciado
-		),
-        -- C
-		json_object(
-			'fk_pergunta', @id_pergunta,
-			'status_resposta', 'C', -- I para incorreta e C para correta.
-			'temimagem', '0', -- 0 Não contem imagem 1 contem.
-			'enunciado_resposta', '9, 36, 45, 81' -- Limitado a 1020 caracteres se tem imagem o endereçoda imagem substitui o enunciado
-		),
-        -- D
-		json_object(
-			'fk_pergunta', @id_pergunta,
-			'status_resposta', 'I', -- I para incorreta e C para correta.
-			'temimagem', '0', -- 0 Não contem imagem 1 contem.
-			'enunciado_resposta', '9, 33, 55, 99' -- Limitado a 1020 caracteres se tem imagem o endereçoda imagem substitui o enunciado
-		),
-        -- E
-		json_object(
-			'fk_pergunta', @id_pergunta,
-			'status_resposta', 'I', -- I para incorreta e C para correta.
-			'temimagem', '0', -- 0 Não contem imagem 1 contem.
-			'enunciado_resposta', '0, 99, 177, 273' -- Limitado a 1020 caracteres se tem imagem o endereçoda imagem substitui o enunciado
-		)
-	)
-);
+ CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
 
- CALL usp_cadastro_pergunta_respostas(@cad_pergunta_respostas);
+ SET @alternativa_a = '' -- varchar(1020) enunciado
+ SET @alternativa_b = '' -- varchar(1020) enunciado
+ SET @alternativa_c = '' -- varchar(1020) enunciado
+ SET @alternativa_d = '' -- varchar(1020) enunciado
+ SET @alternativa_e = '' -- varchar(1020) enunciado
+
+ SET @status_a = 'I'  -- char(1) utiliza-se I para aletrenatuva incorreta
+ SET @status_b = 'I'  
+ SET @status_c = 'C'  -- char(1) utiliza-se C para aletrenatuva correta
+ SET @status_d = 'I'  
+ SET @status_e = 'I'  
+
+SET @temimagem = '0';
+
+Call usp_inserir_resposta(@fk_pergunta, @status_a, @temimagem, @alternativa_a );
+
+Call usp_inserir_resposta(@fk_pergunta, @status_b, @temimagem, @alternativa_b);
+.
+.
+.
 
 ```

@@ -10,7 +10,3 @@ select * from conteudos;
 -- 10	Ciências
 -- 11	Artes
 
-call usp_cadastro_conteudos('Livro 2 - Ortografia', 
-							'Interpretação, Pontuação e Ortografia - Pág. 21, 22, 23 e 24', 
-                            '0', 7, @saida);
-select @saida;
