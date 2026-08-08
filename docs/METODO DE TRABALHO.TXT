@@ -44,7 +44,8 @@
         /docs  --> cada sistema tem suas funcionalidades e a descrição do que faz e o que envolvem suas funcionalidades.
             --> login.txt conterá o necessário para funcionalidades de loggin.
 
-4) Tenho que definir qual método vou definir para trabalhar SEO na página home.php para abundância de palavras chaves ---> essa definição tem que ser modelo
+4) Tenho que definir qual método vou definir para trabalhar SEO na página home.php para abundância
+ de palavras chaves ---> essa definição tem que ser modelo
 para todos os projetos.
 
 5) Tenho que elaborar no protótipo as formas de nomenclaturas das classes que
