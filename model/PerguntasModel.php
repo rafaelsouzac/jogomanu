@@ -24,13 +24,10 @@ class PerguntasModel{
             PDO::PARAM_INT
         );
         $banco->execute();
-        $pk_pergunta = array();
-        
-        while($pks = $banco->fetch(PDO::FETCH_ASSOC)){
-            $pk_pergunta[] = $pks;
-        };
 
-        return $pk_pergunta;
+        $pks = $banco->fetchAll(PDO::FETCH_ASSOC);
+
+        return $pks;
     }
 
     public function getPk_pergunta(int $pk_conteudo): array{

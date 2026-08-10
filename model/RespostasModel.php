@@ -57,15 +57,13 @@ class RespostasModel{
         );
         $banco->execute();
 
-        while($linha = $banco->fetch(PDO::FETCH_ASSOC)){
-            $pk_respostas[] = $linha;
-        }
+        $linha = $banco->fetchAll(PDO::FETCH_ASSOC);
 
         $banco->closeCursor();
 
         $banco = null;
         
-        return $pk_respostas;
+        return $linha;
     }
 
     public function getRespostas(int $pk_pergunta): array{

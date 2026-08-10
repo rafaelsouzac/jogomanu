@@ -27,7 +27,7 @@ class SelecionarMateriaModel{
 
     public function SelecionarConteudo(int $disciplina){
         $stmt = $this->acesso->ligado();
-        $sql = "call usp_seleionar_conteudo(:disciplina)";
+        $sql = "call usp_selecionar_conteudo(:disciplina)";
         $stmt = $stmt->prepare($sql);
         $stmt->bindValue(':disciplina', $disciplina, PDO::PARAM_INT);
         $stmt->execute();

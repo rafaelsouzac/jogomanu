@@ -24,7 +24,7 @@
           aria-describedby="disciplina-erro"
         >
           <option value="">
-            Selecione a Primeiro a Disciplina
+            Selecione primeiro a disciplina
           </option>
 
         <?php foreach($disciplina as $linha) { ?>

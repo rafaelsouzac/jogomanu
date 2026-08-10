@@ -72,7 +72,7 @@ if(array_key_exists('indice_pergunta',$_SESSION)){
         $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
     }
 }else{
-    $obj_quiz_controller = new QuizController(2);
+    $obj_quiz_controller = new QuizController( (int)$_SESSION['conteudo_selecionado']);
     $_SESSION['indice_pergunta'] = 0;
     $_SESSION['numero_perguntas'] = count($_SESSION['perguntas']);
     $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
