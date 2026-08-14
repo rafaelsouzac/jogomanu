@@ -65,8 +65,7 @@ function BuscaResposta(int $pk_pergunta){
 
 //pega informações do formulario para ver quais perguntas selecionar
 // Trabalhar somente com $_Session();
-
-if(array_key_exists('indice_pergunta',$_SESSION)){
+if(array_key_exists('indice_pergunta', $_SESSION)){
     if($_SESSION['indice_pergunta'] < array_key_last($_SESSION['perguntas'])){
         $_SESSION['indice_pergunta'] += 1;
         $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
@@ -76,7 +75,6 @@ if(array_key_exists('indice_pergunta',$_SESSION)){
     $_SESSION['indice_pergunta'] = 0;
     $_SESSION['numero_perguntas'] = count($_SESSION['perguntas']);
     $_SESSION['respostas'] = BuscaResposta($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['pk_pergunta']);
-
 }
 
 $parteCentro = 'Quiz.php';

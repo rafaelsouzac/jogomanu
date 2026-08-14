@@ -2,6 +2,7 @@
 
 // 1. O session_start DEVE vir antes de qualquer leitura ou escrita de $_SESSION
 if (session_status() === PHP_SESSION_NONE) {
+    unset($_SESSION);
     session_start([
         'cookie_lifetime' => 0, // Fecha a sessão ao fechar o navegador
         'cookie_secure' => true,
