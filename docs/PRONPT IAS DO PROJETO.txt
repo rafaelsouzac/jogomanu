@@ -1,18 +1,28 @@
 IA: gemini
+##Sistema Operacional
+- Sistema Operacional: Windows 10
 
-Sistema Operacional: Windows 10
+## Servidor Web
+- Servidor web: Apache
 
-Servidor de banco de dados: Mariadb
+## Servidor de banco de dados
+- Mariadb 12.4.48
+- Prioridade de uilização Linguage SQL.
+- Estilo de codificação utilizada: Mozilla Style Guide em *https://www.sqlstyle.guide/*
+- Nome do banco de dados: jogomanu
+- Nomenclatura para stored procedure: usp_<nome_da_procedure>
+- Nonemclatura para tabelas sempre no plural.
+- Nome do campos sempre no singular.
 
-Servidor web: Apache
+## Linguagem de Programação Back-end
+- PHP 8.2
 
-Linguagem de programação back-end: PHP 8.2
+## Linguagem de Programação Front-end
+- JavaScript - sem framework
+- HTML5
+- Css3 - com bootstrap 
 
-Guia de estilo para escrita de scripts PHP:
-    PSR1 e PSR12.
-
-Linguagem de programação front-end: HTML5, CSS3, JS
-    CSS3 utilizando bootstrap
+## Outros subtrópicos
 
 Nome do banco de dados: jogomanu
 
@@ -72,16 +82,10 @@ Estrutura de diretórios - Não deve ser alterada.
 /jogomanu/index.php 
 /jogomanu/.htacess
 /jogomanu/view/home.php
-/jogomanu/view/multimidia/
+/jogomanu/view/
 /jogomanu/view/css/app.css
 /jogomanu/view/js/app.js
-/jogomanu/view/js/mesmo_email.js
-/jogomanu/view/assets/CadastroView.php
-/jogomanu/view/assets/Error.php
-/jogomanu/view/assets/FormularioAcesso.php
 /jogomanu/view/assets/Quiz.php
-/jogomanu/model/
-/jogomanu/controller/
 
 ======================= CÓDIGO BASE PARA PRODUTO =========================
 ================================ HOME.PHP ================================

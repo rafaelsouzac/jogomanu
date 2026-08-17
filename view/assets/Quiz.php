@@ -1,4 +1,4 @@
-<main id="conteudo-principal" role="main">
+<main id="conteudo-principal" role="main" style="position: relative;">
   <!-- Reutiliza a estrutura de Card (Modelo 2) adaptada para o Quiz -->
   <div class="card-login" style="max-width: 520px;"> 
     
@@ -9,8 +9,8 @@
     
     <!-- Pergunta estilizada como H2 com a fonte League Spartan via CSS do tema -->
     <h2 class="pergunta-quiz" style="font-family: var(--fonte-titulo); font-size: 1.20rem; font-weight: 500; color: var(--cor-texto); margin: 1.5rem 0 1rem 0; line-height: 1.4;">
-      <?php
-        echo($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['enunciado']); ?>
+      <?php echo($_SESSION['perguntas'][$_SESSION['indice_pergunta']]['enunciado']); ?> 
+      <a href="#" id="btn-abrir-resumo" role="button" aria-expanded="false" aria-controls="resumo_resposta">Resumo Materia</a>
     </h2>
 
     <!-- Alertas do sistema (para feedback de acerto/erro/aviso se necessário) -->
@@ -21,17 +21,12 @@
       
       <div class="alternativas-container" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
         
-        <!-- Alternativa -->
-      <?php
-        foreach($_SESSION['respostas'] as $resposta){
-      ?>
-        <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
-          <input type="radio" id="alt-a" name="alternativa" value="<?php echo($resposta['pk_resposta']); ?>" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
-          <label for="alt-a" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;"><?php echo($resposta['enunciado_resposta']); ?></label>
-        </div>
-      <?php 
-      }
-      ?>
+        <?php foreach($_SESSION['respostas'] as $resposta){ ?>
+          <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #fafafa; transition: border-color .2s ease;">
+            <input type="radio" id="alt-a" name="alternativa" value="<?php echo($resposta['pk_resposta']); ?>" class="form-radio" style="accent-color: var(--cor-primaria); width: 1.1rem; height: 1.1rem; cursor: pointer;">
+            <label for="alt-a" style="margin-bottom: 0; font-weight: 500; width: 100%; cursor: pointer;"><?php echo($resposta['enunciado_resposta']); ?></label>
+          </div>
+        <?php } ?>
       </div>
 
       <!-- Mensagem de erro caso o usuário tente enviar sem selecionar nada -->
@@ -41,13 +36,20 @@
       <button type="submit" class="btn-entrar">Confirmar Resposta</button>
 
     </form>
+  </div>
 
-    <!-- Rodapé de navegação do quiz 
-    <div class="links-rodape">
-      <a href="#">← Pergunta Anterior</a>
-      &nbsp;·&nbsp;
-      <a href="pular-quiz">Pular Pergunta</a>
+  <!-- Modal sobreposto com o conteúdo do resumo -->
+  <div id="resumo_resposta" class="resumo-overlay" style="display: none;" aria-hidden="true">
+    <div class="fechar-resumo">
+    <a href="#" id="btn-fechar-resumo" class="btn-fechar-resumo">&gt;&gt;&gt; Fechar &lt;&lt;&lt;</a>
     </div>
-    -->
+        <div class="resumo-titulo-secao">
+          Titulo do Resumo
+        </div>
+          <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #f1f0f0; transition: border-color .2s ease;" >
+            <span class="resumo-item-titulo">
+              Texte de Conteudo.
+            </span>
+          </div>
   </div>
 </main>

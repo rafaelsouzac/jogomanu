@@ -235,3 +235,126 @@
     @media (min-width: 993px) {
       :root { font-size: 18px; }
     }
+/* ======================================================
+/* Div Resumo Materia
+/* ======================================================
+/* Div do Resumo - Posicionamento e Sobreposição */
+#resumo_resposta {
+  display: none; /* Inicia oculto */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Mantém a largura do container/layout pai */
+  max-height: 100%; /* Ajusta-se à altura limite do container */
+  background-color: var(--cor-fundo-principal);
+  border: 1px solid #cfd8dc;
+  border-radius: 12px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  overflow-y: auto; /* Ativa a barra de rolagem quando necessário */
+  box-sizing: border-box;
+  padding: 1.5rem;
+}
+
+/* Classe utilizada via JS para exibir o resumo */
+#resumo_resposta.visivel {
+  display: block;
+}
+
+/* Cabeçalho do Resumo / Link Fechar */
+.resumo-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.fechar-resumo{
+  margin-bottom: 1.35rem;
+}
+
+.btn-fechar-resumo {
+  color: var(--cor-primaria);
+  font-family: var(--fonte-titulo-corpo);
+  font-size: 0.85rem; /* Scale Label/meta: 0.85rem */
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.btn-fechar-resumo:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* Estilização Tipográfica Interna do Resumo */
+ .cabecalho_resumo{
+  margin: 0;
+  width: 100%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  font-size: 0.8ren;
+
+ }
+
+
+.resumo-secao {
+  margin-bottom: 1.5rem;
+}
+
+.resumo-titulo-secao {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  color: var(--cor-texto);
+  /*border-bottom: 2px solid var(--cor-primaria);*/
+  /* padding-bottom: 0.25rem;*/
+  margin-bottom: 0.65rem;
+}
+
+.resumo-item-titulo {
+  font-family: var(--fonte-titulo-titulo);
+  font-size: 0.85rem;
+  color: var(--cor-texto);
+  margin-bottom: 0.5rem;
+}
+
+.resumo-lista {
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.resumo-lista li {
+  margin-bottom: 0.5rem;
+}
+
+.resumo-dica {
+  background-color: #ffffff;
+  border-left: 4px solid var(--cor-acerto);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1.5rem;
+}
+
+/* Estilo base da div sobreposta */
+#resumo_resposta,
+.resumo-overlay {
+  display: none; /* Inicia oculto */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 100%;
+  background-color: var(--cor-fundo-principal, #F8F9FA);
+  border: 2px solid var(--cor-primaria);
+  border-radius: 12px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 1.5rem;
+}
+
+/* Quando visível */
+#resumo_resposta.visivel,
+.resumo-overlay.visivel {
+  display: block !important;
+}

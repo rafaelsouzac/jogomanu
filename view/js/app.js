@@ -96,3 +96,53 @@
       });
 
     });
+//======================================================
+//  DIV RESUMO MATERIA
+//======================================================
+function inicializarResumoMateria() {
+  // Captura cliques globais na página
+  document.addEventListener('click', function (event) {
+    
+    // Identifica clique no link "Resumo Materia" (por ID ou pela classe)
+    const btnAbrir = event.target.closest('#btn-abrir-resumo');
+    if (btnAbrir) {
+      event.preventDefault();
+      const resumoDiv = document.getElementById('resumo_resposta');
+      if (resumoDiv) {
+        resumoDiv.style.setProperty('display', 'block', 'important');
+        resumoDiv.classList.add('visivel');
+        resumoDiv.setAttribute('aria-hidden', 'false');
+        btnAbrir.setAttribute('aria-expanded', 'true');
+      } else {
+        console.error('Div #resumo_resposta não foi encontrada no DOM.');
+      }
+      return;
+    }
+
+    // Identifica clique no link ">>> Fechar <<<"
+    const btnFechar = event.target.closest('#btn-fechar-resumo');
+    if (btnFechar) {
+      event.preventDefault();
+      const resumoDiv = document.getElementById('resumo_resposta');
+      if (resumoDiv) {
+        resumoDiv.style.setProperty('display', 'none', 'important');
+        resumoDiv.classList.remove('visivel');
+        resumoDiv.setAttribute('aria-hidden', 'true');
+        
+        const btnAbrirEl = document.getElementById('btn-abrir-resumo');
+        if (btnAbrirEl) {
+          btnAbrirEl.setAttribute('aria-expanded', 'false');
+        }
+      }
+      return;
+    }
+  });
+}
+
+// Inicializa a escuta de eventos
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', inicializarResumoMateria);
+} else {
+  inicializarResumoMateria();
+}
+
