@@ -32,6 +32,7 @@ if (!isset($_SESSION['inicio_sessao'])) {
 
 }
 
+
 define('BASE_PATH', __DIR__ . '/');
 
 require_once(BASE_PATH . 'controller/buscaControllers.php'); 

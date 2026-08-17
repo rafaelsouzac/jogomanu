@@ -24,6 +24,12 @@ if(isset($_POST['pk_disciplina'])){
 if(isset($_POST['pk_conteudo'])){
     //envia para o quiz com a seleção do conteudo;
         $_SESSION['conteudo_selecionado'] = $_POST['pk_conteudo'];
+        unset($_SESSION['perguntas']);
+        unset($_SESSION['pks_gabarito']);
+        unset($_SESSION['indice_pergunta']);
+        unset($_SESSION['numero_perguntas']);
+        unset($_SESSION['pk_quiz']);
+        unset($_SESSION['respostas']);
         header("Location: /jogomanu/quiz");
 }
 

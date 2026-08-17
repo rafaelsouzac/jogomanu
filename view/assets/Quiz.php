@@ -37,19 +37,5 @@
 
     </form>
   </div>
-
-  <!-- Modal sobreposto com o conteúdo do resumo -->
-  <div id="resumo_resposta" class="resumo-overlay" style="display: none;" aria-hidden="true">
-    <div class="fechar-resumo">
-    <a href="#" id="btn-fechar-resumo" class="btn-fechar-resumo">&gt;&gt;&gt; Fechar &lt;&lt;&lt;</a>
-    </div>
-        <div class="resumo-titulo-secao">
-          Titulo do Resumo
-        </div>
-          <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #f1f0f0; transition: border-color .2s ease;" >
-            <span class="resumo-item-titulo">
-              Texte de Conteudo.
-            </span>
-          </div>
-  </div>
+  <?php require_once(BASE_PATH . 'view/assets/resumo_mmc.html'); ?>
 </main>
