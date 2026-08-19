@@ -27,7 +27,7 @@ class QuizController{
         $this->pk_perguntas = $obj_perguntas->getPk_pergunta($this->pk_conteudo);
 
         $_SESSION['perguntas'] = $this->pk_perguntas;
-
+        
         $this->GerarGabarito();
 
     }

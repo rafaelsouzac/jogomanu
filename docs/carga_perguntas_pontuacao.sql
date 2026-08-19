@@ -7,8 +7,9 @@ SET @enunciado = 'Conforme o uso correto da pontuação na língua portuguesa, a
 SET @temimagem = '0';
 SET @fk_conteudo = 4;
 SET @fk_pergunta = 0;
+SET @end_resumo = '';
 
-CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
+CALL usp_inserir_pergunta(@enunciado, @temimagem, @fk_conteudo, @end_resumo, @fk_pergunta);
 
 SET @alternativa_a = 'Dois pontos (:), pois introduzem uma enumeração de itens explicitando o que foi comprado.';
 SET @alternativa_b = 'Reticências (...), pois a frase está incompleta e interrompe o pensamento expressado.';
@@ -36,7 +37,7 @@ SET @temimagem = '0';
 SET @fk_conteudo = 4;
 SET @fk_pergunta = 0;
 
-CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
+CALL usp_inserir_pergunta(@enunciado, @temimagem, @fk_conteudo, @end_resumo, @fk_pergunta);
 
 SET @alternativa_a = 'Parênteses ( ), para indicar um comentário secundário do leitor.';
 SET @alternativa_b = 'Reticências (...), para indicar uma dúvida em aberto no discurso.';
@@ -64,7 +65,7 @@ SET @temimagem = '0';
 SET @fk_conteudo = 4;
 SET @fk_pergunta = 0;
 
-CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
+CALL usp_inserir_pergunta(@enunciado, @temimagem, @fk_conteudo, @end_resumo, @fk_pergunta);
 
 SET @alternativa_a = 'Introduzir uma explicação ou esclarecimento sobre qual era o desejo do personagem.';
 SET @alternativa_b = 'Indicar que o pensamento do personagem foi interrompido antes do término.';
@@ -92,7 +93,7 @@ SET @temimagem = '0';
 SET @fk_conteudo = 4;
 SET @fk_pergunta = 0;
 
-CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
+CALL usp_inserir_pergunta(@enunciado, @temimagem, @fk_conteudo, @end_resumo, @fk_pergunta);
 
 SET @alternativa_a = 'Parênteses ( ), pois estão isolando uma dúvida do autor.';
 SET @alternativa_b = 'Reticências (...), pois indicam que o autor começou a hesitar ao falar.';
@@ -120,7 +121,7 @@ SET @temimagem = '0';
 SET @fk_conteudo = 4;
 SET @fk_pergunta = 0;
 
-CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
+CALL usp_inserir_pergunta(@enunciado, @temimagem, @fk_conteudo, @end_resumo, @fk_pergunta);
 
 SET @alternativa_a = 'Dois pontos (:), para anunciar uma consequência lógica do fato.';
 SET @alternativa_b = 'Aspas (" "), para indicar que a palavra "mas" é uma gíria.';
@@ -148,7 +149,7 @@ SET @temimagem = '0';
 SET @fk_conteudo = 4;
 SET @fk_pergunta = 0;
 
-CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
+CALL usp_inserir_pergunta(@enunciado, @temimagem, @fk_conteudo, @end_resumo, @fk_pergunta);
 
 SET @alternativa_a = 'Reticências (...), para indicar que faltam fatos históricos a serem narrados.';
 SET @alternativa_b = 'Parênteses ( ), para intercalar uma explicação ou cronologia acessória no texto.';

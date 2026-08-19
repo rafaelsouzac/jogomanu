@@ -19,6 +19,7 @@ CALL sp_parametros_procedure('usp_selecionar_respostas');
 	11	Artes
 	13	Inglês
 */
+select * from conteudos;
 CALL usp_cadastro_conteudos('Caderno 2 - ', 'Pontuação', '0', 7, @saida);
 Select @saida;
 /* PARAMETRO(S) usp_cadastro_conteudos
@@ -34,7 +35,7 @@ CALL usp_selecionar_conteudo(7);
 	p_disciplina	int
 */
 
-CALL usp_atualizar_conteudo();
+CALL usp_atualizar_conteudo('textoconteudo', 'Traz, Trás, Atrás e Detrás', 5);
 /* PARAMETRO(S) usp_atualizar_conteudo
 	p_nome_campo	varchar	255
 	p_valor_campo	text	65535
@@ -44,7 +45,7 @@ CALL usp_atualizar_conteudo();
 -- ============================================================
 -- PASSO 2 CADASTRAR A PERGUNTA
 
-CALL usp_apagar_pergunta();
+-- CALL usp_apagar_pergunta();
 /* PARAMETRO(S) usp_apagar_pergunta
 	p_pk_pergunta	int
 */
@@ -58,7 +59,9 @@ CALL usp_inserir_pergunta();
 	fk_pergunta	int	OUT
 */
 
-CALL usp_selecionar_perguntas();
+select * from perguntas;
+
+CALL usp_selecionar_perguntas(4);
 /* PARAMETRO(S) usp_selecionar_perguntas
 	p_pk_conteudo	int
 */

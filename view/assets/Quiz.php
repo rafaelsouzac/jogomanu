@@ -37,5 +37,5 @@
 
     </form>
   </div>
-  <?php require_once(BASE_PATH . 'view/assets/resumo_mmc.html'); ?>
+  <?php require_once(BASE_PATH . 'view/assets/'.$_SESSION['perguntas'][0]['nome_resumo'].''); ?>
 </main>

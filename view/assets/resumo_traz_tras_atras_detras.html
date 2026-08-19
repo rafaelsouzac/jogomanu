@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo - Traz, Trás, Atrás e Detrás</title>
+  <style>
+    :root {
+      --cor-primaria:  #1565C0;
+      --cor-fundo:     #F8F9FA;
+      --cor-texto:     #212121;
+      --cor-acerto:    #2E7D32;
+      --cor-erro:      #C62828;
+      --cor-acao:      #6A1B9A;
+      --cor-destaque:  #F57F17;
+      --fonte-titulo:  'League Spartan', sans-serif;
+      --fonte-corpo:   'Poppins', sans-serif;
+      font-size: 18px;
+    }
+
+    body {
+      background: var(--cor-fundo);
+      color: var(--cor-texto);
+      font-family: var(--fonte-corpo);
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .resumo-overlay {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem 2rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .fechar-resumo {
+      text-align: right;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-fechar-resumo {
+      color: var(--cor-acao);
+      font-family: var(--fonte-corpo);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.85em;
+    }
+
+    .btn-fechar-resumo:hover {
+      color: var(--cor-erro);
+    }
+
+    .resumo-titulo-secao {
+      font-family: var(--fonte-titulo);
+      color: var(--cor-primaria);
+      font-weight: 700;
+      font-size: 1.6em;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--cor-primaria);
+      padding-bottom: 0.5rem;
+    }
+
+    .resumo-item-titulo {
+      font-family: var(--fonte-corpo);
+      color: var(--cor-texto);
+      line-height: 1.6em;
+    }
+
+    .resumo-palavra {
+      color: var(--cor-primaria);
+      font-weight: 700;
+      font-family: var(--fonte-titulo);
+    }
+
+    .resumo-destaque {
+      color: var(--cor-destaque);
+      font-weight: 600;
+    }
+
+    .resumo-erro {
+      color: var(--cor-erro);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Modal sobreposto com o conteúdo do resumo -->
+  <div id="resumo_resposta" class="resumo-overlay" style="display: block;" aria-hidden="false">
+    <div class="fechar-resumo">
+      <a href="#" id="btn-fechar-resumo" class="btn-fechar-resumo">&gt;&gt;&gt; Fechar &lt;&lt;&lt;</a>
+    </div>
+    <div class="resumo-titulo-secao">
+      Traz, Trás, Atrás e Detrás
+    </div>
+      <div class="opcao-radio" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1.5px solid #cfd8dc; border-radius: 8px; background: #f1f0f0; transition: border-color .2s ease;" >
+        <span class="resumo-item-titulo">
+          <span class="resumo-palavra" style="font-size: 1.05em;">Traz</span> é a forma flexionada do verbo <span class="resumo-destaque">trazer</span>, conjugada na terceira pessoa do singular do presente do indicativo (ele/ela traz). Por se tratar de um verbo, sempre pode ser substituído por outra flexão do próprio verbo trazer (trago, trazem, trazia etc.), o que ajuda a diferenciá-lo das demais palavras desta lista, que não são verbos.</br>
+          </br>
+          <span class="resumo-palavra" style="font-size: 1.05em;">Trás</span> é um substantivo praticamente restrito a locuções fixas, como <span class="resumo-destaque">para trás</span>, <span class="resumo-destaque">de trás</span> e <span class="resumo-destaque">por trás</span>. Não é utilizado isoladamente como advérbio nem como preposição; sua ocorrência na língua culta se dá quase sempre precedido de outra palavra (preposição) dentro dessas expressões consagradas.</br>
+          </br>
+          <span class="resumo-palavra" style="font-size: 1.05em;">Atrás</span> é um advérbio de lugar (e também de tempo) que indica posição posterior, podendo ser usado sozinho ou seguido da preposição <span class="resumo-destaque">de</span>, formando a locução prepositiva <span class="resumo-destaque">atrás de</span>. É a forma recomendada pela norma-padrão para expressar a ideia de "na parte posterior" ou "no passado".</br>
+          </br>
+          <span class="resumo-palavra" style="font-size: 1.05em;">Detrás</span> tem o mesmo valor semântico de "atrás", também funcionando como advérbio, geralmente na locução <span class="resumo-destaque">detrás de</span>. Trata-se, contudo, de uma forma <span class="resumo-erro">menos usual e menos recomendada</span> pela norma-padrão em comparação a "atrás de", sendo considerada por muitos gramáticos como redundante (já que "trás" isolado remete à mesma ideia de posterioridade) e de uso mais regional ou informal.</br>
+        </span>
+      </div>
+  </div>
+
+</body>
+</html>

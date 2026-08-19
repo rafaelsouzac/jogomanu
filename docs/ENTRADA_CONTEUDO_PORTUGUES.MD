@@ -53,10 +53,11 @@ c) Sim, ambos no gerundio.
 
 SET @enuciado = '';    -- Enunciado da pergunda
 SET @temimagem = '0';  -- Sempre é char(1) igual a zero
-SET @fk_conteudo = 4;  -- 
+SET @fk_conteudo = 5;  -- 
 SET @fk_gerado = 0;    -- parâmetro de retorno da sp
+SET @end_resumo = '';
 
- CALL usp_cadastro_pergunta(@enunciado, @temimagem, @fk_conteudo, @fk_pergunta);
+ CALL usp_inserir_pergunta(@enunciado, @temimagem, @fk_conteudo, @end_resumo, @fk_pergunta);
 
  SET @alternativa_a = '' -- varchar(1020) enunciado
  SET @alternativa_b = '' -- varchar(1020) enunciado
@@ -85,8 +86,8 @@ Call usp_inserir_resposta(@fk_pergunta, @status_b, @temimagem, @alternativa_b);
 
 
 ### Conteúdo Avaliativo
-- As perguntas devem avaliar o aluno sobre *pontuação na escrita da lingua portuguesa*. Foco somente na utilização destes tipo de pontuação: *Reticências, aspas, dois pontos e parênteses.*
+- As perguntas devem avaliar o aluno sobre *ortografia*. Foco somente na utilização destas palavras: *Traz, Trás, Atrás e Detrás.*
 
 - Elabore as perguntas de forma randomica para que o aluno tenha que raciocinar sobre o conteúdo.
-- Utilizar três underline ___ para indicar o local da pontuação nas frases das perguntas.
-- Uma mesma frase pode utilizar mais de uma pontuação. Exemplo: "Ela, ontém, estava com 3 objetos em suas mãos: 1 cachorro, 1 bolsa e o seu telefone."
+- Utilizar três underline ___ para indicar o local onde deva ser utilizada a palavra.
+- Uma mesma frase pode utilizar mais de uma palavra.
