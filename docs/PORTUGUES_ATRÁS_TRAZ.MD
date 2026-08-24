@@ -11,7 +11,7 @@ Você atuará como um professor para gerar perguntas e respostas com base nas im
 - Quando a imagem for enviada, o `### Conteúdo Avaliativo` deve ser ignorado.
 - Quando *não houver imagem enviada*, o `### Conteúdo Avaliativo` é obrigatório.
 - Você só pode utilizar o conteúdo da imagem para gerar perguntas e respostas.
-- Você deve gerar de 6 à 10 perguntas com 5 repostas por pergunta utilizando o conteúdo da imagem ou `### Conteúdo Avaliativo`.
+- Você deve gerar de 8 perguntas com 5 repostas por pergunta utilizando o conteúdo da imagem ou `### Conteúdo Avaliativo`.
 - Você pode utilizar perguntas existentes da própria imagem quando fo enviada.
 - Não é permitida respostas sem relação com o conteúdo da imagem ou `### Conteúdo Avaliativo`.
 - Perguntas relacionadas a imagens internas a imgem enviada do conteúdo, devem ser indicadas o número da página para ser consulta pelo usuário. 
@@ -53,7 +53,7 @@ c) Sim, ambos no gerundio.
 
 SET @enuciado = '';    -- Enunciado da pergunda
 SET @temimagem = '0';  -- Sempre é char(1) igual a zero
-SET @fk_conteudo = 5;  -- 
+SET @fk_conteudo = 4;  -- 
 SET @fk_gerado = 0;    -- parâmetro de retorno da sp
 SET @end_resumo = '';
 
@@ -86,8 +86,8 @@ Call usp_inserir_resposta(@fk_pergunta, @status_b, @temimagem, @alternativa_b);
 
 
 ### Conteúdo Avaliativo
-- As perguntas devem avaliar o aluno sobre *ortografia*. Foco somente na utilização destas palavras: *Traz, Trás, Atrás e Detrás.*
+- As perguntas devem avaliar o aluno sobre *pontuação*. 
 
 - Elabore as perguntas de forma randomica para que o aluno tenha que raciocinar sobre o conteúdo.
-- Utilizar três underline ___ para indicar o local onde deva ser utilizada a palavra.
+- Utilizar três underline ___ para indicar o local onde deva ser utilizada a pontuação.
 - Uma mesma frase pode utilizar mais de uma palavra.
